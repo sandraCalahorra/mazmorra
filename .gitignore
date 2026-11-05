@@ -1,0 +1,5 @@
+uploads/*
+!uploads/.htaccess
+app/config.php
+*.log
+*.bak

@@ -1,0 +1,519 @@
+/* Páginas interiores: componentes compartidos con la portada. */
+.interior-page .interior-hero {
+  max-width: 1240px;
+  margin: auto;
+  padding: 55px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.interior-hero h1 {
+  font-size: clamp(38px, 4vw, 60px);
+}
+.interior-hero img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #c4aa7344;
+}
+.interior-hero .lead {
+  max-width: 530px;
+}
+.interior-page .catalog {
+  border-radius: 0;
+}
+.interior-page .products {
+  gap: 25px;
+}
+.interior-page .product {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.interior-banner {
+  padding: 40px max(24px, calc((100% - 1180px) / 2));
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  background: #203128;
+}
+.interior-banner h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+.interior-banner p {
+  margin-bottom: 0;
+}
+.interior-banner .btn {
+  flex-shrink: 0;
+  border-radius: 6px;
+}
+.interior-steps,
+.interior-notes {
+  padding: 45px max(24px, calc((100% - 1180px) / 2));
+  background: #eee9dc;
+  color: #243329;
+}
+.interior-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin: 25px 0;
+}
+.interior-grid article {
+  padding: 25px;
+  background: #f7f3e9;
+  border: 1px solid #d8cfbd;
+  border-radius: 12px;
+}
+.interior-grid h3 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+.interior-grid p {
+  font-size: 14px;
+  color: #526052;
+  margin: 0;
+}
+.interior-grid b {
+  display: block;
+  color: #826332;
+  font: 26px Georgia;
+  margin-bottom: 15px;
+}
+.interior-steps > .btn {
+  background: #243e30;
+  color: #fff6e5;
+  border-radius: 6px;
+}
+.interior-notes .eyebrow,
+.interior-steps .eyebrow {
+  color: #77613b;
+}
+.interior-calendar {
+  padding-top: 10px;
+  padding-bottom: 45px;
+}
+.interior-calendar .calendar-layout {
+  margin-top: 0;
+}
+.calendar-box,
+.calendar-aside {
+  border-radius: 14px;
+}
+.calendar-aside {
+  background: #203128;
+}
+.calendar-days button {
+  border-radius: 7px;
+}
+.calendar-aside .btn {
+  border-radius: 6px;
+}
+.interior-page .commission-intro-copy h1 {
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -1px;
+  color: #243329;
+}
+.interior-page .commission-intro-copy h1 em {
+  color: #826332;
+}
+.interior-page .author-card h1 {
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+.interior-page .author-card {
+  max-width: 1180px;
+}
+.interior-page .session-card {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 850px) {
+  .interior-page .interior-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 35px 22px;
+  }
+  .interior-hero img {
+    height: 260px;
+  }
+  .interior-grid {
+    grid-template-columns: 1fr;
+  }
+  .interior-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .interior-hero h1 {
+    font-size: 42px;
+  }
+  .interior-page .author-card {
+    grid-template-columns: 1fr;
+  }
+}
+/* Separación entre botones de la agenda */
+.calendar-aside .btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 14px;
+}
+
+.calendar-aside .small {
+  margin-top: 20px;
+}
+
+/* Formatos, compras y envíos */
+.formats-guide {
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  max-width: 1120px;
+  margin: 60px auto;
+  padding: 0;
+  overflow: hidden;
+
+  border: 1px solid #a69773;
+  border-radius: 16px;
+  background: #f3eee2;
+  color: #263c2d;
+
+  scroll-margin-top: 110px;
+}
+
+.formats-guide .formats-guide__heading {
+  max-width: none;
+  margin: 0;
+  padding: 36px 40px;
+  background: #20392c;
+}
+
+.formats-guide__heading .eyebrow {
+  margin: 0 0 12px;
+  color: #d4b777;
+}
+
+.formats-guide .formats-guide__heading h2 {
+  margin: 0 0 14px;
+  color: #f6efdf;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+}
+
+.formats-guide .formats-guide__heading > p:last-child {
+  max-width: 640px;
+  margin: 0;
+  color: #d6ded1;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.formats-guide__questions {
+  display: block;
+  padding: 12px 40px 0;
+}
+
+.formats-guide details {
+  margin: 0;
+  overflow: visible;
+  border: 0;
+  border-bottom: 1px solid #d6cdb9;
+  border-radius: 0;
+  background: transparent;
+}
+
+.formats-guide summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+
+  color: #263c2d;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+}
+
+.formats-guide summary::-webkit-details-marker {
+  display: none;
+}
+
+.formats-guide summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  height: 30px;
+
+  border: 1px solid #c8b98f;
+  border-radius: 50%;
+  background: #e9dfc7;
+  color: #725b2b;
+
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.formats-guide summary:hover {
+  color: #84672f;
+}
+
+.formats-guide details[open] > summary {
+  background: transparent;
+  color: #263c2d;
+}
+
+.formats-guide details[open] > summary::after {
+  content: "−";
+  border-color: #20392c;
+  background: #20392c;
+  color: #f6efdf;
+}
+
+.formats-guide summary:focus-visible {
+  outline: 2px solid #92733a;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.formats-guide__answer {
+  max-width: 760px;
+  padding: 0 0 24px;
+  color: #435244;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.formats-guide__answer p {
+  margin: 0 0 14px;
+}
+
+.formats-guide__answer p:last-child {
+  margin-bottom: 0;
+}
+
+.formats-guide__answer ul,
+.formats-guide__answer ol {
+  margin: 12px 0 18px;
+  padding-left: 22px;
+}
+
+.formats-guide__answer li + li {
+  margin-top: 10px;
+}
+
+.formats-guide__answer strong {
+  color: #243c2c;
+}
+
+.formats-guide__answer .formats-guide__notice {
+  margin-top: 18px;
+  padding: 14px 18px;
+  border-left: 3px solid #ad8d4b;
+  border-radius: 0 6px 6px 0;
+  background: #e9dfc7;
+}
+
+.formats-guide .formats-guide__contact {
+  display: inline-block;
+  margin: 24px 40px 30px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #a18b58;
+
+  color: #304d37;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.formats-guide .formats-guide__contact:hover {
+  color: #84672f;
+}
+
+@media (max-width: 600px) {
+  .formats-guide {
+    width: calc(100% - 28px);
+    margin: 36px auto;
+    border-radius: 12px;
+  }
+
+  .formats-guide .formats-guide__heading {
+    padding: 28px 22px;
+  }
+
+  .formats-guide__questions {
+    padding: 6px 22px 0;
+  }
+
+  .formats-guide summary {
+    padding: 18px 0;
+    font-size: 14px;
+  }
+
+  .formats-guide .formats-guide__contact {
+    margin: 22px;
+  }
+}
+
+/* Distribución de botones del frontal */
+.book-carousel #products .flip-front .product-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.book-carousel #products .flip-front .product-info .publication-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.book-carousel #products .flip-front .product-info
+.publication-actions > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+
+  width: auto;
+  min-width: 0;
+  min-height: 36px;
+  margin: 0;
+  padding: 8px 10px;
+
+  grid-area: auto;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.book-carousel #products .flip-front .product-info
+.publication-actions > .front-buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+
+  width: auto;
+  min-width: 0;
+  min-height: 36px;
+  margin: 0 0 0 auto;
+  padding: 8px 11px;
+
+  grid-area: auto;
+  font-size: 11px;
+  line-height: 1.3;
+}
+/* Nota al margen del catálogo */
+#catalogo {
+  position: relative;
+}
+
+#catalogo .catalog-margin-note {
+  position: absolute;
+  top: 240px;
+  right: 100px;
+  left: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 180px;
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+
+  color: #294533;
+  text-align: center;
+  text-decoration: none;
+  transform: rotate(-4deg);
+}
+
+#catalogo .catalog-margin-note strong {
+  font: italic 26px/1.25 Georgia, serif;
+}
+
+#catalogo .catalog-margin-note > span:not(
+  .catalog-margin-note__arrow
+) {
+  color: #435344;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#catalogo .catalog-margin-note em {
+  color: #86652e;
+  font: italic 20px/1.4 Georgia, serif;
+}
+
+#catalogo .catalog-margin-note__arrow {
+  color: #95743a;
+  font-size: 60px;
+  line-height: 1;
+}
+
+/* Sin espacio lateral, se muestra debajo del carrusel */
+@media (max-width: 1500px) {
+  #catalogo .catalog-margin-note {
+    position: static;
+    width: 100%;
+    max-width: 340px;
+    margin: 28px auto;
+    transform: none;
+  }
+}
+
+.catalog-note-anchor {
+  position: relative;
+}
+
+#catalogo .catalog-note-anchor > .catalog-margin-note {
+  position: absolute;
+  top: 140px;
+  left: calc(100% + 32px);
+  right: auto;
+  width: 180px;
+  margin: 0;
+}
+
+/* Cuando falta espacio, la nota pasa debajo */
+@media (max-width: 1500px) {
+  #catalogo .catalog-note-anchor > .catalog-margin-note {
+    position: static;
+    width: 100%;
+    max-width: 340px;
+    margin: 28px auto;
+    transform: none;
+  }
+}
+
+/* Texto más oscuro y legible en la guía */
+#formatos-envios .formats-guide__answer,
+#formatos-envios .formats-guide__answer p,
+#formatos-envios .formats-guide__answer li {
+  color: #304333;
+  font-weight: 500;
+  opacity: 1;
+}
+
+#formatos-envios .formats-guide__answer strong {
+  color: #172e20;
+  font-weight: 700;
+}
+
+#formatos-envios .formats-guide__notice {
+  color: #3f361f;
+}

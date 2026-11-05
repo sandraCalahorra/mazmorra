@@ -1,0 +1,54 @@
+/* Cargar después de admin-visual.css. */
+.admin-visual #panel .admin-item.landscape-adventure-background,
+.admin-visual #official-results article.landscape-adventure-background {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #fffcf5 !important;
+}
+.admin-visual #panel .landscape-adventure-background::before,
+.admin-visual #official-results article.landscape-adventure-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: var(--adventure-cover);
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  opacity: 1.00;
+  pointer-events: none;
+}
+.admin-visual #panel .landscape-adventure-background::after,
+.admin-visual #official-results article.landscape-adventure-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(255 252 245 / 97%) 0%,
+    rgb(255 252 245 / 85%) 40%,
+    rgb(255 252 245 / 35%) 100%
+  );
+  pointer-events: none;
+}
+.admin-visual #panel .landscape-adventure-background .admin-card-cover,
+.admin-visual #official-results article.landscape-adventure-background > img {
+  background: transparent !important;
+  object-fit: contain;
+}
+.admin-visual #official-results article.landscape-adventure-background > img {
+  width: 90px !important;
+  height: 125px !important;
+  align-self: center;
+  padding: 0 !important;
+  margin: 4px 0 10px !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 5px 14px rgb(30 35 25 / 18%) !important;
+}
+.admin-visual #official-results article.landscape-adventure-background > div {
+  background: transparent;
+  width: 100%;
+}

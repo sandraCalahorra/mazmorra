@@ -1,0 +1,28 @@
+/* ENVÍOS: calculadora pública y ajustes del administrador. */
+.shipping-dialog {width:min(560px,calc(100% - 28px));max-height:88dvh;padding:30px;border:1px solid #ae9561;border-radius:14px;background:#f3eee2;color:#243329;overflow:auto;}
+.shipping-dialog h2 {padding-right:24px;margin-bottom:16px;}
+.shipping-dialog p {color:#3d5142;font-size:14px;}
+.shipping-dialog .eyebrow {color:#795e2b;}
+.shipping-dialog label {display:block;margin:14px 0;font-size:14px;font-weight:600;}
+.shipping-dialog input,.shipping-dialog select {display:block;width:100%;margin-top:6px;padding:11px;border:1px solid #a69773;border-radius:6px;background:#fffaf0;color:#243329;font:inherit;}
+.shipping-close {position:absolute;right:14px;top:8px;font-size:30px;border:0;background:none;color:#243329;}
+.shipping-result dl {display:block;border-top:1px solid #c8bfa9;padding-top:12px;}
+.shipping-result dl div {display:flex;justify-content:space-between;gap:18px;padding:7px 0;}
+.shipping-result dt,.shipping-result dd {margin:0;font-size:14px;}
+.shipping-result dd {text-align:right;font-weight:700;}
+.shipping-dialog .shipping-whatsapp {display:flex;background:#167647;color:#fff;border-radius:6px;}
+.shipping-dialog [hidden] {display:none!important;}
+.shipping-admin-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 22px;}
+.shipping-fields {border:1px solid #a69773;border-radius:8px;padding:18px;margin:12px 0;min-width:0;}
+.shipping-fields legend {font-weight:700;}
+.shipping-fields p {font-size:13px;color:#3d5142;}
+.shipping-admin-section {margin:22px 0;border:1px solid #a69773;padding:16px;border-radius:8px;}
+.shipping-admin-section summary {cursor:pointer;font-weight:700;}
+.shipping-admin-section p {font-size:13px;}
+.shipping-check {display:flex!important;align-items:flex-start;gap:10px;margin:18px 0;}
+.shipping-check input {width:auto!important;flex-shrink:0;}
+.shipping-table-scroll {overflow-x:auto;margin-top:16px;}
+.shipping-table-scroll table {border-collapse:collapse;width:100%;min-width:760px;}
+.shipping-table-scroll th,.shipping-table-scroll td {padding:6px;border-bottom:1px solid #c8bfa9;text-align:left;}
+.shipping-table-scroll input {min-width:72px;width:100%;box-sizing:border-box;}
+@media(max-width:600px){.shipping-admin-grid{grid-template-columns:1fr}.shipping-dialog{padding:24px 20px}.shipping-fields{padding:12px}}

@@ -1,0 +1,126 @@
+/* ANIMACIONES — La Mazmorra del Roleo. */
+
+.reveal-ready {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal-ready.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+:where(.card, .product-card, .session-card) {
+  transition:
+      translate 0.25s ease,
+      box-shadow 0.25s ease;
+}
+:where(.card, .product-card, .session-card):hover {
+  translate: 0 -5px;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 15%);
+}
+.btn,
+  .site-footer__contact {
+  transition:
+      translate 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease;
+}
+.btn:hover,
+  .site-footer__contact:hover {
+  translate: 0 -2px;
+}
+.btn:active,
+  .site-footer__contact:active {
+  translate: 0 0;
+}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+dialog[open] {
+  animation: modal-entrada 0.25s ease-out;
+}
+dialog[open]::backdrop {
+  animation: fondo-entrada 0.25s ease-out;
+}
+}
+
+@keyframes modal-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fondo-entrada {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.reveal-ready {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+}
+
+.scroll-reveal {
+  --reveal-x: 0px;
+  --reveal-y: 28px;
+  --reveal-scale: 1;
+  opacity: 0;
+  transform:
+    translate(var(--reveal-x), var(--reveal-y))
+    scale(var(--reveal-scale));
+  transition:
+    opacity 0.65s ease var(--reveal-delay, 0ms),
+    transform 0.65s cubic-bezier(0.2, 0.7, 0.3, 1)
+      var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal[data-reveal="left"] {
+  --reveal-x: -24px;
+  --reveal-y: 0px;
+}
+
+.scroll-reveal[data-reveal="right"] {
+  --reveal-x: 24px;
+  --reveal-y: 0px;
+}
+
+.scroll-reveal[data-reveal="zoom"] {
+  --reveal-y: 12px;
+  --reveal-scale: 0.97;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+@media (max-width: 700px) {
+.scroll-reveal[data-reveal="left"],
+  .scroll-reveal[data-reveal="right"] {
+  --reveal-x: 0px;
+  --reveal-y: 20px;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.scroll-reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+}

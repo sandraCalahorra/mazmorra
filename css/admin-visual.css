@@ -1,0 +1,609 @@
+/* Cargar después de admin.css. Solo afecta a la administración. */
+body.admin-visual {
+  background: #f3f1ea;
+  color: #26382f;
+  font-family: Arial, sans-serif;
+  --ink: #26382f;
+  --muted: #59665e;
+  --line: #d8ddd3;
+  --gold: #bf9956;
+}
+.admin-visual *,
+.admin-visual *::before,
+.admin-visual *::after {
+  box-sizing: border-box;
+}
+.admin-visual [hidden] {
+  display: none !important;
+}
+.admin-visual header {
+  background: #20382e;
+  color: #fff6e6;
+  border-bottom: 3px solid #bb985a;
+  min-height: 80px;
+  height: auto;
+  padding: 18px max(24px, calc((100vw - 1320px) / 2));
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.admin-visual header .brand {
+  color: #fff6e6;
+  margin-right: auto;
+  text-decoration: none;
+}
+.admin-visual header .outline {
+  color: #fff6e6;
+  border-color: #7d9485;
+  background: transparent;
+}
+.admin-visual .admin-shell {
+  max-width: 1320px;
+  margin: 36px auto;
+  padding: 0 24px;
+}
+.admin-visual h1,
+.admin-visual h2,
+.admin-visual h3 {
+  color: #26382f;
+  letter-spacing: -0.025em;
+}
+.admin-visual h1 {
+  font:
+    40px/1.2 Georgia,
+    serif;
+  margin: 8px 0;
+}
+.admin-visual .eyebrow {
+  color: #806139;
+  font: 700 11px/1.5 Arial;
+  letter-spacing: 0.16em;
+}
+.admin-visual .btn,
+.admin-visual .admin-reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 16px;
+  border: 1px solid #b9c6ba;
+  border-radius: 8px;
+  background: #fff;
+  color: #29483a;
+  font: 600 13px/1.3 Arial;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none;
+}
+.admin-visual .btn.gold {
+  background: #294d3c;
+  border-color: #294d3c;
+  color: #fff;
+}
+.admin-visual .btn.danger {
+  background: #fff5f2;
+  border-color: #e0b8ae;
+  color: #913d32;
+}
+.admin-visual button:hover {
+  filter: brightness(0.96);
+}
+.admin-visual :is(button, input, select, textarea, a):focus-visible {
+  outline: 3px solid #b88c42;
+  outline-offset: 3px;
+}
+.admin-visual .admin-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+.admin-visual .admin-stats > div {
+  background: #fff;
+  border: 1px solid #d8ddd3;
+  border-radius: 12px;
+  padding: 22px 24px;
+  border-top: 3px solid #819d87;
+  box-shadow: 0 3px 12px #20382e06;
+}
+.admin-visual .admin-stats b {
+  font: 38px/1.1 Georgia;
+  color: #294d3c;
+  margin-bottom: 9px;
+}
+.admin-visual .admin-stats span {
+  font-size: 13px;
+  color: #59665e;
+}
+.admin-visual .admin-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  background: #e7eae1;
+  padding: 7px;
+  border-radius: 12px;
+  margin: 24px 0;
+  position: static;
+}
+.admin-visual .admin-tabs button {
+  border: 0;
+  border-radius: 8px;
+  padding: 13px 18px;
+  color: #495c50;
+  font: 600 13px Arial;
+  background: transparent;
+  cursor: pointer;
+}
+.admin-visual .admin-tabs button.active {
+  background: #fff;
+  color: #263e30;
+  box-shadow: 0 2px 7px #24332914;
+}
+.admin-visual .panel-head {
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 28px 0 20px;
+}
+.admin-visual .panel-head > div:first-child {
+  margin-right: auto;
+}
+.admin-visual .panel-head h2 {
+  font: 29px/1.3 Georgia;
+  margin: 0;
+}
+.admin-visual .panel-head p,
+.admin-visual #panel > p {
+  color: #59665e;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 8px 0;
+}
+.admin-visual .admin-tools {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(170px, 240px) auto;
+  align-items: end;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #d8ddd3;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 0 0 20px;
+}
+.admin-visual .admin-tools label {
+  margin: 0;
+  font-weight: 600;
+  font-size: 12px;
+  color: #506152;
+}
+.admin-visual :is(.admin-shell, #editor) :is(input, select, textarea) {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #bdc7b9;
+  border-radius: 7px;
+  padding: 10px 12px;
+  background: #fffefa;
+  color: #26382f;
+  font: 14px/1.5 Arial;
+  margin-top: 6px;
+}
+.admin-visual .admin-tools .admin-result-count {
+  grid-column: 1/-1;
+  font-size: 12px;
+  color: #617060;
+  margin: 0;
+}
+.admin-visual #panel .admin-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.admin-visual #panel .admin-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #d8ddd3;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #20382e05;
+  min-width: 0;
+}
+.admin-visual #panel .admin-item > div:not(.actions) {
+  flex: 1;
+  min-width: 160px;
+}
+.admin-visual #panel .admin-item h3 {
+  font: 23px/1.3 Georgia;
+  margin: 13px 0 10px;
+  overflow-wrap: anywhere;
+}
+.admin-visual #panel .admin-item p {
+  font: 13px/1.8 Arial;
+  color: #536356;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.admin-visual #panel .admin-item .actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  border-top: 1px solid #e9ece5;
+  padding-top: 16px;
+  margin: 4px 0 0;
+}
+.admin-visual #panel .admin-item > .btn {
+  margin-top: auto;
+}
+.admin-visual .tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  white-space: normal;
+}
+.admin-visual .admin-badge {
+  background: #edf3eb;
+  color: #35543c;
+  border: 1px solid #cbdcc9;
+  border-radius: 30px;
+  font: 700 10px/1.4 Arial;
+  padding: 5px 9px;
+  letter-spacing: 0.025em;
+}
+.admin-visual [data-tone="pending"] .admin-badge:first-child {
+  background: #fff1d6;
+  border-color: #e6cf99;
+  color: #7b5920;
+}
+.admin-visual [data-tone="muted"] .admin-badge:first-child {
+  background: #f0eeee;
+  color: #75615e;
+  border-color: #dfd2cf;
+}
+.admin-visual .admin-card-cover {
+  width: 76px;
+  height: 106px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f1eee5;
+  flex-shrink: 0;
+}
+.admin-visual .admin-capacity {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #526655;
+}
+.admin-visual .admin-capacity progress {
+  width: 100%;
+  height: 8px;
+  accent-color: #4e7b58;
+}
+.admin-visual .admin-payment {
+  display: inline-block;
+  font: 600 12px Arial;
+  margin-top: 14px;
+  color: #8b6020;
+  background: #fff4dc;
+  padding: 7px 10px;
+  border-radius: 6px;
+}
+.admin-visual .admin-payment[data-paid="true"] {
+  background: #eaf3e7;
+  color: #376243;
+}
+.admin-visual .admin-empty {
+  grid-column: 1/-1;
+  background: #fff;
+  border: 1px dashed #bdc7b9;
+  border-radius: 12px;
+  color: #59665e;
+  font-size: 14px;
+  line-height: 1.7;
+  padding: 30px;
+}
+.admin-visual #editor {
+  width: min(900px, calc(100vw - 24px));
+  max-height: 90vh;
+  overflow: auto;
+  background: #faf9f3;
+  color: #26382f;
+  border: 1px solid #c7cebe;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 24px 80px #10261940;
+}
+.admin-visual #editor::backdrop {
+  background: #14271ed9;
+  backdrop-filter: blur(3px);
+}
+.admin-visual #editor .close {
+  position: sticky;
+  top: 0;
+  float: right;
+  background: #e7ebdf;
+  border: 0;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  color: #26382f;
+  cursor: pointer;
+}
+.admin-visual #editor h2 {
+  font: 30px Georgia;
+  margin: 14px 0 24px;
+}
+.admin-visual #editor label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #4d5f50;
+}
+.admin-visual #editor .small {
+  color: #59665e;
+  line-height: 1.7;
+  font-size: 12px;
+}
+.admin-visual #editor input[type="checkbox"],
+.admin-visual .admin-shell input[type="checkbox"] {
+  width: 18px;
+  min-height: 18px;
+  accent-color: #294d3c;
+}
+.admin-visual #official-results {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px !important;
+}
+.admin-visual #official-results article {
+  display: flex !important;
+  flex-direction: column;
+  background: #fff;
+  padding: 18px !important;
+  border-color: #d8ddd3 !important;
+  border-radius: 10px !important;
+  min-width: 0;
+}
+.admin-visual #official-results img {
+  width: 100% !important;
+  height: 170px !important;
+  object-fit: contain;
+  background: #f1eee5;
+  border-radius: 6px;
+}
+.admin-visual #official-results h3 {
+  font: 21px/1.3 Georgia;
+  margin: 0 0 10px;
+}
+.admin-visual #official-results p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #526052;
+}
+.admin-visual #login {
+  background: #fff;
+  border: 1px solid #d8ddd3;
+  padding: 32px;
+  border-radius: 16px;
+}
+.admin-visual .admin-success {
+  background: #eaf3e7;
+  color: #315c3b;
+  border-color: #b2c9ad;
+  border-radius: 8px;
+}
+.admin-visual .admin-error {
+  background: #fff0eb;
+  color: #8a382b;
+  border-color: #dbb0a4;
+  border-radius: 8px;
+}
+@media (max-width: 760px) {
+  .admin-visual #panel .admin-list {
+    grid-template-columns: 1fr;
+  }
+  .admin-visual .admin-tools {
+    grid-template-columns: 1fr 1fr;
+  }
+  .admin-visual .admin-tools > label:first-child {
+    grid-column: 1/-1;
+  }
+  .admin-visual .admin-stats {
+    gap: 8px;
+  }
+  .admin-visual .admin-stats > div {
+    padding: 16px 12px;
+  }
+  .admin-visual .admin-stats b {
+    font-size: 30px;
+  }
+  .admin-visual .admin-stats span {
+    font-size: 11px;
+  }
+  .admin-visual #editor {
+    padding: 22px;
+  }
+  .admin-visual #official-results {
+    grid-template-columns: 1fr;
+  }
+  .admin-visual .admin-tabs button {
+    flex: 1;
+    padding: 12px 10px;
+  }
+  .admin-visual .admin-shell {
+    padding: 0 16px;
+  }
+  .admin-visual h1 {
+    font-size: 32px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .admin-visual .btn {
+    transition:
+      background 0.15s,
+      filter 0.15s;
+  }
+}
+/* Fondo ambiental de las fichas del catálogo oficial */
+.admin-visual #official-results article.official-cover-background {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #fffcf5;
+}
+
+.admin-visual #official-results article.official-cover-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: var(--adventure-cover);
+  background-position: center right;
+  background-size: cover;
+  opacity: 0.24;
+  pointer-events: none;
+}
+
+.admin-visual #official-results article.official-cover-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    rgb(255 252 245 / 98%) 0%,
+    rgb(255 252 245 / 88%) 40%,
+    rgb(255 252 245 / 38%) 100%
+  );
+  pointer-events: none;
+}
+
+/* Portada pequeña sobre el fondo */
+.admin-visual #official-results article.official-cover-background > img {
+  align-self: flex-start;
+  width: 90px !important;
+  height: 125px !important;
+  background: transparent;
+  filter: drop-shadow(0 4px 7px rgb(30 35 25 / 20%));
+}
+
+.admin-visual #official-results article.official-cover-background p {
+  color: #354637;
+}
+
+/* Fondo continuo en toda la tarjeta */
+.admin-visual #official-results article.official-cover-background {
+  background: #fffcf5 !important;
+}
+
+.admin-visual #official-results article.official-cover-background::before {
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.32;
+}
+
+.admin-visual #official-results article.official-cover-background::after {
+  background: linear-gradient(
+    100deg,
+    rgb(255 252 245 / 97%) 0%,
+    rgb(255 252 245 / 85%) 45%,
+    rgb(255 252 245 / 35%) 100%
+  );
+}
+
+/* Quita el bloque opaco que rodea la portada */
+.admin-visual #official-results article.official-cover-background > img {
+  display: block;
+  align-self: center;
+  width: 90px !important;
+  height: 125px !important;
+  margin: 4px 0 10px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  box-shadow: 0 5px 14px rgb(30 35 25 / 18%) !important;
+  object-fit: contain;
+}
+
+/* Evita fondos interiores que oculten la ilustración */
+.admin-visual #official-results article.official-cover-background > div {
+  width: 100%;
+  background: transparent;
+}
+
+/* Fondo translúcido adaptado al ancho de cada tarjeta */
+.admin-visual #panel .admin-item.admin-adventure-background {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #fffcf5;
+}
+
+.admin-visual #panel .admin-adventure-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: var(--adventure-cover);
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.admin-visual #panel .admin-adventure-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(255 252 245 / 96%) 0%,
+    rgb(255 252 245 / 82%) 40%,
+    rgb(255 252 245 / 30%) 100%
+  );
+  pointer-events: none;
+}
+
+.admin-visual #panel .admin-adventure-background .actions {
+  border-top-color: rgb(87 100 74 / 20%);
+}
+
+.admin-visual #panel .admin-adventure-background .admin-card-cover {
+  background: transparent;
+  filter: drop-shadow(0 3px 6px rgb(30 35 25 / 20%));
+}
+.admin-visual .admin-tools.admin-tools--origin {
+  grid-template-columns:
+    minmax(200px, 2fr)
+    minmax(170px, 1fr)
+    minmax(170px, 1fr)
+    auto;
+}
+
+.admin-visual .admin-tools--origin > label {
+  min-width: 0;
+}
+
+.admin-visual .admin-tools--origin .admin-result-count {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 800px) {
+  .admin-visual .admin-tools.admin-tools--origin {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .admin-visual .admin-tools.admin-tools--origin {
+    grid-template-columns: 1fr;
+  }
+}

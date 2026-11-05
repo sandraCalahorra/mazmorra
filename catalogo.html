@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="La Mazmorra del Roleo. Aventuras, mundos y recursos de rol de Hugo Durán para llevar nuevas historias a tu mesa."
+    />
+    <title>El catálogo — La Mazmorra del Roleo</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/interiores.css" />
+    <link rel="stylesheet" href="css/catalogo.css" />
+    <link rel="stylesheet" href="css/formatos.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/envios.css" />
+  </head>
+  <body>
+    <div class="preview">
+      LA MAZMORRA DEL ROLEO <span>·</span> Aventuras y partidas · Atención
+      directa con el autor
+    </div>
+    <header>
+      <a class="brand" href="index.html"
+        ><span class="brand-icon">♜</span
+        ><span>LA MAZMORRA<small>DEL ROLEO</small></span></a
+      ><button class="menu" aria-expanded="false" aria-controls="nav">
+        Menú ☰
+      </button>
+      <nav id="nav">
+        <a href="catalogo.html" aria-current="page">El catálogo</a
+        ><a href="calendario.html">Calendario</a
+        ><a href="encargos.html">Encargos</a
+        ><a href="sobre-mi.html">Sobre mí</a>
+      </nav>
+      <a class="header-cta" href="contacto.html">Hablemos <span>↗</span></a>
+      <div id="user-menu"></div>
+    </header>
+    <main class="interior-page">
+      <section class="interior-hero">
+        <div>
+          <p class="eyebrow">LA BIBLIOTECA DEL AVENTURERO</p>
+          <h1>Tu próxima historia<br /><em>empieza aquí.</em></h1>
+          <p class="lead">
+            Aventuras y compendios para llevar a tu mesa. Explora cada
+            publicación y abre su demo para conocerla por dentro.
+          </p>
+        </div>
+        <img src="images/servicios.png" alt="" loading="lazy" />
+      </section>
+      <section id="catalogo" class="catalog section">
+        <div class="catalog-tools">
+          <div class="filters" role="group" aria-label="Filtrar catálogo">
+            <button type="button" class="active" data-filter="all">
+              Todo el catálogo
+            </button>
+            <button type="button" data-filter="digital">
+              Contenido digital
+            </button>
+            <button type="button" data-filter="physical">Libros físicos</button>
+          </div>
+          <label class="search"
+            ><span>⌕</span
+            ><input
+              id="search"
+              placeholder="Busca una historia…"
+              aria-label="Buscar en el catálogo"
+          /></label>
+        </div>
+        <div class="catalog-note-anchor">
+          <div class="book-carousel" aria-label="Publicaciones">
+            <div class="book-carousel__controls">
+              <span>Explora las historias</span>
+
+              <div>
+                <button
+                  type="button"
+                  id="books-prev"
+                  aria-label="Ver publicaciones anteriores"
+                  aria-controls="products"
+                >
+                  ←
+                </button>
+
+                <button
+                  type="button"
+                  id="books-next"
+                  aria-label="Ver publicaciones siguientes"
+                  aria-controls="products"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="products"
+              id="products"
+              tabindex="0"
+              aria-label="Listado de publicaciones"
+            ></div>
+          </div>
+
+          <a class="catalog-margin-note" href="#formatos-envios">
+            <strong>¿PDF, VTT o JSON?</strong>
+            <span>Te cuento qué incluye cada uno.</span>
+            <em>Sigue bajando</em>
+            <span class="catalog-margin-note__arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <a class="catalog-info-notice" href="#formatos-envios">
+            <span class="catalog-info-notice__text">
+              <strong>Antes de hacer tu pedido</strong>
+              <span>
+                Descubre qué incluye cada formato —PDF, VTT y JSON—, cómo se
+                calculan los envíos y cómo recibirás tu pedido.
+              </span>
+              <em>Consulta los formatos y la información de compra</em>
+            </span>
+
+            <span class="catalog-info-notice__arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <p class="catalog-note">
+          Consulta el estado de cada publicación. Los proyectos en desarrollo no
+          están disponibles para compra.
+        </p>
+      </section>
+
+      <section
+        id="formatos-envios"
+        class="formats-guide section"
+        aria-labelledby="formats-title"
+      >
+        <div class="formats-guide__heading">
+          <p class="eyebrow">ANTES DE ABRIR LA PRÓXIMA AVENTURA</p>
+          <h2 id="formats-title">Formatos, compras y envíos.</h2>
+          <p>
+            Elige cómo quieres llevar la aventura a tu mesa. Aquí te explico qué
+            incluye cada formato y cómo hacer tu pedido.
+          </p>
+          <button
+            type="button"
+            class="formats-guide__toggle"
+            aria-expanded="false"
+            aria-controls="formats-content"
+          >
+            <span class="formats-guide__toggle-label">Ver información</span>
+            <span class="formats-guide__toggle-icon" aria-hidden="true">+</span>
+          </button>
+        </div>
+
+        <div id="formats-content" class="formats-guide__content">
+        <div id="formats-questions" class="formats-guide__questions">
+          <p class="formats-guide__group">01 · Elige tu formato</p>
+
+          <details>
+            <summary>¿Qué incluye el PDF?</summary>
+            <div class="formats-guide__answer">
+              <p class="formats-guide__lead">
+                La <strong>edición digital de la publicación</strong>, para leer
+                y consultar mientras preparas o diriges tus partidas.
+              </p>
+              <p>
+                Puedes abrirla en tu <strong>ordenador o tableta</strong> y
+                tener el documento de la aventura a mano durante la sesión.
+              </p>
+              <aside
+                class="formats-guide__notice"
+                aria-label="Elegir recursos digitales"
+              >
+                <strong class="formats-guide__notice-title"
+                  >¿También quieres mapas y tokens?</strong
+                >
+                <p>
+                  El paquete PDF incluye el documento. Para disponer de los
+                  recursos gráficos como archivos para tu mesa virtual, elige
+                  una opción que incluya <strong>VTT</strong>.
+                </p>
+              </aside>
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Qué son los materiales para VTT?</summary>
+            <div class="formats-guide__answer">
+              <p class="formats-guide__lead">
+                <strong>VTT significa «mesa virtual»</strong>: una herramienta
+                para jugar a rol online, mostrar mapas y mover fichas.
+              </p>
+              <p>
+                El paquete reúne los
+                <strong>recursos gráficos de la aventura</strong>:
+              </p>
+              <ul class="formats-guide__resources">
+                <li>
+                  <strong>Mapas del director de juego</strong
+                  ><span
+                    >La versión del GM para preparar y dirigir la
+                    aventura.</span
+                  >
+                </li>
+                <li>
+                  <strong>Mapas de los jugadores</strong
+                  ><span
+                    >La versión que puedes mostrar al grupo durante la
+                    partida.</span
+                  >
+                </li>
+                <li>
+                  <strong>Tokens de monstruos</strong
+                  ><span
+                    >Fichas digitales para representar a las criaturas sobre el
+                    mapa.</span
+                  >
+                </li>
+              </ul>
+              <aside
+                class="formats-guide__notice"
+                aria-label="Diferencia entre VTT y JSON"
+              >
+                <strong class="formats-guide__notice-title"
+                  >VTT y JSON: ¿qué cambia?</strong
+                >
+                <p>
+                  VTT aporta los archivos gráficos. La
+                  <strong>importación del contenido preparado en Roll20</strong>
+                  corresponde al paquete que incluye JSON.
+                </p>
+              </aside>
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Qué es el archivo JSON para Roll20?</summary>
+            <div class="formats-guide__answer">
+              <p class="formats-guide__lead">
+                Un <strong>archivo de importación</strong> para cargar la
+                aventura en Roll20 mediante un script.
+              </p>
+              <p>
+                Al importarlo, se incorpora el contenido preparado:
+                <strong>la aventura, las notas, los monstruos</strong> y los
+                demás elementos incluidos en esa publicación. Así reduces el
+                trabajo de introducirlos manualmente.
+              </p>
+<aside
+  class="formats-guide__notice formats-guide__notice--important"
+  aria-label="Requisitos del archivo JSON"
+>
+  <span class="formats-guide__notice-kicker">
+    ANTES DE COMPRAR
+  </span>
+
+  <strong class="formats-guide__notice-title">
+    Necesitas betteR20 para importar la aventura
+  </strong>
+
+  <p>
+    Este formato utiliza <strong>betteR20, de 5etools</strong>.
+    Para instalarlo necesitas la extensión
+    <strong>Tampermonkey</strong> en tu navegador y el script
+    correspondiente.
+  </p>
+
+  <p>
+    Encontrarás los enlaces de instalación en
+    <a
+      href="https://5e.tools/"
+      target="_blank"
+      rel="noopener noreferrer"
+    ><strong>5etools → «Use Roll20?» ↗</strong></a>.
+    Allí se ofrecen versiones para reglas de
+    <strong>2014 y 2024</strong>.
+  </p>
+
+  <p>
+    <strong>Antes de instalar:</strong>
+    consulta conmigo qué versión corresponde al archivo
+    de la aventura. La página indica que se utiliza la ficha
+    <strong>«D&amp;D 5E by Roll20»</strong> y que solo debe
+    mantenerse activo un script a la vez.
+  </p>
+</aside>
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Qué incluye la edición física?</summary>
+            <div class="formats-guide__answer">
+              <p class="formats-guide__lead">
+                Recibirás <strong>un ejemplar impreso</strong>. Los archivos
+                digitales que lo acompañan dependen del paquete seleccionado.
+              </p>
+              <div class="formats-guide__comparison">
+                <div>
+                  <h3>Libro + PDF</h3>
+                  <p>
+                    Incluye el <strong>ejemplar impreso</strong> y la
+                    <strong>edición digital</strong>.
+                  </p>
+                </div>
+                <div>
+                  <h3>Libro + PDF + VTT + JSON</h3>
+                  <p>
+                    Añade los <strong>recursos para mesa virtual</strong> y el
+                    <strong>archivo de importación</strong>.
+                  </p>
+                </div>
+              </div>
+              <p>
+                Revisa las
+                <strong
+                  >opciones disponibles y el precio de esa publicación</strong
+                >
+                antes de enviar tu solicitud por WhatsApp.
+              </p>
+            </div>
+          </details>
+
+          <p class="formats-guide__group">02 · Tu pedido, paso a paso</p>
+
+          <details>
+            <summary>¿Cómo puedo comprar?</summary>
+            <div class="formats-guide__answer">
+              <p class="formats-guide__lead">
+                Elige tu aventura en la web y
+                <strong>continúa el pedido por WhatsApp</strong>.
+              </p>
+              <ol class="formats-guide__steps">
+                <li>
+                  <strong>Elige tu publicación y paquete.</strong
+                  ><span>Selecciona la opción de compra que quieras.</span>
+                </li>
+                <li>
+                  <strong>Calcula el envío si compras un libro físico.</strong
+                  ><span
+                    >Indica la cantidad y el código postal, comprueba la
+                    localidad y calcula el envío. Si aparece
+                    <strong>«A consultar»</strong>, te confirmaré el importe por
+                    WhatsApp.</span
+                  >
+                </li>
+                <li>
+                  <strong>Envía el mensaje preparado.</strong
+                  ><span
+                    >Pulsa continuar por WhatsApp y envía los datos de tu
+                    pedido.</span
+                  >
+                </li>
+                <li>
+                  <strong
+                    >Confirma el pedido y recibe las instrucciones de
+                    pago.</strong
+                  ><span
+                    >Por ese canal recibirás la confirmación del
+                    <strong>importe final y la disponibilidad</strong>, junto
+                    con el enlace o QR para pagar por
+                    <strong>PayPal</strong>.</span
+                  >
+                </li>
+                <li>
+                  <strong>Recibe tu pedido.</strong
+                  ><span
+                    >Una vez comprobado el pago, prepararé la entrega digital o
+                    el envío del libro, según tu paquete, y te informaré por
+                    WhatsApp.</span
+                  >
+                </li>
+              </ol>
+              <aside
+                class="formats-guide__notice formats-guide__notice--help"
+                aria-label="Ayuda del asistente"
+              >
+                <strong class="formats-guide__notice-title"
+                  >Mi asistente también puede ayudarte</strong
+                >
+                <p>
+                  En WhatsApp puedes consultar dudas sobre
+                  <strong>publicaciones, formatos y el proceso de compra</strong
+                  >. Si la consulta necesita mi atención, el asistente te
+                  derivará a mí para ayudarte personalmente.
+                </p>
+              </aside>
+              <p class="formats-guide__closing">
+                <strong>Antes de pagar:</strong> confirma el importe total y los
+                plazos de entrega. No necesitas realizar ningún pago
+                directamente desde esta web.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Cuánto cuestan los gastos de envío?</summary>
+            <div class="formats-guide__answer">
+              <div class="formats-guide__comparison">
+                <div>
+                  <h3>Contenido digital</h3>
+                  <p>
+                    <strong>Sin gastos de envío postal.</strong> El precio
+                    corresponde al paquete digital que selecciones.
+                  </p>
+                </div>
+                <div>
+                  <h3>Libros físicos</h3>
+                  <p>
+                    El envío <strong>se añade al precio del libro</strong>.
+                    Puedes calcularlo al pulsar «Comprar», indicando cantidad y
+                    destino.
+                  </p>
+                </div>
+              </div>
+              <p>
+                La calculadora utiliza el
+                <strong
+                  >peso de los ejemplares, el embalaje, las medidas y la zona de
+                  destino</strong
+                >
+                para estimar los gastos de envío.
+              </p>
+              <p>
+                Cuando se puede calcular, el importe mostrado como
+                <strong>«Envío» ya incluye el embalaje</strong>: no se añade una
+                segunda vez al total.
+              </p>
+              <aside
+                class="formats-guide__notice"
+                aria-label="Pedidos que necesitan revisión"
+              >
+                <strong class="formats-guide__notice-title"
+                  >¿Aparece «Envío a consultar»?</strong
+                >
+                <p>
+                  El cálculo automático contempla
+                  <strong>un sobre de hasta 5 kg, incluido el embalaje</strong>,
+                  siempre que los libros quepan. Los pedidos que necesiten otro
+                  embalaje o tengan un destino sin cálculo automático se
+                  confirman por WhatsApp <strong>antes del pago</strong>.
+                </p>
+              </aside>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              ¿Cuándo recibiré mi pedido y cómo hago el seguimiento?
+            </summary>
+            <div class="formats-guide__answer">
+              <p class="formats-guide__lead">
+                Los plazos se acordarán
+                <strong>por WhatsApp antes del pago</strong>, tanto para libros
+                como para archivos digitales.
+              </p>
+              <ul class="formats-guide__delivery">
+                <li>
+                  <strong>Preparación y envío de libros.</strong> Te confirmaré
+                  los plazos previstos para preparar y enviar tu pedido.
+                </li>
+                <li>
+                  <strong>Entrega digital.</strong> Acordaremos el medio y el
+                  plazo de entrega de los archivos incluidos en tu paquete.
+                </li>
+                <li>
+                  <strong>Estado y seguimiento.</strong> Te informaré por
+                  WhatsApp y te facilitaré el seguimiento del envío cuando esté
+                  disponible.
+                </li>
+              </ul>
+              <aside
+                class="formats-guide__notice formats-guide__notice--help"
+                aria-label="Canal de seguimiento"
+              >
+                <strong class="formats-guide__notice-title"
+                  >Toda la información, en la misma conversación</strong
+                >
+                <p>
+                  Utilizaremos WhatsApp para confirmar los detalles y mantenerte
+                  al día del estado de tu pedido.
+                </p>
+              </aside>
+            </div>
+          </details>
+        </div>
+
+        <a
+          class="formats-guide__contact"
+          href="https://wa.me/34666530043?text=Hola%2C%20Hugo.%20Tengo%20una%20duda%20sobre%20los%20formatos%20o%20el%20env%C3%ADo%20de%20una%20publicaci%C3%B3n."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ¿Te queda alguna duda? Escríbeme ↗
+        </a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer__main">
+        <div class="site-footer__brand">
+          <a class="brand" href="index.html">
+            <span class="brand-icon" aria-hidden="true">♜</span>
+            <span>LA MAZMORRA<small>DEL ROLEO</small></span>
+          </a>
+
+          <p>
+            Historias que se leen.<br />
+            Aventuras que se viven.
+          </p>
+
+          <a
+            class="site-footer__contact"
+            href="https://wa.me/34666530043"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hablemos por WhatsApp <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <nav class="site-footer__column" aria-label="Enlaces del pie de página">
+          <h2>Explora la mazmorra</h2>
+          <a href="catalogo.html">Aventuras y libros</a>
+          <a href="calendario.html">Reserva tu partida</a>
+          <a href="encargos.html">Aventuras por encargo</a>
+          <a href="sobre-mi.html">Conoce al máster</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <div class="site-footer__column">
+          <h2>Más allá de la mesa</h2>
+
+          <a
+            href="https://www.instagram.com/la_mazmorra_del_roleo/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram <span aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            href="https://mesasroleras.com/gm/osoliron411"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Mesas Roleras <span aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            href="https://linktr.ee/Osoliron411"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Todos mis enlaces · Linktree <span aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            class="site-footer__email"
+            href="mailto:lamazmorradelroleo@gmail.com"
+          >
+            lamazmorradelroleo@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>
+          © 2026 La Mazmorra del Roleo.
+          <span
+            >Proyecto independiente, no afiliado a Wizards of the Coast.</span
+          >
+        </p>
+
+        <div class="site-footer__legal">
+          <button type="button" data-legal="legal">
+            Información del sitio
+          </button>
+          <button type="button" data-legal="privacy">Privacidad</button>
+          <a href="admin.html">Administración</a>
+        </div>
+      </div>
+    </footer>
+    <dialog id="modal">
+      <button class="close" aria-label="Cerrar ventana">×</button>
+      <div id="modal-content"></div>
+    </dialog>
+    <script src="site-data.php"></script>
+    <script src="js/app.js"></script>
+    <script src="js/usuario.js"></script>
+    <script src="js/animaciones.js"></script>
+    <script src="js/carrusel.js"></script>
+    <script src="js/envios.js"></script>
+    <script src="js/formatos.js" defer></script>
+  </body>
+</html>

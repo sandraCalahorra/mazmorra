@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex index.html
+<FilesMatch "(^\.|\.(sql|md|log|bak|sqlite3?|py|json)$)">
+ Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+ Header always set X-Content-Type-Options "nosniff"
+ Header always set X-Frame-Options "DENY"
+ Header always set Referrer-Policy "same-origin"
+ Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data:; connect-src 'self'; frame-src https://heyzine.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+</IfModule>

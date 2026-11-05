@@ -1,0 +1,301 @@
+.game-rates__tools {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+  color: #243329;
+}
+.game-rates__tools label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.game-rates__tools .rates-search {
+  max-width: 520px;
+  color: #f4ecd9;
+}
+.game-rates__tools input,
+.game-rates__tools select {
+  width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #b9a487;
+  border-radius: 7px;
+  background: #fffcf5;
+  color: #30232b;
+  font: inherit;
+}
+.game-rates__tools input:focus-visible,
+.game-rates__tools select:focus-visible,
+.game-rates__tools summary:focus-visible {
+  outline: 3px solid #b99b63;
+  outline-offset: 3px;
+}
+.game-rates__tools .rates-filters {
+  border: 1px solid #b9a487;
+  border-radius: 10px;
+  background: #f5efe2;
+  padding: 16px 20px;
+}
+.game-rates__tools summary {
+  cursor: pointer;
+  color: #46313e;
+  font-weight: 700;
+  min-height: 24px;
+}
+.game-rates__tools .rates-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+.game-rates__tools .rates-filter-help {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #586052;
+  margin: 18px 0;
+}
+.game-rates__tools .rates-clear {
+  padding: 10px 16px;
+  min-height: 44px;
+  border: 1px solid #b9a487;
+  border-radius: 7px;
+  background: #fffcf5;
+  color: #46313e;
+  font: inherit;
+  cursor: pointer;
+}
+.game-rates__tools .rates-results {
+  margin: 0;
+  color: #eee3cb;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.game-rates__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 24px;
+  color: #eee3cb;
+}
+.game-rates__pagination[hidden],
+.game-rates .game-rates__scroll[hidden] {
+  display: none !important;
+}
+.game-rates__pagination button {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid #a88a3d;
+  border-radius: 7px;
+  background: #414532;
+  color: #ffd579;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.game-rates__pagination button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+@media (max-width: 800px) {
+  .game-rates__tools .rates-filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .game-rates__tools .rates-filter-grid {
+    grid-template-columns: 1fr;
+  }
+  .game-rates__pagination {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+/* Buscador y filtros integrados en la cabecera */
+.game-rates__caption {
+  text-align: left;
+  white-space: normal;
+}
+
+.game-rates__caption .game-rates__tools {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 12px 18px;
+  margin: 16px 0 0;
+  color: #243329;
+  font-weight: 400;
+}
+
+.game-rates__caption .rates-search {
+  max-width: none;
+  color: #46313e;
+}
+
+.game-rates__caption .rates-filters {
+  align-self: start;
+  margin: 0;
+  padding: 12px 16px;
+  background: #eee3cb;
+}
+
+.game-rates__caption .rates-filters[open] {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.game-rates__caption .rates-results {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #586052;
+}
+
+@media (max-width: 600px) {
+  .game-rates__caption .game-rates__tools {
+    grid-template-columns: 1fr;
+  }
+
+  .game-rates__caption .rates-filters {
+    grid-column: 1;
+  }
+}
+.game-rates__caption .rates-filters:not([open]) {
+  align-self: end;
+}
+.game-rates__caption .rates-search input {
+  height: 36px;
+  min-height: 36px;
+}
+
+.game-rates__caption .rates-filters:not([open]) {
+  height: 36px;
+  min-height: 36px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  align-self: end;
+}
+
+.game-rates__caption .rates-filters:not([open]) > summary {
+  min-height: 0;
+  line-height: 34px;
+  font-size: 12px;
+}
+
+/* Detalles de las aventuras */
+.game-rates tbody td details {
+  margin-top: 14px;
+}
+
+.game-rates tbody td details > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid #b9a487;
+  border-radius: 6px;
+  background: #eee3cb;
+  color: #46313e;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  list-style: none;
+  cursor: pointer;
+}
+
+.game-rates tbody td details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.game-rates tbody td details > summary::before {
+  content: "+";
+  font-size: 18px;
+  line-height: 1;
+}
+
+.game-rates tbody td details[open] > summary::before {
+  content: "−";
+}
+
+.game-rates tbody td details > summary:hover {
+  background: #e0cfaa;
+}
+
+.game-rates tbody td details > summary:focus-visible {
+  outline: 2px solid #3d737d;
+  outline-offset: 3px;
+}
+
+.game-rates tbody td details > p {
+  margin: 12px 0 0;
+  padding: 16px;
+  border: 1px solid #d4c7ad;
+  border-left: 3px solid #3d737d;
+  border-radius: 7px;
+  background: #f3ede0;
+  color: #304333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.game-rates .rates-details-button {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 12px;
+  padding: 7px 12px;
+  border: 1px solid #b9a487;
+  border-radius: 6px;
+  background: #eee3cb;
+  color: #46313e;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.game-rates .rates-details-button:hover {
+  background: #e0cfaa;
+}
+
+.game-rates .rates-details-row[hidden] {
+  display: none !important;
+}
+
+.game-rates .rates-details-row > td {
+  padding: 0 20px 20px;
+  border-top: 0;
+}
+
+.game-rates .rates-details-content {
+  margin-top: 20px;
+  padding: 20px 24px;
+  border: 1px solid #d4c7ad;
+  border-left: 3px solid #3d737d;
+  border-radius: 8px;
+  background: #f3ede0;
+  color: #304333;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.game-rates .rates-details-content p {
+  margin: 0 0 16px;
+  color: #304333;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.game-rates .rates-details-content p:last-child {
+  margin-bottom: 0;
+}
+
+.game-rates .rates-details-content strong {
+  color: #46313e;
+  font-weight: 700;
+}

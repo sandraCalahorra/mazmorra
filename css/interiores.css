@@ -1,0 +1,121 @@
+/* INTERIORES — La Mazmorra del Roleo. */
+
+.interior-page .interior-hero {
+  max-width: 1240px;
+  margin: auto;
+  padding: 55px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.interior-hero h1 {
+  font-size: clamp(38px, 4vw, 60px);
+}
+
+.interior-hero img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #c4aa7344;
+}
+
+.interior-hero .lead {
+  max-width: 530px;
+}
+
+.interior-banner {
+  padding: 40px max(24px, calc((100% - 1180px) / 2));
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  background: #203128;
+}
+
+.interior-banner h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.interior-banner p {
+  margin-bottom: 0;
+}
+
+.interior-banner .btn {
+  flex-shrink: 0;
+  border-radius: 6px;
+}
+
+.interior-steps,
+.interior-notes {
+  padding: 45px max(24px, calc((100% - 1180px) / 2));
+  background: #eee9dc;
+  color: #243329;
+}
+
+.interior-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin: 25px 0;
+}
+
+.interior-grid article {
+  padding: 25px;
+  background: #f7f3e9;
+  border: 1px solid #d8cfbd;
+  border-radius: 12px;
+}
+
+.interior-grid h3 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.interior-grid p {
+  font-size: 14px;
+  color: #526052;
+  margin: 0;
+}
+
+.interior-grid b {
+  display: block;
+  color: #826332;
+  font: 26px Georgia;
+  margin-bottom: 15px;
+}
+
+.interior-steps > .btn {
+  background: #243e30;
+  color: #fff6e5;
+  border-radius: 6px;
+}
+
+.interior-notes .eyebrow,
+.interior-steps .eyebrow {
+  color: #77613b;
+}
+
+@media (max-width: 850px) {
+.interior-page .interior-hero {
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding: 35px 22px;
+}
+.interior-hero img {
+  height: 260px;
+}
+.interior-grid {
+  grid-template-columns: 1fr;
+}
+.interior-banner {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.interior-hero h1 {
+  font-size: 42px;
+}
+}

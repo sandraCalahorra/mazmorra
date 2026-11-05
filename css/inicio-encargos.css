@@ -1,0 +1,252 @@
+/* Estilos de la sección de encargos de la portada. */
+#servicios.commission-section {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 50px 24px;
+
+  background: #eee9dc;
+  color: #243329;
+  border-top: 1px solid #d4cbb8;
+  border-bottom: 1px solid #d4cbb8;
+}
+
+.commission-inner {
+  width: 100%;
+  max-width: 1180px;
+  margin: auto;
+}
+
+/* Imagen y presentación */
+.commission-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.commission-main-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(44, 37, 24, 0.14);
+}
+
+.commission-intro-copy .eyebrow {
+  margin-bottom: 16px;
+  color: #77613b;
+}
+
+.commission-intro-copy h2 {
+  margin: 0 0 20px;
+  font-size: clamp(34px, 3.3vw, 48px);
+  line-height: 1.12;
+}
+
+.commission-intro-copy h2 em {
+  color: #826332;
+}
+
+.commission-intro-copy .commission-lead {
+  max-width: 460px;
+  margin-bottom: 24px;
+  color: #526052;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.commission-cta {
+  padding: 16px 25px;
+  background: #243e30;
+  color: #fff6e5;
+  border: 1px solid #243e30;
+  border-radius: 7px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.commission-cta:hover {
+  background: #35533f;
+}
+
+.commission-intro-copy .commission-direct {
+  margin: 15px 0 0;
+  color: #61705f;
+  font-size: 12px;
+}
+
+/* Tres servicios compactos */
+.commission-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.commission-option {
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
+
+  background: #f7f3e9;
+  border: 1px solid #d8cfbd;
+  border-radius: 12px;
+}
+
+.commission-option-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+
+  background: #e6ddc9;
+  color: #6e5731;
+  border-radius: 10px;
+  font-size: 24px;
+}
+
+.commission-option:nth-child(2) .commission-option-icon {
+  background: #dce5e4;
+  color: #365e61;
+}
+
+.commission-option:nth-child(3) .commission-option-icon {
+  background: #e9dcdf;
+  color: #794653;
+}
+
+.commission-option h3 {
+  margin: 0 0 12px;
+  font-size: 25px;
+}
+
+.commission-option p {
+  margin: 0 0 20px;
+  color: #5c6859;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.commission-option-link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 5px 0;
+
+  background: transparent;
+  color: #294633;
+  border: 0;
+  border-bottom: 1px solid #8a977e;
+
+  font: 600 13px Arial, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.commission-option-link:hover {
+  color: #826332;
+  border-color: #826332;
+}
+
+/* Proceso */
+.commission-process {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  margin: 30px 0 0;
+  padding: 25px 0 0;
+  list-style: none;
+  border-top: 1px solid #24332926;
+}
+
+.commission-process li {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.commission-step-number {
+  color: #826332;
+  font: 25px/1.2 Georgia, serif;
+}
+
+.commission-process h3 {
+  margin: 0 0 7px;
+  font-size: 20px;
+}
+
+.commission-process p {
+  margin: 0;
+  color: #61705f;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Foco visible sobre fondo claro */
+.commission-section button:focus-visible {
+  outline: 2px solid #294633;
+  outline-offset: 4px;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 850px) {
+  .commission-intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .commission-main-image {
+    max-width: 580px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  #servicios.commission-section {
+    padding: 35px 20px;
+  }
+
+  .commission-options,
+  .commission-process {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .commission-option {
+    padding: 20px;
+  }
+
+  .commission-intro-copy h2 {
+    font-size: 36px;
+  }
+}.commission-option {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 8px 14px;
+  align-content: start;
+  padding: 22px;
+}
+
+.commission-option-icon {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  margin: 0;
+}
+
+.commission-option h3 {
+  grid-column: 2;
+  margin: 0;
+  font-size: 23px;
+}
+
+.commission-option p {
+  grid-column: 2;
+  margin: 0;
+}
+

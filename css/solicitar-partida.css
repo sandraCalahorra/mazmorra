@@ -1,0 +1,538 @@
+/* SOLICITAR-PARTIDA — La Mazmorra del Roleo. */
+
+#request-game-dialog {
+  width: min(740px, 94vw);
+  padding: 36px;
+  border-radius: 14px;
+  background: #eee9dc;
+  color: #243329;
+}
+
+#request-game-dialog h2 {
+  margin: 12px 0;
+  color: #243329;
+}
+
+.request-progress {
+  color: #705b31;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.request-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.request-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.request-grid .wide {
+  grid-column: 1 / -1;
+}
+
+#request-game-dialog input,
+#request-game-dialog select,
+#request-game-dialog textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #b6b09e;
+  border-radius: 6px;
+  background: #fffdf7;
+  color: #243329;
+  font: inherit;
+}
+
+#request-game-dialog textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+#request-game-dialog [hidden] {
+  display: none !important;
+}
+
+.request-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+#request-game-dialog .btn.outline {
+  color: #243329;
+  border-color: #8e825e;
+}
+
+.request-note {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.request-summary {
+  padding: 20px;
+  border: 1px solid #c7bfa9;
+  border-radius: 8px;
+  background: #e3ddcd;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 14px/1.8 inherit;
+}
+
+@media (max-width: 600px) {
+#request-game-dialog {
+  padding: 36px 20px 24px;
+}
+.request-grid {
+  grid-template-columns: 1fr;
+}
+}
+
+.request-price {
+  margin-top: 24px;
+  padding: 18px 20px;
+  border: 1px solid #b99b63;
+  border-left: 4px solid #b99b63;
+  border-radius: 8px;
+  background: #e4ddca;
+  color: #243329;
+  white-space: pre-line;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+#request-game-dialog select.campo-bloqueado {
+  appearance: none;
+  background-color: #deded8;
+  color: #64675e;
+  border-color: #bfc1b8;
+  padding-right: 44px;
+  cursor: not-allowed;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364675e' stroke-width='2'%3E%3Crect x='5' y='10' width='14' height='11' rx='2'/%3E%3Cpath d='M8 10V7a4 4 0 0 1 8 0v3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+#request-summary.request-summary {
+  padding: 0;
+  overflow: hidden;
+  white-space: normal;
+  border: 1px solid #cec4ac;
+  border-radius: 12px;
+  background: #f9f6ee;
+}
+
+.review-heading {
+  padding: 26px;
+  background: #20392c;
+  color: #f4efdf;
+}
+
+.review-kicker {
+  color: #d4bb81;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+#request-game-dialog .review-heading h3 {
+  margin: 10px 0 8px;
+  color: #fff5de;
+  font: 28px/1.2 Georgia, serif;
+  overflow-wrap: anywhere;
+}
+
+.review-heading > p {
+  margin: 0;
+  color: #d2ddcf;
+  font-size: 12px;
+}
+
+.review-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.review-tags span {
+  padding: 5px 10px;
+  border: 1px solid #81916d;
+  border-radius: 20px;
+  color: #eee4c9;
+  font-size: 11px;
+}
+
+.review-body {
+  padding: 0 24px 24px;
+}
+
+.review-block {
+  padding: 22px 0;
+  border-bottom: 1px solid #e1d9c7;
+}
+
+#request-game-dialog .review-block h4,
+#request-game-dialog .review-budget h4 {
+  margin: 0 0 15px;
+  color: #66532d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  margin: 0;
+}
+
+.review-detail {
+  min-width: 0;
+}
+
+.review-detail dt {
+  margin-bottom: 4px;
+  color: #737769;
+  font-size: 11px;
+}
+
+.review-detail dd {
+  margin: 0;
+  color: #243329;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.review-budget {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid #c7ad70;
+  border-radius: 9px;
+  background: #eee5cf;
+}
+
+.review-price-line {
+  margin: 7px 0;
+  color: #46513f;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.review-total {
+  margin: 16px 0;
+  padding: 15px 0;
+  border-top: 1px solid #cbb98e;
+  border-bottom: 1px solid #cbb98e;
+  color: #20392c;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+@media (max-width: 520px) {
+.review-heading {
+  padding: 22px 18px;
+}
+.review-body {
+  padding: 0 18px 18px;
+}
+.review-grid {
+  grid-template-columns: 1fr;
+}
+.review-total {
+  font-size: 17px;
+}
+}
+
+/* Ficha de aventura seleccionada */
+#request-game-dialog .request-adventure-card {
+  display:flex;gap:20px;padding:20px;background:#fffcf5;
+  border:1px solid #cdbfa8;border-radius:10px;grid-column:1/-1;
+}
+#request-game-dialog .request-adventure-card[hidden] {display:none!important}
+#request-game-dialog .request-adventure-card img {width:120px;height:170px;object-fit:contain;flex-shrink:0}
+#request-game-dialog .request-adventure-card h4 {margin:0 0 12px;color:#674455;font:22px/1.3 Georgia,serif}
+#request-game-dialog .request-adventure-card p {white-space:pre-line;line-height:1.7;overflow-wrap:anywhere}
+#request-game-dialog .request-adventure-card > div {min-width:0}
+@media(max-width:600px) {
+ #request-game-dialog .request-adventure-card {flex-direction:column}
+ #request-game-dialog .request-adventure-card img {align-self:center}
+}
+
+/* Tarifas públicas de partidas dirigidas */
+.game-rates {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 24px;
+  color: #243329;
+}
+
+.game-rates h2 {
+  margin: 12px 0 20px;
+  font: clamp(28px, 4vw, 42px)/1.2 Georgia, serif;
+}
+
+.game-rates > p {
+  line-height: 1.8;
+}
+
+.game-rates__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 20px;
+}
+
+.game-rates__filters button,
+.game-rates__request {
+  min-height: 44px;
+  padding: 12px 18px;
+  border: 1px solid #b9a487;
+  border-radius: 7px;
+  background: #fffcf5;
+  color: #46313e;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.game-rates__filters button[aria-pressed="true"] {
+  background: #46313e;
+  border-color: #46313e;
+  color: #fffaf0;
+}
+
+.game-rates__scroll {
+  overflow-x: auto;
+  border: 1px solid #d4c7ad;
+  border-radius: 12px;
+  background: #fffcf5;
+}
+
+.game-rates table {
+  width: 100%;
+  min-width: 850px;
+  border-collapse: collapse;
+}
+
+.game-rates__caption {
+  padding: 16px 20px;
+  text-align: left;
+  color: #674455;
+  font-weight: 600;
+}
+
+.game-rates th {
+  padding: 17px 20px;
+  background: #e8dfce;
+  color: #46313e;
+  text-align: left;
+  font-size: 13px;
+}
+
+.game-rates td {
+  padding: 22px 20px;
+  border-top: 1px solid #e8dfce;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.game-rates td:first-child {
+  width: 32%;
+}
+
+.game-rates__title {
+  display: block;
+  margin-bottom: 8px;
+  color: #46313e;
+  font: 21px/1.35 Georgia, serif;
+}
+
+.game-rates small {
+  display: block;
+  margin-top: 5px;
+  color: #606759;
+}
+
+.game-rates__price {
+  display: block;
+  color: #674455;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.game-rates details {
+  margin-top: 12px;
+}
+
+.game-rates summary {
+  color: #3d737d;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.game-rates details p {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.game-rates__request {
+  background: #3d737d;
+  border-color: #305b64;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.game-rates__request:hover {
+  background: #2e5962;
+}
+
+.game-rates button:focus-visible {
+  outline: 3px solid #b99b63;
+  outline-offset: 3px;
+}
+
+.game-rates__note {
+  margin-top: 20px;
+  color: #606759;
+  font-size: 13px;
+}
+
+.game-rates [hidden] {
+  display: none !important;
+}
+
+/* Precio visible también al seleccionar la aventura */
+#request-game-dialog .request-early-price {
+  padding: 14px 18px;
+  border-left: 3px solid #b99b63;
+  border-radius: 6px;
+  background: #eee3cb;
+  color: #46313e;
+  font-weight: 600;
+  white-space: pre-line;
+}
+
+@media (max-width: 600px) {
+  .game-rates {
+    padding: 40px 18px;
+  }
+
+  .game-rates__filters button {
+    flex: 1;
+  }
+}
+#request-game-dialog .request-adventure-card > div {
+  flex: 1;
+  min-width: 0;
+}
+
+#request-game-dialog .request-adventure-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+#request-game-dialog .request-adventure-heading h4 {
+  flex: 1 1 220px;
+  margin: 0;
+}
+
+#request-game-dialog .request-adventure-price {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 14px;
+  border: 1px solid #a88a3d;
+  border-radius: 999px;
+  background: #414532;
+  color: #ffd579;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #request-game-dialog .request-adventure-heading {
+    flex-direction: column;
+  }
+
+  #request-game-dialog .request-adventure-heading h4 {
+    flex: auto;
+  }
+}
+.game-rates {
+  scroll-margin-top: 90px;
+}
+
+.game-rates__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.game-rates__pagination[hidden] {
+  display: none !important;
+}
+
+.game-rates__pagination button {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid #a88a3d;
+  border-radius: 7px;
+  background: #414532;
+  color: #ffd579;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.game-rates__pagination button:hover:not(:disabled) {
+  background: #303725;
+}
+
+.game-rates__pagination button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.game-rates__pagination span {
+  color: inherit;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .game-rates__pagination {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .game-rates__pagination button {
+    padding: 10px 14px;
+  }
+}

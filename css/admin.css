@@ -1,0 +1,688 @@
+/* ADMIN — La Mazmorra del Roleo. */
+
+[hidden] {
+  display: none !important;
+}
+
+.admin-shell {
+  max-width: 1200px;
+  margin: 45px auto;
+  padding: 0 25px;
+}
+
+.admin-shell h1 {
+  font-size: 43px;
+}
+
+.admin-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-shell label,
+dialog label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.admin-shell input,
+dialog input,
+dialog select,
+dialog textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #fff;
+  color: #243329;
+  border: 1px solid #a4ae9c;
+  margin-top: 5px;
+  font: 14px Arial;
+}
+
+.admin-shell input[type="checkbox"],
+dialog input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 8px;
+}
+
+.admin-shell #login {
+  max-width: 480px;
+  margin: 70px auto;
+}
+
+#login .btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.admin-stats div {
+  border: 1px solid var(--line);
+  padding: 20px;
+}
+
+.admin-stats b {
+  display: block;
+  font: 35px Georgia;
+  color: var(--gold);
+}
+
+.admin-stats span {
+  font-size: 12px;
+}
+
+.admin-tabs {
+  display: flex;
+  margin: 30px 0;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-tabs button {
+  padding: 12px 20px;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--ink);
+}
+
+.admin-tabs button.active {
+  background: var(--gold);
+  color: #1c2822;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.panel-head h2 {
+  margin: 0;
+  font-size: 29px;
+}
+
+.admin-list {
+  display: grid;
+  gap: 15px;
+}
+
+.admin-item {
+  border: 1px solid var(--line);
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: center;
+}
+
+.admin-item h3 {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.admin-item p {
+  font-size: 13px;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.admin-item .btn {
+  white-space: nowrap;
+}
+
+.admin-item .actions {
+  margin-top: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 18px;
+}
+
+.form-grid .wide {
+  grid-column: 1/-1;
+}
+
+dialog {
+  width: min(800px, 95vw);
+}
+
+dialog textarea {
+  min-height: 100px;
+}
+
+.admin-error {
+  padding: 15px;
+  border: 1px solid #c98268;
+  color: #f2b6a5;
+  margin-bottom: 20px;
+}
+
+.admin-success {
+  padding: 15px;
+  border: 1px solid #8da87f;
+  color: #c6dbba;
+  margin-bottom: 20px;
+}
+
+.editor-error {
+  padding: 10px;
+  color: #8d291d;
+  background: #f1dbd0;
+}
+
+.admin-empty {
+  padding: 30px;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+}
+
+.admin-item .tag {
+  color: var(--gold);
+  font-size: 11px;
+}
+
+.settings-form {
+  max-width: 700px;
+}
+
+.settings-form .small {
+  font-size: 12px;
+}
+
+.admin-shell .small {
+  font-size: 12px;
+}
+
+.danger {
+  background: #602e27;
+  color: #fff;
+  border: 1px solid #9b6455;
+}
+
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.check input {
+  width: auto !important;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+#stats:empty {
+  display: none;
+}
+
+#alert:empty {
+  display: none;
+}
+
+#editor-body .btn {
+  margin-right: 10px;
+}
+
+#editor-body .small {
+  font-size: 11px;
+}
+
+.admin-shell nav {
+  position: static;
+}
+
+@media (max-width: 700px) {
+.admin-stats {
+  gap: 8px;
+}
+.admin-stats div {
+  padding: 12px;
+}
+.admin-item {
+  display: block;
+}
+.admin-item .actions {
+  margin-top: 15px;
+}
+.form-grid {
+  grid-template-columns: 1fr;
+}
+.admin-title {
+  display: block;
+}
+.admin-title > .btn {
+  margin: 10px 0;
+}
+.admin-tabs button {
+  padding: 10px;
+}
+.admin-shell {
+  padding: 0 15px;
+}
+.panel-head {
+  flex-wrap: wrap;
+}
+header {
+  height: auto;
+  min-height: 100px;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+header > .btn {
+  padding: 8px 12px;
+}
+.admin-shell nav {
+  display: flex;
+  left: auto;
+  right: auto;
+  background: none;
+  padding: 0;
+  flex-direction: row;
+}
+.admin-item .actions {
+  flex-wrap: wrap;
+}
+}
+
+.preview-row {
+  margin: 20px 0;
+  padding: 18px;
+  border: 1px solid #9e8954;
+  border-radius: 8px;
+}
+
+.preview-row label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.preview-row input {
+  width: 100%;
+}
+
+.purchase-packages {
+  min-width: 0;
+  margin: 10px 0 24px;
+  padding: 18px;
+  border: 1px solid #b8ad92;
+  border-radius: 8px;
+}
+
+.purchase-packages legend {
+  padding: 0 8px;
+  font-weight: 700;
+}
+
+.purchase-packages > p {
+  font-size: 13px;
+}
+
+.purchase-packages h3 {
+  margin: 20px 0 12px;
+  font-size: 19px;
+}
+
+.purchase-package {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #d1c8b5;
+}
+
+.purchase-package label {
+  margin-bottom: 0;
+}
+
+.purchase-package .check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.purchase-package input:disabled {
+  background: #e5e2da;
+  color: #777;
+}
+
+@media (max-width: 500px) {
+.purchase-package {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+}
+/* Envíos: todos los campos visibles */
+#shipping-settings {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+
+#shipping-settings,
+#shipping-settings * {
+  box-sizing: border-box;
+}
+
+#shipping-settings .shipping-admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+#shipping-settings label {
+  min-width: 0;
+}
+
+#shipping-settings input:not([type="checkbox"]),
+#shipping-settings select {
+  width: 100%;
+  min-width: 0;
+}
+
+#shipping-settings select {
+  padding: 12px;
+  margin-top: 5px;
+  background: #fff;
+  color: #243329;
+  border: 1px solid #a4ae9c;
+}
+
+#shipping-settings .shipping-admin-section {
+  margin: 24px 0;
+}
+
+#shipping-settings summary {
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+#shipping-settings .shipping-table-scroll {
+  width: 100%;
+  min-width: 0;
+}
+
+#shipping-settings table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+#shipping-settings th,
+#shipping-settings td {
+  padding: 8px 4px;
+  text-align: center;
+  white-space: normal;
+  border-bottom: 1px solid #b8ad92;
+}
+
+#shipping-settings thead th {
+  font-size: 12px;
+}
+
+#shipping-settings th:first-child {
+  width: 55px;
+}
+
+#shipping-settings td input {
+  padding: 10px 5px;
+  margin: 0;
+  font-size: 14px;
+}
+
+#shipping-settings th:last-child,
+#shipping-settings td:last-child {
+  background: #e8dfc9;
+  color: #243329;
+}
+
+/* Cada zona se convierte en un bloque */
+@media (max-width: 1000px) {
+  #shipping-settings table,
+  #shipping-settings tbody {
+    display: block;
+  }
+
+  #shipping-settings thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  #shipping-settings tbody tr {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+    padding: 16px;
+    border: 1px solid #b8ad92;
+    border-radius: 8px;
+  }
+
+  #shipping-settings tbody th:first-child {
+    grid-column: 1 / -1;
+    width: auto;
+    text-align: left;
+    font-size: 18px;
+    border: 0;
+  }
+
+  #shipping-settings tbody th:first-child::before {
+    content: "Zona ";
+  }
+
+  #shipping-settings tbody td {
+    display: block;
+    min-width: 0;
+    padding: 8px;
+    border: 0;
+    text-align: left;
+  }
+
+  #shipping-settings tbody td::before {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  #shipping-settings td:nth-child(2)::before {
+    content: "Hasta 1 kg (€)";
+  }
+
+  #shipping-settings td:nth-child(3)::before {
+    content: "Hasta 2 kg (€)";
+  }
+
+  #shipping-settings td:nth-child(4)::before {
+    content: "Hasta 3 kg (€)";
+  }
+
+  #shipping-settings td:nth-child(5)::before {
+    content: "Hasta 4 kg (€)";
+  }
+
+  #shipping-settings td:nth-child(6)::before {
+    content: "Hasta 5 kg (€)";
+  }
+
+  #shipping-settings td:nth-child(7)::before {
+    content: "Hasta 10 kg (€)";
+  }
+
+  #shipping-settings td:nth-child(8)::before {
+    content: "Hasta 15 kg (€)";
+  }
+
+  #shipping-settings td:nth-child(9)::before {
+    content: "Impuesto (%)";
+  }
+}
+
+@media (max-width: 600px) {
+  #shipping-settings .shipping-admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #shipping-settings tbody tr {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 12px;
+  }
+}
+
+/* Catálogo de campañas oficiales */
+#editor:has(#official-results) {
+  width: min(1100px, calc(100vw - 32px));
+  max-width: 1100px;
+  max-height: 90vh;
+  padding: 28px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+#editor #official-search {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 8px;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  border: 1px solid #b9a487;
+  border-radius: 8px;
+  background: #fffcf5;
+  color: #30232b;
+  font: inherit;
+}
+
+#editor #official-results {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px !important;
+  margin-top: 24px !important;
+}
+
+#editor #official-results > article {
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch !important;
+  gap: 0 !important;
+  min-width: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid #d4c7ad !important;
+  border-radius: 12px !important;
+  background: #fffcf5;
+  box-shadow: 0 4px 16px rgb(48 35 43 / 8%);
+}
+
+#editor #official-results > article > img {
+  display: block;
+  width: 100% !important;
+  height: 210px !important;
+  padding: 18px;
+  box-sizing: border-box;
+  object-fit: contain !important;
+  background: #e9e2d5;
+  border-bottom: 1px solid #d4c7ad;
+}
+
+#editor #official-results > article > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 22px;
+}
+
+#editor #official-results h3 {
+  margin: 0 0 8px;
+  color: #46313e;
+  font: 23px/1.3 Georgia, serif;
+}
+
+#editor #official-results p {
+  margin: 0 0 14px;
+  color: #435044;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+#editor #official-results h3 + p {
+  color: #796b70;
+  font-size: 12px;
+}
+
+#editor #official-results h3 + p + p {
+  align-self: flex-start;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #eee3cb;
+  color: #674455;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#editor #official-results button[data-official-template] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  margin-top: auto;
+  padding: 12px 18px;
+  box-sizing: border-box;
+  border: 1px solid #305b64;
+  border-radius: 7px;
+  background: #3d737d;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#editor #official-results button[data-official-template]:hover {
+  background: #2e5962;
+}
+
+#editor #official-results button[data-official-template]:focus-visible {
+  outline: 3px solid #b99b63;
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  #editor:has(#official-results) {
+    width: calc(100vw - 20px);
+    padding: 20px;
+  }
+
+  #editor #official-results {
+    grid-template-columns: 1fr;
+  }
+
+  #editor #official-results > article > div {
+    padding: 18px;
+  }
+}

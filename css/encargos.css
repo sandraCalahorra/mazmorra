@@ -1,0 +1,1734 @@
+/* Encargos: estilos exclusivos de encargos.html. */
+.commission-page {
+  background: #eee9dc;
+  color: #243329;
+}
+.commission-page * {
+  box-sizing: border-box;
+}
+.commission-page .eyebrow {
+  color: #77613b;
+}
+.commission-hero,
+.commission-block,
+.commission-delivery {
+  max-width: 1236px;
+  margin: auto;
+  padding: 54px 28px;
+}
+.commission-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+.commission-hero > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px #2c251824;
+}
+.commission-page h1 {
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 1.12;
+  letter-spacing: -1px;
+  margin: 14px 0 22px;
+}
+.commission-page h1 em {
+  color: #826332;
+}
+.commission-page h2 {
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.2;
+  margin: 12px 0 24px;
+}
+.commission-page h3 {
+  font-size: 23px;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+.commission-page p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #435244;
+}
+.commission-page .commission-lead {
+  font-size: 16px;
+}
+.commission-process {
+  list-style: none;
+  padding: 24px 0;
+  margin: 25px 0 12px;
+  border-top: 1px solid #d4cbb8;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.commission-process li {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+.commission-process b {
+  color: #826332;
+  font:
+    25px Georgia,
+    serif;
+}
+.commission-process strong {
+  font:
+    18px Georgia,
+    serif;
+}
+.commission-process span {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #526052;
+}
+.commission-page .commission-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 22px;
+  background: #243e30;
+  color: #fff6e5;
+  border: 1px solid #243e30;
+  border-radius: 7px;
+  text-decoration: none;
+  cursor: pointer;
+  font:
+    700 14px Arial,
+    sans-serif;
+}
+.commission-page .commission-cta:hover {
+  background: #35533f;
+}
+.commission-page .small {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.commission-block {
+  border-top: 1px solid #d4cbb8;
+  scroll-margin-top: 110px;
+}
+.commission-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.commission-cards article {
+  padding: 26px;
+  background: #f7f3e9;
+  border: 1px solid #d8cfbd;
+  border-radius: 12px;
+}
+.commission-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: #e6ddc9;
+  border-radius: 10px;
+  color: #6e5731;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+.commission-cards article:nth-child(2) .commission-icon {
+  background: #dce5e4;
+  color: #365e61;
+}
+.commission-cards article:nth-child(3) .commission-icon {
+  background: #e9dcdf;
+  color: #794653;
+}
+.commission-page .commission-example {
+  border-top: 1px solid #d8cfbd;
+  margin-top: 20px;
+  padding-top: 15px;
+  font-size: 13px;
+}
+.commission-delivery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  background: #20392c;
+  border-radius: 14px;
+  margin: 0 auto 24px;
+  max-width: 1180px;
+  padding: 36px;
+}
+.commission-delivery h2,
+.commission-delivery h3 {
+  color: #f6efdf;
+}
+.commission-delivery p {
+  color: #d6ded1;
+}
+.commission-delivery .eyebrow {
+  color: #d4b777;
+}
+.commission-page .commission-notice {
+  padding: 16px;
+  border-left: 3px solid #b99b63;
+  background: #ffffff0a;
+}
+.commission-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.commission-fields label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  min-width: 0;
+}
+.commission-fields .wide {
+  grid-column: 1/-1;
+}
+.commission-fields input,
+.commission-fields select,
+.commission-fields textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 13px;
+  margin-top: 7px;
+  border: 1px solid #a6997b;
+  border-radius: 5px;
+  background: #fffcf5;
+  color: #243329;
+  font:
+    15px/1.5 Arial,
+    sans-serif;
+}
+.commission-fields textarea {
+  resize: vertical;
+}
+.commission-page
+  :is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #96763b;
+  outline-offset: 4px;
+}
+#commission-form {
+  max-width: 860px;
+}
+#commission-preview {
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid #b99b63;
+  border-radius: 8px;
+  background: #e9dfc7;
+}
+#commission-preview[hidden] {
+  display: none !important;
+}
+#commission-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    14px/1.8 Arial,
+    sans-serif;
+  color: #243329;
+}
+.commission-faq details {
+  border-bottom: 1px solid #cfc4ab;
+}
+.commission-faq summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  list-style: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+}
+.commission-faq summary::-webkit-details-marker {
+  display: none;
+}
+.commission-faq summary:after {
+  content: "+";
+  color: #826332;
+  font-size: 22px;
+}
+.commission-faq details[open] > summary:after {
+  content: "−";
+}
+.commission-answer {
+  max-width: 800px;
+  padding-bottom: 20px;
+}
+.commission-answer p {
+  margin: 0;
+}
+.commission-answer strong {
+  color: #20392c;
+}
+.commission-answer a {
+  color: #245c70;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 850px) {
+  .commission-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .commission-hero > img {
+    max-width: 580px;
+    margin: auto;
+  }
+  .commission-cards {
+    grid-template-columns: 1fr;
+  }
+  .commission-delivery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 0 20px 24px;
+  }
+}
+@media (max-width: 600px) {
+  .commission-hero,
+  .commission-block {
+    padding: 32px 20px;
+  }
+  .commission-process {
+    gap: 12px;
+  }
+  .commission-process strong {
+    font-size: 16px;
+  }
+  .commission-fields {
+    grid-template-columns: 1fr;
+  }
+  .commission-fields .wide {
+    grid-column: auto;
+  }
+  .commission-delivery {
+    padding: 24px;
+  }
+  .commission-page h1 {
+    letter-spacing: -0.5px;
+  }
+}
+
+/* Formulaire en fenêtre modale */
+#commission-dialog {
+  box-sizing: border-box;
+  width: min(900px, calc(100% - 28px));
+  max-height: 90dvh;
+  overflow-y: auto;
+  margin: auto;
+  padding: 32px;
+  border: 1px solid #b7a277;
+  border-top: 4px solid #a18448;
+  border-radius: 14px;
+  background: #f7f3e9;
+  color: #243329;
+  box-shadow: 0 24px 80px #0005;
+}
+#commission-dialog::backdrop {
+  background: #101e18b8;
+}
+#commission-dialog h2 {
+  padding-right: 30px;
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
+#commission-dialog .commission-close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  border: 0;
+  background: transparent;
+  color: #243329;
+  font: 30px Arial;
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+}
+#commission-dialog #commission-form {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  max-width: none;
+}
+#commission-dialog .commission-fields {
+  gap: 22px;
+}
+#commission-dialog .commission-fields[hidden],
+#commission-dialog [hidden] {
+  display: none !important;
+}
+#commission-dialog label {
+  font-size: 14px;
+}
+#commission-dialog input,
+#commission-dialog select,
+#commission-dialog textarea {
+  min-height: 48px;
+  padding: 13px 15px;
+  border-radius: 7px;
+}
+#commission-dialog textarea {
+  min-height: 150px;
+}
+#commission-dialog #commission-form > .small {
+  padding: 14px 16px;
+  margin: 24px 0;
+  background: #ece6d6;
+  border-left: 3px solid #a18448;
+}
+#commission-dialog .commission-edit {
+  display: block;
+  margin: 18px 0;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid #8a977e;
+  background: transparent;
+  color: #294633;
+  font: 700 14px Arial;
+  cursor: pointer;
+}
+#commission-dialog #commission-status:empty {
+  display: none;
+}
+@media (max-width: 600px) {
+  #commission-dialog {
+    padding: 25px 18px;
+  }
+  #commission-dialog h2 {
+    font-size: 27px;
+  }
+  #commission-dialog .commission-cta {
+    width: 100%;
+  }
+}
+
+/* FAQ: mismo diseño del catálogo, con ámbito exclusivo de Encargos. */
+/* FORMATOS — La Mazmorra del Roleo. */
+#encargos-faq {
+  --faq-ink: #263c2d;
+  --faq-gold: #92733a;
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  max-width: 1120px;
+  margin: 60px auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #a69773;
+  border-radius: 16px;
+  background: #f3eee2;
+  color: var(--faq-ink);
+  scroll-margin-top: 110px;
+}
+#encargos-faq *,
+#encargos-faq *::before,
+#encargos-faq *::after {
+  box-sizing: border-box;
+}
+#encargos-faq .formats-guide__heading {
+  max-width: none;
+  margin: 0;
+  padding: 36px 40px;
+  background: #20392c;
+}
+#encargos-faq .formats-guide__heading .eyebrow {
+  margin: 0 0 12px;
+  color: #d4b777;
+}
+#encargos-faq .formats-guide__heading h2 {
+  margin: 0 0 14px;
+  color: #f6efdf;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+}
+#encargos-faq .formats-guide__heading > p:last-child {
+  max-width: 640px;
+  margin: 0;
+  color: #d6ded1;
+  font-size: 14px;
+  line-height: 1.7;
+}
+#encargos-faq .formats-guide__questions {
+  display: block;
+  padding: 10px 40px 0;
+}
+#encargos-faq .formats-guide__group {
+  margin: 28px 0 6px;
+  color: #71562a;
+  font:
+    700 11px/1.5 Arial,
+    sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+#encargos-faq details {
+  margin: 0;
+  overflow: visible;
+  border: 0;
+  border-bottom: 1px solid #d6cdb9;
+  border-radius: 0;
+  background: transparent;
+}
+#encargos-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  color: #263c2d;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+}
+#encargos-faq summary::-webkit-details-marker {
+  display: none;
+}
+#encargos-faq summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  height: 30px;
+  border: 1px solid #c8b98f;
+  border-radius: 50%;
+  background: #e9dfc7;
+  color: #725b2b;
+  font:
+    400 21px/1 Arial,
+    sans-serif;
+}
+#encargos-faq summary:hover {
+  color: #84672f;
+}
+#encargos-faq details[open] > summary {
+  background: transparent;
+  color: #20392c;
+}
+#encargos-faq details[open] > summary::after {
+  content: "−";
+  border-color: #20392c;
+  background: #20392c;
+  color: #f6efdf;
+}
+#encargos-faq summary:focus-visible {
+  outline: 2px solid #92733a;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+#encargos-faq .formats-guide__answer {
+  max-width: 880px;
+  padding: 0 0 28px;
+  color: #304333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+#encargos-faq .formats-guide__answer p,
+#encargos-faq .formats-guide__answer li {
+  color: #304333;
+  opacity: 1;
+}
+#encargos-faq .formats-guide__answer p {
+  margin: 0 0 14px;
+}
+#encargos-faq .formats-guide__answer p:last-child {
+  margin-bottom: 0;
+}
+#encargos-faq .formats-guide__answer strong {
+  color: #172e20;
+  font-weight: 700;
+}
+#encargos-faq .formats-guide__lead {
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+#encargos-faq .formats-guide__answer ul,
+#encargos-faq .formats-guide__answer ol {
+  margin: 16px 0 20px;
+  padding-left: 22px;
+}
+#encargos-faq .formats-guide__answer li + li {
+  margin-top: 10px;
+}
+#encargos-faq .formats-guide__resources {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+#encargos-faq .formats-guide__resources li {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid #d1c6ad;
+  border-radius: 8px;
+  background: #faf6ec;
+}
+#encargos-faq .formats-guide__resources li + li {
+  margin-top: 0;
+}
+#encargos-faq .formats-guide__resources strong,
+#encargos-faq .formats-guide__resources span {
+  display: block;
+}
+#encargos-faq .formats-guide__resources strong {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+#encargos-faq .formats-guide__resources span {
+  font-size: 13px;
+}
+#encargos-faq .formats-guide__notice {
+  margin: 20px 0;
+  padding: 18px 20px;
+  border: 1px solid #d0bc8e;
+  border-left: 4px solid #ad8d4b;
+  border-radius: 0 8px 8px 0;
+  background: #e9dfc7;
+  color: #3f361f;
+}
+#encargos-faq .formats-guide__notice p {
+  color: #3f361f;
+}
+#encargos-faq .formats-guide__notice-title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+#encargos-faq .formats-guide__notice-kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: #725421;
+  font:
+    700 10px/1.5 Arial,
+    sans-serif;
+  letter-spacing: 0.12em;
+}
+#encargos-faq .formats-guide__notice--important {
+  padding: 22px;
+  border-left-width: 5px;
+  background: #e9dcc0;
+}
+#encargos-faq .formats-guide__notice--help {
+  border-color: #bdcbb8;
+  border-left-color: #496548;
+  background: #e3e9dc;
+}
+#encargos-faq .formats-guide__notice--help p {
+  color: #304333;
+}
+#encargos-faq .formats-guide__comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0 20px;
+}
+#encargos-faq .formats-guide__comparison > div {
+  padding: 20px;
+  border: 1px solid #d1c6ad;
+  border-top: 3px solid #a48a52;
+  border-radius: 8px;
+  background: #faf6ec;
+}
+#encargos-faq .formats-guide__comparison h3 {
+  margin: 0 0 10px;
+  color: #20392c;
+  font:
+    22px/1.3 Georgia,
+    serif;
+}
+#encargos-faq .formats-guide__steps {
+  counter-reset: purchase-step;
+  padding: 0;
+  list-style: none;
+}
+#encargos-faq .formats-guide__steps > li {
+  position: relative;
+  min-height: 42px;
+  margin: 0;
+  padding: 0 0 22px 56px;
+  counter-increment: purchase-step;
+}
+#encargos-faq .formats-guide__steps > li + li {
+  margin-top: 0;
+}
+#encargos-faq .formats-guide__steps > li::before {
+  content: counter(purchase-step, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #c3b18a;
+  border-radius: 50%;
+  background: #e9dfc7;
+  color: #5e481f;
+  font:
+    700 12px/1 Arial,
+    sans-serif;
+}
+#encargos-faq .formats-guide__steps > li > strong,
+#encargos-faq .formats-guide__steps > li > span {
+  display: block;
+}
+#encargos-faq .formats-guide__steps > li > strong {
+  margin-bottom: 5px;
+}
+#encargos-faq .formats-guide__steps > li:last-child {
+  padding-bottom: 0;
+}
+#encargos-faq .formats-guide__delivery li::marker {
+  color: #92733a;
+}
+#encargos-faq .formats-guide__closing {
+  padding-top: 14px;
+  border-top: 1px solid #d6cdb9;
+  font-size: 13px;
+}
+#encargos-faq .formats-guide__contact {
+  display: inline-block;
+  margin: 24px 40px 30px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #a18b58;
+  color: #304d37;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-decoration: none;
+}
+#encargos-faq .formats-guide__contact:hover {
+  color: #84672f;
+}
+#encargos-faq .formats-guide__contact:focus-visible {
+  outline: 2px solid #92733a;
+  outline-offset: 5px;
+}
+@media (max-width: 760px) {
+  #encargos-faq .formats-guide__resources {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  #encargos-faq {
+    width: calc(100% - 28px);
+    margin: 36px auto;
+    border-radius: 12px;
+  }
+  #encargos-faq .formats-guide__heading {
+    padding: 28px 22px;
+  }
+  #encargos-faq .formats-guide__questions {
+    padding: 6px 22px 0;
+  }
+  #encargos-faq summary {
+    padding: 18px 0;
+    font-size: 14px;
+    gap: 12px;
+  }
+  #encargos-faq .formats-guide__answer {
+    font-size: 14px;
+  }
+  #encargos-faq .formats-guide__lead {
+    font-size: 15px;
+  }
+  #encargos-faq .formats-guide__comparison {
+    grid-template-columns: 1fr;
+  }
+  #encargos-faq .formats-guide__notice {
+    padding: 16px;
+  }
+  #encargos-faq .formats-guide__steps > li {
+    padding-left: 46px;
+  }
+  #encargos-faq .formats-guide__steps > li::before {
+    width: 32px;
+    height: 32px;
+  }
+  #encargos-faq .formats-guide__contact {
+    margin: 22px;
+  }
+}
+
+/* Separación y paleta de Encargos: verde, ciruela y tonos cálidos. */
+.commission-page {
+  background: #eee9dc;
+}
+.commission-page > .commission-hero {
+  border-bottom: 1px solid #b9ac93;
+  padding-bottom: 54px;
+}
+.commission-page > .commission-block:not(#encargos-faq) {
+  border-top: 0;
+  border-bottom: 1px solid #b9ac93;
+  background: #f5f0e5;
+  margin-top: 28px;
+  margin-bottom: 36px;
+  border-radius: 12px;
+}
+.commission-cards article {
+  background: #fffaf0;
+  border-color: #d5c5aa;
+}
+.commission-cards article:nth-child(2) {
+  background: #edf1e9;
+  border-color: #bcc9b8;
+}
+.commission-cards article:nth-child(3) {
+  background: #f0e5e9;
+  border-color: #cdb6c0;
+}
+.commission-page > .commission-delivery {
+  background: #46313e;
+  border: 1px solid #735462;
+  border-bottom: 3px solid #b99b63;
+  margin-top: 36px;
+  margin-bottom: 48px;
+}
+.commission-delivery .eyebrow {
+  color: #e5c595;
+}
+.commission-delivery h2,
+.commission-delivery h3 {
+  color: #fff4e8;
+}
+.commission-delivery p {
+  color: #e9dce3;
+}
+.commission-delivery .commission-notice {
+  background: #ffffff09;
+  border-left-color: #d1af78;
+}
+#encargos-faq {
+  border-color: #ab9581;
+  background: #f6f0e5;
+  margin-top: 48px;
+  margin-bottom: 60px;
+}
+#encargos-faq .formats-guide__heading {
+  position: relative;
+  padding-right: 230px;
+  background: #20392c;
+  border-bottom: 3px solid #b99b63;
+}
+#encargos-faq .commission-faq-toggle {
+  position: absolute;
+  right: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 12px 18px;
+  border: 1px solid #dec18c;
+  border-radius: 7px;
+  background: #dec18c;
+  color: #28372a;
+  font:
+    700 14px Arial,
+    sans-serif;
+  cursor: pointer;
+}
+#encargos-faq .commission-faq-toggle:hover {
+  background: #f0d6a6;
+}
+#encargos-faq .commission-faq-toggle:focus-visible {
+  outline: 3px solid #fff4de;
+  outline-offset: 4px;
+}
+#encargos-faq .formats-guide__questions[hidden] {
+  display: none !important;
+}
+#encargos-faq .formats-guide__questions {
+  padding-bottom: 22px;
+}
+#encargos-faq summary::after {
+  background: #eadce1;
+  border-color: #cbb0bc;
+  color: #674455;
+}
+#encargos-faq details[open] > summary::after {
+  background: #674455;
+  border-color: #674455;
+  color: #fff4e8;
+}
+#encargos-faq details {
+  border-bottom-color: #d2c1b1;
+}
+@media (max-width: 700px) {
+  #encargos-faq .formats-guide__heading {
+    padding: 28px 22px;
+  }
+  #encargos-faq .commission-faq-toggle {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+  }
+  .commission-page > .commission-block:not(#encargos-faq) {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+  .commission-page > .commission-hero {
+    padding-bottom: 35px;
+  }
+}
+
+/* Calculadora por pasos */
+#commission-form fieldset {
+  min-width: 0;
+  margin: 22px 0;
+  padding: 0;
+  border: 0;
+}
+#commission-form legend {
+  font:
+    25px/1.3 Georgia,
+    serif;
+  color: #243329;
+  margin-bottom: 22px;
+}
+#commission-form fieldset > label {
+  display: block;
+  margin: 20px 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+#commission-form fieldset > label select {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin-top: 9px;
+  background: #fffcf5;
+  color: #243329;
+  border: 1px solid #b6a684;
+  border-radius: 7px;
+  font: 15px Arial;
+}
+.commission-progress {
+  border-bottom: 1px solid #cbb996;
+  padding-bottom: 16px;
+  color: #674455 !important;
+  font-weight: 700;
+}
+.commission-estimate {
+  white-space: pre-line;
+  padding: 20px;
+  margin: 22px 0;
+  background: #e5eadd;
+  border-left: 4px solid #49664c;
+  line-height: 1.8;
+  color: #20392c;
+}
+.commission-estimate:empty {
+  display: none;
+}
+.commission-wizard-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  border-top: 1px solid #cbb996;
+  padding-top: 20px;
+}
+.commission-price-scroll {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.commission-prices table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #fffaf0;
+  font-size: 14px;
+  text-align: left;
+}
+.commission-prices caption {
+  text-align: left;
+  padding: 0 0 14px;
+  color: #674455;
+  font-weight: 700;
+}
+.commission-prices td,
+.commission-prices th {
+  padding: 17px;
+  border-bottom: 1px solid #d5c5aa;
+  line-height: 1.6;
+}
+.commission-prices thead {
+  background: #46313e;
+  color: #fff4e8;
+}
+.commission-prices tbody th {
+  color: #243329;
+}
+.commission-page {
+  padding-bottom: 60px;
+}
+#encargos-faq {
+  margin-top: 70px;
+  margin-bottom: 0;
+}
+#encargos-faq .formats-guide__heading {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+#encargos-faq .formats-guide__heading > p:last-of-type {
+  color: #d6ded1;
+  font-size: 14px;
+  line-height: 1.8;
+}
+#encargos-faq .formats-guide__questions {
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+#encargos-faq summary {
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+.commission-page .commission-cta {
+  background: #d8bd83;
+  border-color: #a18448;
+  color: #17291e;
+}
+.commission-page .commission-cta:hover {
+  background: #e5cc98;
+  color: #102017;
+}
+@media (max-width: 600px) {
+  .commission-page {
+    padding-bottom: 40px;
+  }
+  #encargos-faq {
+    margin-top: 42px;
+  }
+  #encargos-faq .formats-guide__heading {
+    padding: 30px 22px;
+  }
+  .commission-prices td,
+  .commission-prices th {
+    padding: 12px;
+  }
+  .commission-wizard-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+/* Navegación entre tablas de tarifas */
+.commission-price-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 18px;
+}
+.commission-price-tabs button {
+  padding: 12px 18px;
+  min-height: 44px;
+  border: 1px solid #b9a487;
+  border-radius: 7px;
+  background: #fffaf0;
+  color: #46313e;
+  font: 700 14px Arial;
+  cursor: pointer;
+}
+.commission-price-tabs button[aria-selected="true"] {
+  background: #46313e;
+  border-color: #46313e;
+  color: #fff4e8;
+}
+.commission-price-tabs button:hover {
+  border-color: #674455;
+}
+.commission-price-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 12px 0;
+}
+.commission-price-navigation button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #b9a487;
+  border-radius: 50%;
+  background: #eadfc6;
+  color: #243329;
+  font-size: 23px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.commission-price-navigation #price-position {
+  margin: 0;
+  text-align: center;
+  color: #674455;
+  font-weight: 700;
+}
+.commission-prices [role="tabpanel"][hidden] {
+  display: none !important;
+}
+.commission-prices [role="tabpanel"] {
+  min-width: 0;
+}
+.commission-prices table {
+  min-width: 580px;
+}
+.commission-prices tbody td:last-child {
+  white-space: nowrap;
+  font-weight: 700;
+  color: #674455;
+}
+.commission-prices .commission-price-scroll {
+  margin-top: 12px;
+}
+@media (max-width: 600px) {
+  .commission-price-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .commission-price-tabs button {
+    padding: 12px 8px;
+  }
+}
+
+/* Extra opcional de ilustraciones */
+#commission-dialog #commission-form .commission-illustrations {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px;
+  background: #f0e5e9;
+  border: 1px solid #cdb6c0;
+  border-radius: 8px;
+}
+#commission-dialog #commission-form .commission-illustrations input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  min-height: 0;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: #674455;
+}
+#commission-dialog .commission-illustrations small {
+  display: block;
+  margin-top: 7px;
+  color: #544650;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+/* Resumen visual del encargo */
+#commission-dialog .commission-summary {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0;
+}
+
+#commission-dialog .commission-summary__card {
+  padding: 22px;
+  border: 1px solid #d4c7ad;
+  border-radius: 10px;
+  background: #fffcf5;
+}
+
+#commission-dialog .commission-summary h4 {
+  margin: 0 0 18px;
+  color: #674455;
+  font: 22px/1.3 Georgia, serif;
+}
+
+#commission-dialog .commission-summary__detail {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(0, 2fr);
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8dfce;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#commission-dialog .commission-summary__detail:last-child {
+  border-bottom: 0;
+}
+
+#commission-dialog .commission-summary__detail > span {
+  color: #626758;
+}
+
+#commission-dialog .commission-summary__detail > strong {
+  color: #243329;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+#commission-dialog .commission-summary__included {
+  margin: 14px 0;
+  color: #526052;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+#commission-dialog .commission-summary__description {
+  margin: 0;
+  color: #304333;
+  font-size: 15px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+#commission-dialog .commission-summary__price {
+  padding: 25px;
+  border: 1px solid #b7c4ae;
+  border-top: 4px solid #49664c;
+  border-radius: 10px;
+  background: #e7ecdf;
+}
+
+#commission-dialog .commission-summary__price h4 {
+  color: #294633;
+}
+
+#commission-dialog .commission-summary__total {
+  margin: 22px 0 10px;
+  color: #20392c;
+  font: 38px/1.2 Georgia, serif;
+}
+
+#commission-dialog .commission-summary__pending {
+  margin: 0;
+  color: #435244;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#commission-dialog [data-commission-step="3"] > .commission-notice {
+  margin: 22px 0;
+  padding: 16px 20px;
+  background: #eee3cb;
+  border-left: 3px solid #a18448;
+  border-radius: 0 7px 7px 0;
+}
+
+#commission-dialog #commission-send {
+  width: 100%;
+  min-height: 50px;
+}
+
+@media (max-width: 600px) {
+  #commission-dialog .commission-summary__card,
+  #commission-dialog .commission-summary__price {
+    padding: 18px;
+  }
+
+  #commission-dialog .commission-summary__detail {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  #commission-dialog .commission-summary__total {
+    font-size: 32px;
+  }
+}#commission-extras .commission-illustrations {
+  grid-column: 1 / -1;
+  width: 100%;
+  box-sizing: border-box;
+}
+#commission-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 22px;
+  border: 1px solid #b99b63;
+  border-radius: 7px;
+  background: #fffcf5;
+  color: #674455;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#commission-back:hover {
+  background: #eee3cb;
+  box-shadow: 0 3px 10px rgb(48 35 43 / 12%);
+}
+
+#commission-back:focus-visible {
+  outline: 2px solid #674455;
+  outline-offset: 3px;
+}
+
+#commission-back[hidden] {
+  display: none;
+}/* Navegación entre tablas de tarifas */
+.commission-price-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 18px;
+}
+
+.commission-price-tabs button {
+  padding: 12px 18px;
+  min-height: 44px;
+  border: 1px solid #b9a487;
+  border-radius: 7px;
+  background: #fffaf0;
+  color: #46313e;
+  font: 700 14px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.commission-price-tabs button[aria-selected="true"] {
+  background: #46313e;
+  border-color: #46313e;
+  color: #fff4e8;
+}
+
+.commission-price-tabs button:hover {
+  border-color: #674455;
+}
+
+.commission-price-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 12px 0;
+}
+
+.commission-price-navigation button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #b9a487;
+  border-radius: 50%;
+  background: #eadfc6;
+  color: #243329;
+  font-size: 23px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.commission-price-navigation #price-position {
+  margin: 0;
+  text-align: center;
+  color: #674455;
+  font-weight: 700;
+}
+
+.commission-prices [role="tabpanel"][hidden] {
+  display: none !important;
+}
+
+.commission-prices [role="tabpanel"] {
+  min-width: 0;
+}
+
+.commission-prices table {
+  min-width: 580px;
+}
+
+.commission-prices tbody td:last-child {
+  white-space: nowrap;
+  font-weight: 700;
+  color: #674455;
+}
+
+.commission-prices .commission-price-scroll {
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+/* Extras opcionales */
+#commission-extras[hidden] {
+  display: none !important;
+}
+
+#commission-dialog #commission-form .commission-illustrations {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 18px;
+  background: #f0e5e9;
+  border: 1px solid #cdb6c0;
+  border-radius: 8px;
+}
+
+#commission-dialog .commission-illustrations > span {
+  flex: 1;
+  min-width: 0;
+}
+
+#commission-dialog #commission-form .commission-illustrations input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  min-height: 0;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: #674455;
+}
+
+#commission-dialog .commission-illustrations small {
+  display: block;
+  margin-top: 7px;
+  color: #544650;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Resumen visual del encargo */
+#commission-dialog .commission-summary {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0;
+  white-space: normal;
+}
+
+#commission-dialog .commission-summary__card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #d4c7ad;
+  border-radius: 10px;
+  background: #fffcf5;
+}
+
+#commission-dialog .commission-summary h4 {
+  margin: 0 0 18px;
+  color: #674455;
+  font: 22px/1.3 Georgia, serif;
+}
+
+#commission-dialog .commission-summary__detail {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(0, 2fr);
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8dfce;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#commission-dialog .commission-summary__detail:last-child {
+  border-bottom: 0;
+}
+
+#commission-dialog .commission-summary__detail > span {
+  color: #626758;
+}
+
+#commission-dialog .commission-summary__detail > strong {
+  color: #243329;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+#commission-dialog .commission-summary__included {
+  margin: 14px 0;
+  color: #526052;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+#commission-dialog .commission-summary__description {
+  margin: 0;
+  color: #304333;
+  font-size: 15px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+#commission-dialog .commission-summary__price {
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid #b7c4ae;
+  border-top: 4px solid #49664c;
+  border-radius: 10px;
+  background: #e7ecdf;
+}
+
+#commission-dialog .commission-summary__price h4 {
+  color: #294633;
+}
+
+#commission-dialog .commission-summary__total {
+  margin: 22px 0 10px;
+  color: #20392c;
+  font: 38px/1.2 Georgia, serif;
+}
+
+#commission-dialog .commission-summary__pending {
+  margin: 0;
+  color: #435244;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#commission-dialog [data-commission-step="3"] > .commission-notice {
+  margin: 22px 0;
+  padding: 16px 20px;
+  background: #eee3cb;
+  border-left: 3px solid #a18448;
+  border-radius: 0 7px 7px 0;
+}
+
+#commission-dialog #commission-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Botones de navegación del formulario */
+#commission-dialog .commission-wizard-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+#commission-dialog #commission-back.commission-edit 
+  {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 22px !important;
+  box-sizing: border-box;
+  border: 1px solid #305b64 !important;
+  border-radius: 7px;
+  background: #3d737d !important;
+  color: #ffffff !important;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none !important;
+  box-shadow: 0 3px 8px rgb(35 70 78 / 18%);
+  cursor: pointer;
+  appearance: none;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#commission-dialog #commission-back.commission-edit:hover {
+  background: #2e5962 !important;
+  box-shadow: 0 4px 12px rgb(35 70 78 / 25%);
+}
+
+#commission-dialog #commission-back.commission-edit:focus-visible {
+  outline: 2px solid #674455;
+  outline-offset: 3px;
+}
+
+#commission-dialog #commission-back[hidden],
+#commission-dialog #commission-next[hidden] {
+  display: none !important;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 600px) {
+  .commission-price-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .commission-price-tabs button {
+    padding: 12px 8px;
+  }
+
+  #commission-dialog .commission-summary__card,
+  #commission-dialog .commission-summary__price {
+    padding: 18px;
+  }
+
+  #commission-dialog .commission-summary__detail {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  #commission-dialog .commission-summary__total {
+    font-size: 32px;
+  }
+}
+#commission-dialog #commission-next {
+  margin-left: auto;
+}
+/* Precios en una modal desde las tarjetas */
+.commission-cards > article { display:flex; flex-direction:column; }
+.commission-cards .commission-price-open { display:inline-flex; align-items:center; align-self:flex-start; margin-top:auto; min-height:44px; padding:10px 16px; border:1px solid #ad9271; border-radius:7px; background:#fffaf0; color:#46313e; font:700 14px/1.4 Arial,sans-serif; cursor:pointer; box-shadow:0 2px 0 #d6c7ad; }
+.commission-cards .commission-price-open:hover { background:#eadfc6; }
+.commission-cards .commission-price-open:active { transform:translateY(2px); box-shadow:none; }
+.commission-cards .commission-price-open:focus-visible, #commission-prices-dialog button:focus-visible { outline:3px solid #92733a; outline-offset:3px; }
+#commission-prices-dialog { position:fixed; inset:0; width:min(1000px,calc(100% - 32px)); max-width:none; height:auto; max-height:calc(100dvh - 40px); margin:auto; padding:0; box-sizing:border-box; overflow:auto; border:1px solid #b9a487; border-radius:16px; background:#f3eee2; color:#263c2d; overscroll-behavior:contain; }
+#commission-prices-dialog:not([open]) { display:none; }
+#commission-prices-dialog[open] { display:block; }
+#commission-prices-dialog::backdrop { background:rgb(12 22 17 / 75%); backdrop-filter:blur(4px); }
+#commission-prices-dialog .commission-prices-toolbar { position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 22px; background:#46313e; color:#f6e6c4; font:700 11px/1.5 Arial,sans-serif; letter-spacing:.12em; }
+#commission-prices-dialog .commission-prices-close { display:grid; place-items:center; flex:0 0 44px; width:44px; height:44px; margin:0; padding:0; border:1px solid #b9a487; border-radius:8px; background:#fffaf0; color:#46313e; font:26px/1 Arial,sans-serif; cursor:pointer; }
+#commission-prices-dialog .commission-prices { margin:0; padding:28px; }
+#commission-prices-dialog h2 { margin:10px 0 18px; color:#46313e; font:clamp(26px,4vw,36px)/1.2 Georgia,serif; }
+#commission-prices-dialog p { color:#435244; line-height:1.75; }
+#commission-prices-dialog .eyebrow { color:#795a28; }
+#commission-prices-dialog .commission-cta { background:#d8bd83; border-color:#a18448; color:#17291e; }
+#commission-prices-dialog .commission-cta:hover { background:#e5cc98; }
+#commission-prices-dialog .commission-price-scroll { overflow-x:auto; }
+@media(max-width:600px) {
+ #commission-prices-dialog { width:calc(100% - 20px); max-height:calc(100dvh - 24px); border-radius:12px; }
+ #commission-prices-dialog .commission-prices { padding:20px 16px; }
+ #commission-prices-dialog .commission-prices-toolbar { padding:10px 16px; }
+ #commission-prices-dialog table { min-width:0; width:100%; }
+ #commission-prices-dialog thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+ #commission-prices-dialog tbody { display:grid; gap:14px; }
+ #commission-prices-dialog tbody tr { display:block; border:1px solid #d5c5aa; border-radius:8px; overflow:hidden; background:#fffaf0; }
+ #commission-prices-dialog tbody th, #commission-prices-dialog tbody td { display:block; width:auto; white-space:normal; padding:12px 14px; overflow-wrap:anywhere; }
+ #commission-prices-dialog tbody th { background:#eadfc6; }
+ #commission-prices-dialog tbody td:last-child { border-bottom:0; }
+ #commission-prices-dialog tbody td::before { content:attr(data-label); display:block; margin-bottom:4px; color:#665649; font:700 11px/1.5 Arial,sans-serif; }
+}
+
+
+/* Entrada pergamino de las tarjetas de servicios */
+@keyframes commission-pergamino {
+  from { opacity: 0; clip-path: inset(0 0 100% 0 round 12px); translate: 0 -12px; }
+  to { opacity: 1; clip-path: inset(0 0 0 0 round 12px); translate: 0 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .commission-cards.commission-cards--entering > article {
+    animation: commission-pergamino 1000ms cubic-bezier(.22,1,.36,1) backwards;
+  }
+  .commission-cards.commission-cards--entering > article:nth-child(2) { animation-delay: 350ms; }
+  .commission-cards.commission-cards--entering > article:nth-child(3) { animation-delay: 700ms; }
+}
+
+
+/* Sobre de encargo: interacción nativa, sin JavaScript */
+.commission-envelope {
+  max-width: 1180px; width: calc(100% - 40px); margin: 36px auto 48px;
+  color: #304333;
+}
+.commission-envelope__details {
+  margin: 0; padding: 0; overflow: hidden; border: 1px solid #bda789;
+  border-radius: 14px; background: #e8dcc6; box-shadow: 0 6px 0 #d5c6ae66;
+}
+.commission-envelope__cover {
+  display: flex; align-items: center; gap: 30px; padding: 30px 36px;
+  background: #46313e; color: #fff4e8; list-style: none; cursor: pointer;
+}
+.commission-envelope__cover::marker { content: ''; }
+.commission-envelope__cover::-webkit-details-marker { display: none; }
+.commission-envelope__cover:focus-visible { outline: 3px solid #edcf99; outline-offset: -6px; }
+.commission-envelope__intro { display: block; min-width: 0; }
+.commission-envelope__eyebrow { display: block; margin-bottom: 12px; color: #e5c595; font: 700 10px/1.5 Arial,sans-serif; letter-spacing: .16em; }
+.commission-envelope h2 { margin: 0 0 10px; color: #fff4e8; font: clamp(26px,3.5vw,36px)/1.2 Georgia,serif; }
+.commission-envelope__description { display: block; color: #eadfe4; font-size: 14px; line-height: 1.7; }
+.commission-envelope__action {
+  display: inline-flex; align-items: center; gap: 22px; margin-top: 18px; padding: 9px 14px;
+  border: 1px solid #cbb182; border-radius: 6px; color: #f7e7c7; font: 700 13px/1.5 Arial,sans-serif;
+}
+.commission-envelope__cover:hover .commission-envelope__action { background: #ffffff0b; }
+.commission-envelope__symbol::before { content: '+'; font-size: 20px; line-height: 1; }
+.commission-envelope__open-label { display: none; }
+.commission-envelope__details[open] .commission-envelope__open-label { display: inline; }
+.commission-envelope__details[open] .commission-envelope__closed-label { display: none; }
+.commission-envelope__details[open] .commission-envelope__symbol::before { content: '−'; }
+.commission-envelope__drawing {
+  position: relative; display: block; flex: 0 0 130px; width: 130px; height: 88px;
+  border: 1px solid #baa17b; border-radius: 5px; background: #dfccaa;
+  box-shadow: 0 7px 16px #00000026; perspective: 500px; isolation: isolate;
+}
+.commission-envelope__drawing::before {
+  content: ''; position: absolute; inset: 0; z-index: 1; background: #f0e2c6;
+  clip-path: polygon(0 0,100% 0,50% 63%); transform-origin: top;
+  transition: transform 380ms ease;
+}
+.commission-envelope__drawing::after {
+  content: ''; position: absolute; inset: 0; background: #e8d7b8;
+  clip-path: polygon(0 12%,50% 65%,100% 12%,100% 100%,0 100%);
+}
+.commission-envelope__seal {
+  position: absolute; z-index: 2; left: 50%; top: 43%; display: grid; place-items: center;
+  width: 29px; height: 29px; border-radius: 50%; border: 1px solid #b18470;
+  background: #754b57; color: #f2d5a3; translate: -50% 0; font-size: 18px;
+}
+.commission-envelope__details[open] .commission-envelope__drawing::before { transform: rotateX(165deg); }
+.commission-envelope__sheet {
+  position: relative; margin: 22px; padding: 28px 32px; border: 1px solid #cfbea0;
+  background: #fffbf1; box-shadow: 0 5px 14px #66513212;
+}
+.commission-envelope__letter-heading {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
+  margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid #c9b894;
+  color: #84652e; font: 700 10px/1.6 Arial,sans-serif; letter-spacing: .1em;
+}
+.commission-envelope__columns { display: grid; grid-template-columns: 1.1fr 1fr; gap: 38px; }
+.commission-envelope h3 { margin: 0 0 12px; color: #49333e; font: 25px/1.3 Georgia,serif; }
+.commission-envelope__sheet p { margin: 0 0 16px; color: #435244; font-size: 14px; line-height: 1.75; }
+.commission-envelope__agreement { counter-reset: agreement; margin: 18px 0; }
+.commission-envelope__agreement > div {
+  position: relative; counter-increment: agreement; display: grid; grid-template-columns: 110px 1fr;
+  gap: 12px; padding: 12px 0 12px 32px; border-bottom: 1px solid #e1d6c1;
+}
+.commission-envelope__agreement > div::before { content: counter(agreement,decimal-leading-zero); position: absolute; left: 0; top: 13px; color: #947235; font: 12px/1.6 Georgia,serif; }
+.commission-envelope dt { color: #49333e; font-size: 14px; font-weight: 700; line-height: 1.6; }
+.commission-envelope dd { margin: 0; color: #435244; font-size: 13px; line-height: 1.7; }
+.commission-envelope__delivery { padding-left: 30px; border-left: 1px solid #e1d6c1; }
+.commission-envelope__formats { margin: 20px 0 28px; }
+.commission-envelope__formats > div + div { margin-top: 16px; }
+.commission-envelope__sheet p.commission-envelope__small { font-size: 12px; color: #6b685b; }
+.commission-envelope__sheet p.commission-envelope__signature { color: #84652e; font: italic 20px/1.5 Georgia,serif; }
+.commission-envelope__signature span { font: 12px/1.6 Arial,sans-serif; color: #6b685b; }
+.commission-envelope__sheet p.commission-envelope__notice { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid #c9b894; color: #6a5944; font-size: 12px; }
+@keyframes commission-letter-unfold { from { opacity: 0; transform: translateY(-10px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: translateY(0); clip-path: inset(0); } }
+@media(prefers-reduced-motion:no-preference) { .commission-envelope__details[open] .commission-envelope__sheet { animation: commission-letter-unfold 420ms ease-out both; } }
+@media(prefers-reduced-motion:reduce) { .commission-envelope__drawing::before { transition: none; } }
+@media(max-width:700px) {
+  .commission-envelope__columns { grid-template-columns: 1fr; gap: 24px; }
+  .commission-envelope__delivery { padding: 24px 0 0; border-left: 0; border-top: 1px solid #e1d6c1; }
+  .commission-envelope__cover { gap: 20px; padding: 26px 22px; }
+  .commission-envelope__drawing { flex-basis: 80px; width: 80px; height: 58px; }
+  .commission-envelope__seal { width: 23px; height: 23px; font-size: 14px; }
+  .commission-envelope__sheet { margin: 12px; padding: 24px 20px; }
+}
+@media(max-width:440px) {
+  .commission-envelope { width: calc(100% - 28px); }
+  .commission-envelope__cover { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .commission-envelope__agreement > div { grid-template-columns: 1fr; gap: 3px; }
+}

@@ -1,0 +1,106 @@
+[data-format-color="oneshot"] {
+  --format-bg: #fbe8d3;
+  --format-ink: #70451f;
+  --format-edge: #e9c39b;
+}
+[data-format-color="multi"] {
+  --format-bg: #e3eff9;
+  --format-ink: #294e6b;
+  --format-edge: #b5d0e5;
+}
+[data-format-color="short"] {
+  --format-bg: #e7f0df;
+  --format-ink: #365333;
+  --format-edge: #bed2ac;
+}
+[data-format-color="long"] {
+  --format-bg: #eee6f5;
+  --format-ink: #59406d;
+  --format-edge: #d0bbdd;
+}
+.adventure-format-badge[data-format-color] {
+  display: inline-block;
+  width: fit-content;
+  padding: 6px 10px;
+  border: 1px solid var(--format-edge);
+  border-radius: 7px;
+  background: var(--format-bg);
+  color: var(--format-ink);
+  font:
+    600 12px/1.5 Arial,
+    sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.request-adventure-card[data-format-color] {
+  border-top: 5px solid var(--format-edge);
+}
+.request-adventure-card .adventure-format-badge {
+  margin: 10px 0 4px;
+}
+tr[data-format-color] > td:first-child {
+  border-left: 4px solid var(--format-edge);
+}
+.request-format-preference {
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  background: #fbe8d3;
+  color: #70451f;
+  border: 1px solid #e9c39b;
+  border-radius: 10px;
+}
+.request-format-preference[hidden] {
+  display: none;
+}
+.request-format-preference p {
+  margin: 0 0 10px;
+  color: inherit;
+  line-height: 1.6;
+  font-size: 14px;
+}
+.request-format-preference button {
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: #70451f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font:
+    600 12px/1.5 Arial,
+    sans-serif;
+  cursor: pointer;
+}
+
+.adventure-format-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+/* Fondo completo de las filas y de la ficha seleccionada */
+#game-rates-body tr[data-format-color] > td,
+.request-adventure-card[data-format-color] {
+  background-color: var(--format-bg);
+}
+
+/* Colores de las opciones del desplegable */
+#request-game-form select[name="adventure"] option[data-format-color="oneshot"] {
+  background-color: #fbe8d3;
+  color: #70451f;
+}
+
+#request-game-form select[name="adventure"] option[data-format-color="multi"] {
+  background-color: #e3eff9;
+  color: #294e6b;
+}
+
+#request-game-form select[name="adventure"] option[data-format-color="short"] {
+  background-color: #e7f0df;
+  color: #365333;
+}
+
+#request-game-form select[name="adventure"] option[data-format-color="long"] {
+  background-color: #eee6f5;
+  color: #59406d;
+}

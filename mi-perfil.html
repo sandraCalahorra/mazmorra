@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="La Mazmorra del Roleo. Aventuras, mundos y recursos de rol de Hugo Durán para llevar nuevas historias a tu mesa."
+    />
+    <title>Mi perfil — La Mazmorra del Roleo</title>
+      <link rel="stylesheet" href="css/base.css?v=ordenado-1" />
+    <link rel="stylesheet" href="css/componentes.css?v=ordenado-1" />
+    <link rel="stylesheet" href="css/cuenta.css?v=ordenado-1" />
+    <link rel="stylesheet" href="css/animaciones.css?v=ordenado-1" />
+  </head>
+  <body>
+    <div class="preview">
+      LA MAZMORRA DEL ROLEO <span>·</span> Aventuras y partidas · Atención
+      directa con el autor
+    </div>
+    <header>
+      <a class="brand" href="index.html"
+        ><span class="brand-icon">♜</span
+        ><span>LA MAZMORRA<small>DEL ROLEO</small></span></a
+      ><button class="menu" aria-expanded="false" aria-controls="nav">
+        Menú ☰
+      </button>
+      <nav id="nav">
+        <a href="catalogo.html">El catálogo</a
+        ><a href="calendario.html">Calendario</a
+        ><a href="encargos.html">Encargos</a
+        ><a href="sobre-mi.html">Sobre mí</a>
+      </nav>
+      <a class="header-cta" href="contacto.html">Hablemos <span>↗</span></a>
+      <div id="user-menu"></div>
+    </header>
+    <main class="section detail-content account-page">
+      <h1>Mi perfil</h1>
+      <p id="user-status" role="status"></p>
+      <form id="user-profile" hidden>
+        <label
+          >Nombre o alias<input name="name" maxlength="80" required /></label
+        ><label>Correo<input name="email" type="email" disabled /></label
+        ><label
+          >Contacto<input name="contact" maxlength="200" required
+        /></label>
+        <h3>Cambiar contraseña</h3>
+        <p>Completa ambos campos si quieres cambiarla.</p>
+        <label
+          >Contraseña actual<input
+            name="current"
+            type="password"
+            autocomplete="current-password" /></label
+        ><label
+          >Nueva contraseña<input
+            name="password"
+            type="password"
+            autocomplete="new-password"
+            minlength="12"
+            maxlength="72" /></label
+        ><button class="btn gold">Guardar perfil</button>
+      </form>
+    </main>
+    <footer>
+      <a class="brand" href="index.html"
+        ><span class="brand-icon">♜</span
+        ><span>LA MAZMORRA<small>DEL ROLEO</small></span></a
+      >
+      <p>Historias que se leen. Aventuras que se viven.</p>
+      <div>
+        <button data-legal="legal">Información del sitio</button
+        ><button data-legal="privacy">Privacidad</button>
+      </div>
+      <small
+        >© 2026 La Mazmorra del Roleo. Proyecto independiente, no afiliado a
+        Wizards of the Coast.</small
+      ><a class="admin-access" href="admin.html">Administración</a>
+    </footer>
+    <dialog id="modal">
+      <button class="close" aria-label="Cerrar ventana">×</button>
+      <div id="modal-content"></div>
+    </dialog>
+    <script src="site-data.php"></script>
+    <script src="js/app.js"></script>
+    <script src="js/usuario.js"></script>
+    <script src="js/animaciones.js"></script>
+  </body>
+</html>

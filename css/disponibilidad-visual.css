@@ -1,0 +1,405 @@
+/* Consulta pública de disponibilidad */
+.agenda-availability-launch {
+  margin: 18px 0;
+}
+.agenda-availability-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px;
+  text-align: left;
+  background: #f8edd0;
+  color: #233e32;
+  border: 1px solid #b99b63;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  box-shadow: 0 4px 14px #00000015;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.agenda-availability-button:hover {
+  background: #fff6df;
+  transform: translateY(-2px);
+}
+.agenda-availability-button > span:first-child {
+  font-size: 30px;
+}
+.agenda-availability-button > span:last-child {
+  margin-left: auto;
+  font-size: 24px;
+}
+.agenda-availability-button small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+.agenda-availability-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(660px, calc(100vw - 32px));
+  max-height: 85dvh;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 32px;
+  border: 1px solid #c8b78e;
+  border-radius: 18px;
+  background: #fffcf4;
+  color: #223c30;
+  box-shadow: 0 24px 90px #0006;
+}
+.agenda-availability-modal::backdrop {
+  background: #091c17bd;
+  backdrop-filter: blur(5px);
+}
+.agenda-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #e8ecdf;
+  color: #284b3b;
+  font-size: 26px;
+  cursor: pointer;
+}
+.agenda-modal-eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #876127;
+  padding-right: 26px;
+}
+.agenda-availability-modal h2 {
+  font-size: 32px;
+  margin: 16px 0 8px;
+  color: #223c30;
+}
+.agenda-modal-date {
+  color: #79563b;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.agenda-duration-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 20px;
+}
+.agenda-duration-buttons button {
+  padding: 10px 14px;
+  border: 1px solid #bdc7b6;
+  border-radius: 24px;
+  background: #f2f2e8;
+  color: #284b3b;
+  cursor: pointer;
+  font: inherit;
+}
+.agenda-duration-buttons button[aria-pressed="true"] {
+  background: #284b3b;
+  color: #fff8df;
+  border-color: #284b3b;
+}
+.agenda-modal-status {
+  font-size: 14px;
+  padding: 12px;
+  background: #eef2e6;
+  border-radius: 8px;
+}
+.agenda-modal-slots h3 {
+  font-size: 19px;
+  margin: 20px 0 10px;
+  color: #284b3b;
+}
+.agenda-time-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+  gap: 8px;
+}
+.agenda-time-chip {
+  display: block;
+  text-align: center;
+  padding: 10px 6px;
+  border: 1px solid #bad0b5;
+  background: #edf4e6;
+  color: #255039;
+  border-radius: 8px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.agenda-modal-footnote {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 24px;
+  color: #526452;
+}
+@media (max-width: 480px) {
+  .agenda-availability-modal {
+    padding: 24px 18px;
+  }
+  .agenda-availability-modal h2 {
+    font-size: 27px;
+  }
+}
+button.agenda-time-chip {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+button.agenda-time-chip:hover,
+button.agenda-time-chip:focus-visible {
+  background: #284b3b;
+  color: #fff8df;
+  border-color: #284b3b;
+}
+
+.agenda-next-slot,
+.agenda-request-selection button {
+  border: 1px solid #b99b63;
+  border-radius: 8px;
+  background: #f3e7c8;
+  color: #284b3b;
+  padding: 10px 14px;
+  font: inherit;
+  cursor: pointer;
+  display: none;
+
+}
+.agenda-next-slot {
+  margin: 8px 0 16px;
+}
+.agenda-next-slot:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.agenda-request-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #edf2e6;
+  color: #284b3b;
+  padding: 12px 16px;
+  border: 1px solid #bfd0b5;
+  border-radius: 10px;
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+.agenda-request-selection[hidden],
+.agenda-next-slot[hidden] {
+  display: none;
+}
+/* Ventana de disponibilidad */
+.agenda-availability-modal {
+  width: min(700px, calc(100vw - 28px));
+  padding: 38px;
+  border: 1px solid #b99b63;
+  border-radius: 20px;
+  background: #f7f3e8;
+  color: #233c31;
+  box-shadow: 0 28px 90px rgb(0 0 0 / 35%);
+}
+
+.agenda-availability-modal::backdrop {
+  background: rgb(9 24 19 / 78%);
+  backdrop-filter: blur(7px);
+}
+
+.agenda-modal-eyebrow {
+  margin: 0 35px 18px 0;
+  color: #8d6835;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.agenda-availability-modal h2 {
+  margin-bottom: 12px;
+  font-size: clamp(28px, 5vw, 38px);
+}
+
+.agenda-modal-date {
+  display: inline-block;
+  margin: 0 0 20px;
+  padding: 8px 13px;
+  border-left: 3px solid #b99b63;
+  border-radius: 0 6px 6px 0;
+  background: #ebe4d3;
+  color: #665038;
+  font-size: 14px;
+}
+
+.agenda-modal-close {
+  top: 16px;
+  right: 16px;
+  background: #e7e4d9;
+  color: #294b3b;
+}
+
+.agenda-modal-close:hover {
+  background: #294b3b;
+  color: #fff8e7;
+}
+
+/* Selector de duración */
+.agenda-duration-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin: 14px 0 24px;
+}
+
+.agenda-duration-buttons button {
+  min-height: 52px;
+  padding: 10px 8px;
+  border: 1px solid #d4cdbb;
+  border-radius: 10px;
+  background: #fffdf7;
+  color: #425548;
+  font-size: 14px;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.agenda-duration-buttons button:hover {
+  border-color: #a18448;
+  background: #eee6d2;
+}
+
+.agenda-duration-buttons button[aria-pressed="true"] {
+  border-color: #b99b63;
+  background: #233f32;
+  color: #f7e4ae;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgb(35 63 50 / 18%);
+}
+
+/* Resultado de la consulta */
+.agenda-modal-status {
+  padding: 16px 18px;
+  border: 1px solid #ded5bf;
+  border-left: 4px solid #b99b63;
+  border-radius: 10px;
+  background: #eee7d7;
+  color: #4c5144;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.agenda-modal-slots h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 12px;
+  color: #365242;
+  font-size: 19px;
+}
+
+.agenda-modal-slots h3::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d7ceba;
+}
+
+/* Horas seleccionables */
+.agenda-time-grid {
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 10px;
+}
+
+button.agenda-time-chip {
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #cbd3c2;
+  border-radius: 10px;
+  background: #fffdf7;
+  color: #294b3b;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+button.agenda-time-chip:hover,
+button.agenda-time-chip:focus-visible {
+  transform: translateY(-2px);
+  border-color: #b99b63;
+  background: #294b3b;
+  color: #f7e4ae;
+  box-shadow: 0 5px 12px rgb(35 63 50 / 15%);
+}
+
+/* Buscar otra fecha */
+.agenda-next-slot {
+  width: 100%;
+  min-height: 50px;
+  margin: 12px 0;
+  padding: 14px 18px;
+  border: 1px solid #a78a4e;
+  border-radius: 10px;
+  background: #c5ab70;
+  color: #263c2f;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.agenda-next-slot:hover {
+  background: #d5bd87;
+}
+
+.agenda-modal-footnote {
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid #ddd4bf;
+  color: #6b7264;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 520px) {
+  .agenda-availability-modal {
+    padding: 28px 20px;
+  }
+
+  .agenda-duration-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agenda-duration-buttons button,
+  button.agenda-time-chip,
+  .agenda-next-slot {
+    transition: none;
+  }
+
+  button.agenda-time-chip:hover,
+  button.agenda-time-chip:focus-visible {
+    transform: none;
+  }
+}
+#request-game-form .agenda-request-selection {
+  display: none !important;
+}
+
+#request-game-form:has([data-step="2"]:not([hidden]))
+  .agenda-request-selection:not([hidden]) {
+  display: flex !important;
+}
