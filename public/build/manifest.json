@@ -1,0 +1,439 @@
+{
+  "_AdventureRates-BJndZ6_o.js": {
+    "file": "assets/AdventureRates-BJndZ6_o.js",
+    "name": "AdventureRates",
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "_SiteHeader-BH-hDt2x.js": {
+    "file": "assets/SiteHeader-BH-hDt2x.js",
+    "name": "SiteHeader",
+    "imports": [
+      "_account-h-QSJpDN.js",
+      "resources/js/main.js"
+    ]
+  },
+  "_account-h-QSJpDN.js": {
+    "file": "assets/account-h-QSJpDN.js",
+    "name": "account",
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "_admin-p6nRMG0L.js": {
+    "file": "assets/admin-p6nRMG0L.js",
+    "name": "admin",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "_useAccountForm-35oQjSfg.js": {
+    "file": "assets/useAccountForm-35oQjSfg.js",
+    "name": "useAccountForm",
+    "imports": [
+      "_account-h-QSJpDN.js",
+      "resources/js/main.js"
+    ]
+  },
+  "public/images/portal.svg": {
+    "file": "assets/portal-BY3A9_Mn.svg",
+    "src": "public/images/portal.svg"
+  },
+  "resources/js/features/admin-eliminar-solicitudes.js": {
+    "file": "assets/admin-eliminar-solicitudes-AVsbFUPb.js",
+    "name": "admin-eliminar-solicitudes",
+    "src": "resources/js/features/admin-eliminar-solicitudes.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-p6nRMG0L.js",
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/admin-fondos.js": {
+    "file": "assets/admin-fondos-C5amt_mO.js",
+    "name": "admin-fondos",
+    "src": "resources/js/features/admin-fondos.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/features/admin-visual.js": {
+    "file": "assets/admin-visual-epqWl_oo.js",
+    "name": "admin-visual",
+    "src": "resources/js/features/admin-visual.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-p6nRMG0L.js",
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/agenda-cliente.js": {
+    "file": "assets/agenda-cliente-CI1OWnFS.js",
+    "name": "agenda-cliente",
+    "src": "resources/js/features/agenda-cliente.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_account-h-QSJpDN.js",
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/animaciones.js": {
+    "file": "assets/animaciones-C1utWn6m.js",
+    "name": "animaciones",
+    "src": "resources/js/features/animaciones.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/features/app.js": {
+    "file": "assets/app-BOM1xHhd.js",
+    "name": "app",
+    "src": "resources/js/features/app.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/features/agenda-cliente.js",
+      "resources/js/main.js",
+      "_account-h-QSJpDN.js"
+    ]
+  },
+  "resources/js/features/carrusel.js": {
+    "file": "assets/carrusel-BRHK5Z00.js",
+    "name": "carrusel",
+    "src": "resources/js/features/carrusel.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/features/encargos-precios.js": {
+    "file": "assets/encargos-precios-Cwo-se3V.js",
+    "name": "encargos-precios",
+    "src": "resources/js/features/encargos-precios.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/features/encargos-tablas.js": {
+    "file": "assets/encargos-tablas-BFLK3tUz.js",
+    "name": "encargos-tablas",
+    "src": "resources/js/features/encargos-tablas.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/features/encargos.js": {
+    "file": "assets/encargos-Dgx2Cnws.js",
+    "name": "encargos",
+    "src": "resources/js/features/encargos.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/envios.js": {
+    "file": "assets/envios-X_h6ruX0.js",
+    "name": "envios",
+    "src": "resources/js/features/envios.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/escaparate.js": {
+    "file": "assets/escaparate-C5EBLhtX.js",
+    "name": "escaparate",
+    "src": "resources/js/features/escaparate.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/formatos-aventuras.js": {
+    "file": "assets/formatos-aventuras-B2Zm1icb.js",
+    "name": "formatos-aventuras",
+    "src": "resources/js/features/formatos-aventuras.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/formatos.js": {
+    "file": "assets/formatos-DE2fxZzU.js",
+    "name": "formatos",
+    "src": "resources/js/features/formatos.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/features/mesa.js": {
+    "file": "assets/mesa-BjUYwtBT.js",
+    "name": "mesa",
+    "src": "resources/js/features/mesa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/features/app.js",
+      "resources/js/main.js",
+      "resources/js/features/agenda-cliente.js",
+      "_account-h-QSJpDN.js"
+    ]
+  },
+  "resources/js/features/precios-partidas.js": {
+    "file": "assets/precios-partidas-bVwPSyAH.js",
+    "name": "precios-partidas",
+    "src": "resources/js/features/precios-partidas.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/sobre-mi-accesos.js": {
+    "file": "assets/sobre-mi-accesos-BvnvYtMw.js",
+    "name": "sobre-mi-accesos",
+    "src": "resources/js/features/sobre-mi-accesos.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/sobre-mi-catalogo.js": {
+    "file": "assets/sobre-mi-catalogo-CwWDuvSK.js",
+    "name": "sobre-mi-catalogo",
+    "src": "resources/js/features/sobre-mi-catalogo.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/sobre-mi.js": {
+    "file": "assets/sobre-mi-4Qs4fu88.js",
+    "name": "sobre-mi",
+    "src": "resources/js/features/sobre-mi.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/features/solicitar-partida.js": {
+    "file": "assets/solicitar-partida-CRymCCm4.js",
+    "name": "solicitar-partida",
+    "src": "resources/js/features/solicitar-partida.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/features/agenda-cliente.js",
+      "resources/js/features/precios-partidas.js",
+      "resources/js/main.js",
+      "_account-h-QSJpDN.js"
+    ]
+  },
+  "resources/js/features/solicitud-aventuras-colores.js": {
+    "file": "assets/solicitud-aventuras-colores-BCOUphnM.js",
+    "name": "solicitud-aventuras-colores",
+    "src": "resources/js/features/solicitud-aventuras-colores.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/features/tarifas-partidas.js": {
+    "file": "assets/tarifas-partidas-1Yr8CarP.js",
+    "name": "tarifas-partidas",
+    "src": "resources/js/features/tarifas-partidas.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/js/main.js": {
+    "file": "assets/main-CLiHRCN8.js",
+    "name": "main",
+    "src": "resources/js/main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/features/admin-eliminar-solicitudes.js",
+      "resources/js/features/admin-fondos.js",
+      "resources/js/features/admin-visual.js",
+      "_admin-p6nRMG0L.js",
+      "_admin-p6nRMG0L.js",
+      "resources/js/features/agenda-cliente.js",
+      "resources/js/features/animaciones.js",
+      "resources/js/features/app.js",
+      "resources/js/features/carrusel.js",
+      "resources/js/features/encargos-precios.js",
+      "resources/js/features/encargos-tablas.js",
+      "resources/js/features/encargos.js",
+      "_admin-p6nRMG0L.js",
+      "resources/js/features/envios.js",
+      "resources/js/features/escaparate.js",
+      "resources/js/features/formatos-aventuras.js",
+      "resources/js/features/formatos.js",
+      "resources/js/features/mesa.js",
+      "resources/js/features/precios-partidas.js",
+      "resources/js/features/sobre-mi-accesos.js",
+      "resources/js/features/sobre-mi-catalogo.js",
+      "resources/js/features/sobre-mi.js",
+      "resources/js/features/solicitar-partida.js",
+      "resources/js/features/solicitud-aventuras-colores.js",
+      "resources/js/features/tarifas-partidas.js",
+      "resources/js/pages/acceso.vue",
+      "resources/js/pages/admin.vue",
+      "resources/js/pages/calendario.vue",
+      "resources/js/pages/catalogo.vue",
+      "resources/js/pages/contacto.vue",
+      "resources/js/pages/encargos.vue",
+      "resources/js/pages/index.vue",
+      "resources/js/pages/mi-perfil.vue",
+      "resources/js/pages/mis-partidas.vue",
+      "resources/js/pages/registro.vue",
+      "resources/js/pages/sobre-mi.vue"
+    ],
+    "css": [
+      "assets/main-T_g6avaQ.css"
+    ]
+  },
+  "resources/js/pages/acceso.vue": {
+    "file": "assets/acceso-L86Lbl_6.js",
+    "name": "acceso",
+    "src": "resources/js/pages/acceso.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_SiteHeader-BH-hDt2x.js",
+      "_useAccountForm-35oQjSfg.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/acceso-ZestRVwm.css"
+    ]
+  },
+  "resources/js/pages/admin.vue": {
+    "file": "assets/admin-CX0-e3Ii.js",
+    "name": "admin",
+    "src": "resources/js/pages/admin.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ],
+    "css": [
+      "assets/admin-DZfAwaiu.css"
+    ]
+  },
+  "resources/js/pages/calendario.vue": {
+    "file": "assets/calendario-CDawhyDY.js",
+    "name": "calendario",
+    "src": "resources/js/pages/calendario.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_SiteHeader-BH-hDt2x.js",
+      "_AdventureRates-BJndZ6_o.js",
+      "resources/js/main.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/calendario-DD-2acPx.css"
+    ]
+  },
+  "resources/js/pages/catalogo.vue": {
+    "file": "assets/catalogo-BxOFrKWN.js",
+    "name": "catalogo",
+    "src": "resources/js/pages/catalogo.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_SiteHeader-BH-hDt2x.js",
+      "resources/js/main.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/catalogo-C5BaXkjA.css"
+    ],
+    "assets": [
+      "assets/portal-BY3A9_Mn.svg"
+    ]
+  },
+  "resources/js/pages/contacto.vue": {
+    "file": "assets/contacto-CERpRJ-F.js",
+    "name": "contacto",
+    "src": "resources/js/pages/contacto.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_SiteHeader-BH-hDt2x.js",
+      "resources/js/main.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/contacto-CU6ArraK.css"
+    ]
+  },
+  "resources/js/pages/encargos.vue": {
+    "file": "assets/encargos-BVtrBoS3.js",
+    "name": "encargos",
+    "src": "resources/js/pages/encargos.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_SiteHeader-BH-hDt2x.js",
+      "resources/js/main.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/encargos-vmISgVFX.css"
+    ]
+  },
+  "resources/js/pages/index.vue": {
+    "file": "assets/pages-DqTugqSZ.js",
+    "name": "pages",
+    "src": "resources/js/pages/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_SiteHeader-BH-hDt2x.js",
+      "resources/js/main.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/pages-B-wrlF8A.css"
+    ]
+  },
+  "resources/js/pages/mi-perfil.vue": {
+    "file": "assets/mi-perfil-Cm-QafNl.js",
+    "name": "mi-perfil",
+    "src": "resources/js/pages/mi-perfil.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_SiteHeader-BH-hDt2x.js",
+      "_useAccountForm-35oQjSfg.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/acceso-ZestRVwm.css"
+    ]
+  },
+  "resources/js/pages/mis-partidas.vue": {
+    "file": "assets/mis-partidas-DSZF0Zi6.js",
+    "name": "mis-partidas",
+    "src": "resources/js/pages/mis-partidas.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_account-h-QSJpDN.js",
+      "resources/js/main.js",
+      "_SiteHeader-BH-hDt2x.js"
+    ],
+    "css": [
+      "assets/mis-partidas-BUxdYZA7.css"
+    ]
+  },
+  "resources/js/pages/registro.vue": {
+    "file": "assets/registro-C8AsauGK.js",
+    "name": "registro",
+    "src": "resources/js/pages/registro.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_SiteHeader-BH-hDt2x.js",
+      "_useAccountForm-35oQjSfg.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/acceso-ZestRVwm.css"
+    ]
+  },
+  "resources/js/pages/sobre-mi.vue": {
+    "file": "assets/sobre-mi-DJRNhCle.js",
+    "name": "sobre-mi",
+    "src": "resources/js/pages/sobre-mi.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_SiteHeader-BH-hDt2x.js",
+      "_AdventureRates-BJndZ6_o.js",
+      "resources/js/main.js",
+      "_account-h-QSJpDN.js"
+    ],
+    "css": [
+      "assets/sobre-mi-B0FsrOmt.css"
+    ]
+  }
+}
