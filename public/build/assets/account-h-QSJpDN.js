@@ -1,0 +1,1 @@
+import{m as n,p as u}from"./main-CLiHRCN8.js";const s=u(null);let t;function r(){return t??(t=n.get("api/account").then(({data:a})=>s.value=a).catch(a=>{throw t=void 0,a})),t}async function d(a,c={}){const{csrf:o}=await r(),{data:e}=await n.post("api/account",{...c,action:a},{headers:{"X-Mazmorra-CSRF":o}});return t=void 0,e}export{s as a,r as l,d as u};
