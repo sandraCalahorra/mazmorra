@@ -2,23 +2,10 @@
 
 declare(strict_types=1);
 
-$config = require __DIR__ . '/config.php';
 class ValidationError extends RuntimeException {}
 function db(): PDO
 {
-    static $connection = null;
-    global $config;
-    if (!$connection) {
-        $connection = new PDO(
-            'mysql:host=' . $config['db_host'] . ';port=' . $config['db_port'] . ';dbname=' . $config['db_name'] . ';charset=utf8mb4',
-            $config['db_user'],
-            $config['db_password'],
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, PDO::ATTR_EMULATE_PREPARES => false]
-        );
-        // Todos los cambios de aforo bloquean primero la misma fila de games.
-        $connection->exec('SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED');
-    }
-    return $connection;
+    return Illuminate\Support\Facades\DB::connection()->getPdo();
 }
 function query(string $sql, array $args = []): PDOStatement
 {
@@ -28,12 +15,14 @@ function query(string $sql, array $args = []): PDOStatement
 }
 function json_response(int $status, array $data): never
 {
-    http_response_code($status);
-    header('Content-Type: application/json; charset=utf-8');
-    header('Cache-Control: no-store');
-    header('X-Content-Type-Options: nosniff');
-    echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
-    exit;
+    throw new Illuminate\Http\Exceptions\HttpResponseException(api_json($status, $data));
+}
+function api_json(int $status, array $data): Illuminate\Http\JsonResponse
+{
+    return response()->json($data, $status, [
+        'Cache-Control' => 'no-store',
+        'X-Content-Type-Options' => 'nosniff',
+    ], JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
 }
 function txt(mixed $value, int $limit = 300, bool $required = false): string
 {
@@ -58,8 +47,8 @@ function web_url(mixed $value, bool $upload = false): string
 }
 function body(): array
 {
-    if (strtolower(explode(';', $_SERVER['CONTENT_TYPE'] ?? '')[0]) !== 'application/json') throw new ValidationError('Se requiere JSON.');
-    $raw = file_get_contents('php://input', false, null, 0, 4000001);
+    if (strtolower(explode(';', request()->header('Content-Type', ''))[0]) !== 'application/json') throw new ValidationError('Se requiere JSON.');
+    $raw = request()->getContent();
     if (strlen($raw) > 4000000) throw new ValidationError('La solicitud es demasiado grande.');
     try {
         $object = json_decode($raw, false, 512, JSON_THROW_ON_ERROR);
@@ -71,35 +60,23 @@ function body(): array
 }
 function check_origin(): void
 {
-    global $config;
-    $expected = rtrim($config['origin'], '/');
-    $parts = parse_url($expected);
-    $host = ($parts['host'] ?? '') . (isset($parts['port']) ? ':' . $parts['port'] : '');
-    if (($_SERVER['HTTP_ORIGIN'] ?? '') !== $expected || ($_SERVER['HTTP_HOST'] ?? '') !== $host) json_response(403, ['error' => 'Origen no permitido. Revisa origin en app/config.php y abre esa dirección.']);
-}
-function start_session(): void
-{
-    global $config;
-    if (session_status() === PHP_SESSION_ACTIVE) return;
-    ini_set('session.use_strict_mode', '1');
-    ini_set('session.use_only_cookies', '1');
-    session_name('mazmorra_admin');
-    session_set_cookie_params(['lifetime' => 28800, 'path' => rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . '/', 'secure' => str_starts_with($config['origin'], 'https://'), 'httponly' => true, 'samesite' => 'Strict']);
-    session_start();
+    $parts = parse_url(config('app.url'));
+    $origin = ($parts['scheme'] ?? '') . '://' . ($parts['host'] ?? '')
+        . (isset($parts['port']) ? ':' . $parts['port'] : '');
+    if (request()->header('Origin') !== $origin || request()->getSchemeAndHttpHost() !== $origin) {
+        json_response(403, ['error' => 'Origen no permitido. Abre la dirección configurada en APP_URL.']);
+    }
 }
 function admin(bool $write = false): string
 {
-    start_session();
-    if (empty($_SESSION['admin']) || ($_SESSION['expires'] ?? 0) <= time()) json_response(401, ['error' => 'Inicia sesión para continuar.']);
-    $csrf = $_SESSION['csrf'];
-    if ($write && !hash_equals($csrf, $_SERVER['HTTP_X_CSRF_TOKEN'] ?? '')) json_response(403, ['error' => 'Sesión inválida. Vuelve a iniciar sesión.']);
-    // No retener el bloqueo de sesión durante una transacción de reservas.
-    session_write_close();
+    if (!session('admin') || (session('expires', 0)) <= time()) json_response(401, ['error' => 'Inicia sesión para continuar.']);
+    $csrf = session('mazmorra_csrf');
+    if ($write && !hash_equals($csrf, request()->header('X-Mazmorra-CSRF', ''))) json_response(403, ['error' => 'Sesión inválida. Vuelve a iniciar sesión.']);
     return $csrf;
 }
 function rate_limit(string $key, int $limit, int $window): void
 {
-    $key = hash('sha256', ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . '|' . $key);
+    $key = hash('sha256', (request()->ip() ?? 'unknown') . '|' . $key);
     $now = time();
     $c = db();
     $c->beginTransaction();

@@ -14,8 +14,6 @@ function reservation_rejection_email(array $reservation, array $game): string
     if (!is_file($path)) return 'not_configured';
     $cfg = require $path;
     if (!is_array($cfg) || ($cfg['enabled'] ?? false) !== true) return 'not_configured';
-    $autoload = dirname(__DIR__) . '/vendor/autoload.php';
-    if (is_file($autoload)) require_once $autoload;
     if (!class_exists(\PHPMailer\PHPMailer\PHPMailer::class)) return 'not_configured';
     if (empty($cfg['host']) || !filter_var($cfg['from_email'] ?? '', FILTER_VALIDATE_EMAIL)) return 'not_configured';
     try {

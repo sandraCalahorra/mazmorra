@@ -1,0 +1,27 @@
+{
+    "name": "mazmorra/mazmorra",
+    "description": "Catálogo y reservas de La Mazmorra del Roleo",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "ext-pdo_mysql": "*",
+        "laravel/framework": "^11.0",
+        "phpmailer/phpmailer": "^6.12"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/bootstrap.php",
+            "app/shipping.php",
+            "app/localidades.php",
+            "app/agenda.php",
+            "app/game-requests.php",
+            "app/reservation-notifications.php"
+        ]
+    }
+}

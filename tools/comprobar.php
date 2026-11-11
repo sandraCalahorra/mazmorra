@@ -5,7 +5,9 @@ if (PHP_SAPI !== 'cli') {
     http_response_code(403);
     exit('Solo disponible desde la terminal.');
 }
-require dirname(__DIR__) . '/app/bootstrap.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
+$app = require dirname(__DIR__) . '/bootstrap/app.php';
+$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 function ok(bool $value, string $label): void
 {
     if (!$value) throw new RuntimeException($label);
@@ -15,7 +17,7 @@ try {
     ok(version_compare(PHP_VERSION, '8.2', '>='), 'PHP 8.2 o superior');
     ok(extension_loaded('pdo_mysql'), 'Extensión pdo_mysql');
     ok(extension_loaded('gd'), 'Extensión GD para portadas');
-    ok(is_writable(dirname(__DIR__) . '/uploads'), 'Carpeta uploads escribible');
+    ok(is_writable(public_path('uploads')), 'Carpeta uploads escribible');
     $c = db();
     ok(true, 'Conexión MySQL/MariaDB');
     foreach (['admins', 'products', 'games', 'reservations', 'settings', 'rate_limits'] as $table) {

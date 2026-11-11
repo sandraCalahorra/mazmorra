@@ -1,0 +1,20 @@
+/* Iconos de los tres pasos; conserva las animaciones existentes. */
+      .booking-guide .booking-guide__step {
+        grid-template-rows: 140px 1fr;
+      }
+      .booking-guide .booking-guide__step h3 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 8px;
+      }
+      .booking-guide .booking-guide__step h3 > .booking-guide__icon {
+        display: block;
+        flex: 0 0 auto;
+        font-size: 25px;
+        line-height: 1;
+      }
+      .booking-guide .booking-guide__number {
+        top: 112px;
+      }

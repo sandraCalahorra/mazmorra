@@ -17,11 +17,10 @@ function game_request_rows(?string $user=null): array {
 }
 function game_request_submit(array $d): array {
     if(!game_requests_installed())throw new ValidationError('Importa database/solicitudes-partidas.sql para activar las solicitudes en la web.');
-    start_session();
-    if(($_SESSION['expires']??0)<=time() || !hash_equals((string)($_SESSION['csrf']??''),(string)($_SERVER['HTTP_X_CSRF_TOKEN']??'')) || empty($_SESSION['csrf']))throw new ValidationError('Recarga la página y vuelve a enviar la solicitud.');
+    if((session('expires', 0))<=time() || !hash_equals((string)(session('mazmorra_csrf', '')),(string)(request()->header('X-Mazmorra-CSRF', ''))) || !session('mazmorra_csrf'))throw new ValidationError('Recarga la página y vuelve a enviar la solicitud.');
     $token=txt($d['request_token']??'',64,true);
     if(!preg_match('/^[a-f0-9]{32}$/D',$token))throw new ValidationError('Referencia de envío no válida.');
-    $id=substr(hash('sha256',session_id().'|'.$token),0,32);
+    $id=substr(hash('sha256',session()->getId().'|'.$token),0,32);
     // Serializa envíos del mismo formulario y confirmaciones en esta agenda.
     rate_limit('game-request',12,900);
     db()->beginTransaction();query('SELECT id FROM agenda_settings WHERE id=1 FOR UPDATE')->fetch();
@@ -51,7 +50,7 @@ function game_request_submit(array $d): array {
     $slots=agenda_slots($date,$minutes);
     if($slots['enabled']&&!in_array($time,$slots['slots'],true))throw new ValidationError('Este horario ya no está disponible. Elige otro inicio.');
     $clean['date1']=$date;$clean['time1']=$time;
-    $uid=$_SESSION['user_id']??null;
+    $uid=session('user_id');
     query('INSERT INTO game_requests (id,user_id,name,contact,title,starts,duration,data) VALUES(?,?,?,?,?,?,?,?)',[$id,$uid,$clean['name'],$clean['contact'],$title,$start->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d\TH:i:s\Z'),$minutes,json_encode($clean,JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR)]);
     db()->commit();return ['ok'=>true,'reference'=>$id];
 }
