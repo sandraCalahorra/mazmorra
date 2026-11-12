@@ -1,5 +1,13 @@
-uploads/*
-!uploads/.htaccess
+/public/uploads/*
+!/public/uploads/.htaccess
 app/config.php
 *.log
 *.bak
+
+/.env
+/vendor/
+/node_modules/
+/.vite/
+/public/build/
+/public/hot
+/app/reservation-mail.php

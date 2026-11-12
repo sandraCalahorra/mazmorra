@@ -1,6 +1,6 @@
 <?php
 // Copia este archivo como app/reservation-mail.php y completa los datos SMTP.
-// No sustituyas app/config.php. No compartas el archivo con credenciales.
+// Conserva las credenciales en reservation-mail.php.
 return [
     'enabled' => false,
     'host' => '',
