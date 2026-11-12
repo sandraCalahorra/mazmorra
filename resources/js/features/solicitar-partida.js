@@ -1,7 +1,7 @@
 import { agendaClient } from './agenda-cliente';
 import { initializePricing } from './precios-partidas';
-import { requestWithStatus } from '../api';
-import { siteData } from '../siteData';
+import { requestWithStatus } from '@/bootstrap';
+import { siteData } from '@/store/modules/siteData';
 
 (() => {
   const botones = document.querySelectorAll("[data-request-game]");

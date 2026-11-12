@@ -1,5 +1,5 @@
-import { requestWithStatus } from '../api';
-import { siteData } from '../siteData';
+import { requestWithStatus } from '@/bootstrap';
+import { siteData } from '@/store/modules/siteData';
 
 (() => {
   const money = (n) =>

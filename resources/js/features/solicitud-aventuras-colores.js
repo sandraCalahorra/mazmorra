@@ -1,4 +1,4 @@
-import { siteData } from '../siteData';
+import { siteData } from '@/store/modules/siteData';
 
 (() => {
   if (window.__solicitudAventurasColores) return;

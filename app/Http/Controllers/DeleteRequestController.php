@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use ValidationError;
+use App\Exceptions\ValidationError;
 
 final class DeleteRequestController
 {

@@ -1,5 +1,5 @@
 import { notify, refresh, state } from './admin';
-import { requestWithStatus } from '../api';
+import { requestWithStatus } from '@/bootstrap';
 
 (() => {
   const panel = document.querySelector("#panel");

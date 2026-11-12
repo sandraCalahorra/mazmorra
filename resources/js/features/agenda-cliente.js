@@ -1,5 +1,5 @@
-import { loadAccount } from '../account';
-import { requestWithStatus } from '../api';
+import { loadAccount } from '@/store/modules/account';
+import { requestWithStatus } from '@/bootstrap';
 
 export let agendaClient;
 

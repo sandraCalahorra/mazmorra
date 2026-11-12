@@ -1,4 +1,4 @@
-import { siteData } from '../siteData';
+import { siteData } from '@/store/modules/siteData';
 
 export function initializePricing() {
   const dialog = document.querySelector("#request-game-dialog");
