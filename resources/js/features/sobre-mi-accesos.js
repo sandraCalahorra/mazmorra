@@ -1,4 +1,4 @@
-import { loadFeature } from '../features';
+import { loadFeature } from '@/features';
 
 (() => {
   const catalog = document.querySelector('[data-about-catalog]');

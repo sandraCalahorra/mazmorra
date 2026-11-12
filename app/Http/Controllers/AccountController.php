@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
 use Throwable;
-use ValidationError;
+use App\Exceptions\ValidationError;
 use PDOException;
 
 final class AccountController
@@ -88,7 +88,7 @@ final class AccountController
             return $e->getResponse();
         } catch (Throwable $e) {
             error_log('Usuario API: ' . get_class($e));
-            json_response(500,['error'=>'No se pudo completar la operación. Comprueba MySQL y las migraciones de database/usuarios.sql y database/avisos-reservas.sql.']);
+            json_response(500,['error'=>'No se pudo completar la operación. Comprueba MySQL y ejecuta php artisan migrate.']);
         }
     }
 

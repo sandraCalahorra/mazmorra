@@ -1,0 +1,589 @@
+<template>
+    <SiteHeader current="sobre-mi" />
+    <main class="interior-page about-page">
+        <section
+            class="about-hero about-hero--sheet"
+            aria-labelledby="about-title"
+        >
+            <div class="about-hero__copy">
+                <p class="about-kicker">DETRÁS DE LA PANTALLA</p>
+                <h1 id="about-title">
+                    Soy Hugo.<br />Yo preparo el mundo;<br /><em
+                >vosotros decidís qué ocurre.</em
+                >
+                </h1>
+                <p class="about-intro">
+                    Máster, autor y la persona detrás de
+                    <strong>La Mazmorra del Roleo</strong>. Escribo aventuras para
+                    llevarlas a la mesa, compartirlas y ver qué hace cada grupo con
+                    ellas.
+                </p>
+
+                <p class="about-intro">
+                    <strong>Todo máster guarda algún secreto.</strong> Despliega mi
+                    ficha y descubre mis rasgos, mis competencias y unas estadísticas
+                    poco fiables. 🎲
+                </p>
+            </div>
+
+            <div class="dm-intro-seal" aria-hidden="true">
+                <span>♜</span><small>EL MÁSTER<br />TAMBIÉN TIENE FICHA</small>
+            </div>
+        </section>
+        <section
+            class="dm-sheet dm-sheet--with-actions"
+            aria-label="La ficha del máster"
+        >
+            <details class="dm-sheet-fold">
+                <summary class="dm-sheet-fold__summary">
+                    <span class="dm-sheet-fold__crest" aria-hidden="true">♜</span
+                    ><span class="dm-sheet-fold__intro"
+                    ><span>DETRÁS DE LA PANTALLA</span>
+                        <h2>La ficha del máster</h2>
+                        <small
+                        >Atributos sospechosos, rasgos especiales y un poco de mi
+                            historia.</small
+                        ></span
+                        ><span class="dm-sheet-fold__action"
+                        ><span class="dm-sheet-fold__closed">Abrir mi ficha</span
+                        ><span class="dm-sheet-fold__opened">Guardar mi ficha</span
+                        ><span class="dm-sheet-fold__symbol" aria-hidden="true"></span
+                        ></span>
+                </summary>
+                <div class="dm-sheet-fold__content">
+                    <div class="dm-sheet__ribbon">
+                        <span>LA MAZMORRA DEL ROLEO</span
+                        ><span>FICHA DEL MÁSTER · D&amp;D 5e</span>
+                    </div>
+                    <div class="dm-sheet__identity">
+                        <div class="dm-sheet__portrait">
+                            <span aria-hidden="true">HD</span><small>OSOLIRON411</small>
+                        </div>
+                        <div class="dm-sheet__name">
+                            <p class="dm-sheet__field-label">NOMBRE DEL PERSONAJE</p>
+                            <h2 id="dm-name">Hugo Durán</h2>
+                            <p>Detrás de la pantalla. Dentro de cada historia.</p>
+                        </div>
+                        <dl class="dm-sheet__fields">
+                            <div>
+                                <dt>Clase</dt>
+                                <dd>Máster / Autor</dd>
+                            </div>
+                            <div>
+                                <dt>Trasfondo</dt>
+                                <dd>Creador de La Mazmorra del Roleo</dd>
+                            </div>
+                            <div>
+                                <dt>Experiencia</dt>
+                                <dd>7 años dirigiendo · 3 como máster de pago</dd>
+                            </div>
+                            <div>
+                                <dt>Sistema</dt>
+                                <dd>Dungeons &amp; Dragons 5e</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="dm-sheet__body dm-sheet__body--two-sides">
+                        <div class="dm-sheet__attributes">
+                            <div class="dm-abilities-heading">
+                                <h3>Atributos</h3>
+                                <p>Pulsa para descubrirlos.</p>
+                            </div>
+                            <div class="dm-abilities">
+                                <details class="dm-ability" data-ability="piedad">
+                                    <summary>
+                                        <span class="dm-ability__name">Piedad</span
+                                        ><span
+                                            class="dm-ability__score"
+                                            data-score=""
+                                            aria-label="Puntuación 8"
+                                        >8</span
+                                        ><span
+                                            class="dm-ability__modifier"
+                                            data-modifier=""
+                                            aria-label="Modificador -1"
+                                        >-1</span
+                                        ><span class="dm-ability__prompt" aria-hidden="true"
+                                        >+</span
+                                        >
+                                    </summary>
+                                    <p>¿Ese crítico era necesario?</p>
+                                </details>
+                                <details class="dm-ability" data-ability="suerte">
+                                    <summary>
+                                        <span class="dm-ability__name">Suerte</span
+                                        ><span
+                                            class="dm-ability__score"
+                                            data-score=""
+                                            aria-label="Puntuación 16"
+                                        >16</span
+                                        ><span
+                                            class="dm-ability__modifier"
+                                            data-modifier=""
+                                            aria-label="Modificador +3"
+                                        >+3</span
+                                        ><span class="dm-ability__prompt" aria-hidden="true"
+                                        >+</span
+                                        >
+                                    </summary>
+                                    <p>Veintes detrás de la pantalla.</p>
+                                </details>
+                                <details class="dm-ability" data-ability="improvisacion">
+                                    <summary>
+                                        <span class="dm-ability__name">Improvisación</span
+                                        ><span
+                                            class="dm-ability__score"
+                                            data-score=""
+                                            aria-label="Puntuación 18"
+                                        >18</span
+                                        ><span
+                                            class="dm-ability__modifier"
+                                            data-modifier=""
+                                            aria-label="Modificador +4"
+                                        >+4</span
+                                        ><span class="dm-ability__prompt" aria-hidden="true"
+                                        >+</span
+                                        >
+                                    </summary>
+                                    <p>Esto estaba planeado. Claro.</p>
+                                </details>
+                            </div>
+                        </div>
+                        <div class="dm-sheet__content">
+                            <div
+                                class="dm-tabs"
+                                role="tablist"
+                                aria-label="Apartados de la ficha"
+                                hidden=""
+                            >
+                                <button
+                                    type="button"
+                                    role="tab"
+                                    id="dm-tab-traits"
+                                    aria-controls="dm-panel-traits"
+                                    aria-selected="true"
+                                >
+                                    📜 Rasgos
+                                </button>
+                                <button
+                                    type="button"
+                                    role="tab"
+                                    id="dm-tab-skills"
+                                    aria-controls="dm-panel-skills"
+                                    aria-selected="false"
+                                    tabindex="-1"
+                                >
+                                    🎲 Competencias
+                                </button>
+                                <button
+                                    type="button"
+                                    role="tab"
+                                    id="dm-tab-diary"
+                                    aria-controls="dm-panel-diary"
+                                    aria-selected="false"
+                                    tabindex="-1"
+                                >
+                                    📖 Diario
+                                </button>
+                            </div>
+                            <div id="dm-panel-traits" class="dm-panel">
+                                <div class="dm-panel__heading">
+                                    <span>RASGOS DE CLASE</span>
+                                    <h3>Habilidades especiales del máster.</h3>
+                                </div>
+                                <div class="dm-traits">
+                                    <article>
+                                        <span aria-hidden="true">01</span>
+                                        <h4>🎭 Voz de PNJ</h4>
+                                        <p>
+                                            Puedo interpretar a veinte personajes distintos con las
+                                            <strong>mismas tres voces</strong>.
+                                        </p>
+                                    </article>
+                                    <article>
+                                        <span aria-hidden="true">02</span>
+                                        <h4>🎲 No os preocupéis</h4>
+                                        <p>
+                                            Pronunciar esta frase obliga al grupo a
+                                            <strong>preocuparse inmediatamente</strong>.
+                                        </p>
+                                    </article>
+                                    <article>
+                                        <span aria-hidden="true">03</span>
+                                        <h4>👁️ ¿Estáis seguros?</h4>
+                                        <p>
+                                            Puedo convertir abrir una puerta en
+                                            <strong>veinte minutos de debate</strong>. Usos
+                                            ilimitados.
+                                        </p>
+                                    </article>
+                                </div>
+                            </div>
+                            <div id="dm-panel-skills" class="dm-panel">
+                                <div class="dm-panel__heading">
+                                    <span>COMPETENCIAS</span>
+                                    <h3>En esto tengo competencia.</h3>
+                                </div>
+                                <div class="dm-skills">
+                                    <details>
+                                        <summary>🎲 Dirección de partidas</summary>
+                                        <p>
+                                            Yo pongo el mundo, los peligros y los PNJ. Vosotros
+                                            encontráis
+                                            <strong>la única solución que no había previsto</strong
+                                            >.
+                                        </p>
+                                    </details>
+                                    <details>
+                                        <summary>📜 Escritura de aventuras</summary>
+                                        <p>
+                                            Convierto ideas en
+                                            <strong>historias listas para jugar</strong>. Lo de que
+                                            sobrevivan a vuestro grupo ya es otra aventura.
+                                        </p>
+                                    </details>
+                                    <details>
+                                        <summary>🐉 Criaturas y objetos mágicos</summary>
+                                        <p>
+                                            Diseño bichos que os compliquen la vida y
+                                            <strong
+                                            >objetos que os ayuden a complicármela a mí</strong
+                                            >.
+                                        </p>
+                                    </details>
+                                    <details>
+                                        <summary>🗝️ Localizaciones y misterios</summary>
+                                        <p>
+                                            Lugares llenos de <strong>secretos y pistas</strong>.
+                                            Algunas incluso las encontraréis antes de quemar el
+                                            edificio.
+                                        </p>
+                                    </details>
+                                </div>
+                                <a
+                                    class="dm-sheet-cta dm-sheet-cta--primary"
+                                    href="encargos"
+                                >Creamos algo para tu mesa
+                                    <span aria-hidden="true">✦</span></a
+                                    >
+                            </div>
+                            <div id="dm-panel-diary" class="dm-panel">
+                                <div class="dm-panel__heading">
+                                    <span>DIARIO DE AVENTURAS</span>
+                                    <h3>Mi historia, en tres capítulos.</h3>
+                                </div>
+                                <div class="about-chapters">
+                                    <details>
+                                        <summary>
+                                            <span class="about-chapters__number">01</span
+                                            ><span
+                                            ><small>EL PRIMER DADO</small
+                                            ><strong>Empecé detrás de la pantalla</strong></span
+                                            ><span class="about-plus" aria-hidden="true"></span>
+                                        </summary>
+                                        <div class="about-chapters__content">
+                                            <p>
+                                                <strong
+                                                >Mi primera partida ya fue como máster.</strong
+                                                >
+                                                Fue caótica, divertida y suficiente para que quisiera
+                                                seguir preparando historias. Con el tiempo, aquella
+                                                afición fue ocupando cada vez más espacio.
+                                            </p>
+                                            <p>
+                                                Hoy sigo alternando aventuras propias y oficiales, con
+                                                ganas de descubrir qué hará el siguiente grupo.
+                                            </p>
+                                        </div>
+                                    </details>
+                                    <details>
+                                        <summary>
+                                            <span class="about-chapters__number">02</span
+                                            ><span
+                                            ><small>LA MAZMORRA DEL ROLEO</small
+                                            ><strong
+                                            >De dirigir historias a compartirlas</strong
+                                            ></span
+                                            ><span class="about-plus" aria-hidden="true"></span>
+                                        </summary>
+                                        <div class="about-chapters__content">
+                                            <p>
+                                                La Mazmorra del Roleo reúne mis dos facetas:
+                                                <strong>dirigir partidas y escribir contenido</strong>
+                                                para que otras mesas también puedan disfrutarlo.
+                                            </p>
+                                            <p>
+                                                <em>La Casa de los Miller</em> y
+                                                <em>La Caverna Misteriosa</em> forman parte de ese
+                                                recorrido como autor. Me gusta trabajar con la
+                                                tensión, los misterios y los lugares que esconden algo
+                                                más de lo que muestran.
+                                            </p>
+                                            <a class="about-text-link" href="catalogo"
+                                            >Conocer mis publicaciones →</a
+                                            >
+                                        </div>
+                                    </details>
+                                    <details>
+                                        <summary>
+                                            <span class="about-chapters__number">03</span
+                                            ><span
+                                            ><small>EL SIGUIENTE CAPÍTULO</small
+                                            ><strong
+                                            >Siempre hay otra idea en el escritorio</strong
+                                            ></span
+                                            ><span class="about-plus" aria-hidden="true"></span>
+                                        </summary>
+                                        <div class="about-chapters__content">
+                                            <p>
+                                                Entre partidas sigo escribiendo aventuras, diseñando
+                                                criaturas, objetos mágicos y localizaciones. También
+                                                desarrollo contenido por encargo para quienes tienen
+                                                una idea que quieren llevar a su mesa.
+                                            </p>
+                                            <p>
+                                                Esta web es el lugar donde se encuentran esas
+                                                historias: las que puedes jugar conmigo y las que
+                                                puedes llevarte a tu propio grupo.
+                                            </p>
+                                            <a class="about-text-link" href="encargos"
+                                            >Tengo una idea para un encargo →</a
+                                            >
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dm-sheet__attributes dm-sheet__attributes--right">
+                            <div class="dm-abilities-heading">
+                                <h3>Más atributos</h3>
+                                <p>Pulsa para descubrirlos.</p>
+                            </div>
+                            <div class="dm-abilities">
+                                <details class="dm-ability" data-ability="maldad">
+                                    <summary>
+                                        <span class="dm-ability__name">Maldad</span
+                                        ><span
+                                            class="dm-ability__score"
+                                            data-score=""
+                                            aria-label="Puntuación 14"
+                                        >14</span
+                                        ><span
+                                            class="dm-ability__modifier"
+                                            data-modifier=""
+                                            aria-label="Modificador +2"
+                                        >+2</span
+                                        ><span class="dm-ability__prompt" aria-hidden="true"
+                                        >+</span
+                                        >
+                                    </summary>
+                                    <p>El cofre tenía dientes.</p>
+                                </details>
+                                <details class="dm-ability" data-ability="sadismo">
+                                    <summary>
+                                        <span class="dm-ability__name">Sadismo</span
+                                        ><span
+                                            class="dm-ability__score"
+                                            data-score=""
+                                            aria-label="Puntuación 15"
+                                        >15</span
+                                        ><span
+                                            class="dm-ability__modifier"
+                                            data-modifier=""
+                                            aria-label="Modificador +2"
+                                        >+2</span
+                                        ><span class="dm-ability__prompt" aria-hidden="true"
+                                        >+</span
+                                        >
+                                    </summary>
+                                    <p>«¿Cómo que otra fase?»</p>
+                                </details>
+                                <details class="dm-ability" data-ability="disimulo">
+                                    <summary>
+                                        <span class="dm-ability__name">Disimulo</span
+                                        ><span
+                                            class="dm-ability__score"
+                                            data-score=""
+                                            aria-label="Puntuación 17"
+                                        >17</span
+                                        ><span
+                                            class="dm-ability__modifier"
+                                            data-modifier=""
+                                            aria-label="Modificador +3"
+                                        >+3</span
+                                        ><span class="dm-ability__prompt" aria-hidden="true"
+                                        >+</span
+                                        >
+                                    </summary>
+                                    <p>Esa sonrisa no augura nada bueno.</p>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dm-sheet__footer">
+                        <span>🎲 Principiantes bienvenidos</span
+                        ><a
+                            href="https://mesasroleras.com/gm/osoliron411"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="dm-sheet-cta dm-sheet-cta--reviews"
+                        >Opiniones de mis jugadores ↗</a
+                        >
+                    </div>
+                </div>
+            </details>
+        </section>
+        <div class="about-actions about-actions--after-sheet">
+            <a class="about-button" href="calendario"
+            >Quiero jugar contigo <span aria-hidden="true">↗</span></a
+            >
+            <a class="about-text-link" href="catalogo"
+            >Explorar tus publicaciones →</a
+            >
+        </div>
+        <a
+            class="about-reviews"
+            href="https://mesasroleras.com/gm/osoliron411"
+            target="_blank"
+            rel="noopener noreferrer"
+        >¿Cómo es jugar conmigo? Lee a mis jugadores en Mesas Roleras ↗</a
+        >
+
+        <section class="about-table" aria-labelledby="about-table-title">
+            <div class="about-section-heading">
+                <p class="about-kicker">BUSCA TU SITIO</p>
+                <h2 id="about-table-title">¿Cómo es sentarse a mi mesa?</h2>
+                <p>Encuentra tu forma de jugar conmigo.</p>
+            </div>
+
+            <div class="about-table-cards">
+                <article id="about-panel-new" class="about-table-card">
+                    <div class="about-table-card__head">
+                        <span class="about-table-card__icon" aria-hidden="true">🌱</span>
+                        <h3>Tu primera partida</h3>
+                    </div>
+                    <div class="about-table-card__body">
+                        <h4>No necesitas sabértelo todo.</h4>
+                        <p>
+                            Si es tu primer contacto con D&amp;D, te ayudaré a entender las
+                            reglas mientras jugamos. Puedes preguntar: aprender también
+                            forma parte de la partida.
+                        </p>
+                        <p class="about-panel__note">
+                            Consulta las próximas mesas y dime que estás empezando. Te
+                            acompañaré con las reglas.
+                        </p>
+                        <a class="about-text-link" href="calendario"
+                        >Ver próximas partidas →</a
+                        >
+                    </div>
+                </article>
+                <article id="about-panel-player" class="about-table-card">
+                    <div class="about-table-card__head">
+                        <span class="about-table-card__icon" aria-hidden="true">🎲</span>
+                        <h3>Ya tienes experiencia</h3>
+                    </div>
+                    <div class="about-table-card__body">
+                        <h4>El mundo responde a lo que hacéis.</h4>
+                        <p>
+                            Me interesa el mazmorreo con sentido: lugares que explorar,
+                            secretos y retos que admitan distintas soluciones. Hay espacio
+                            para interpretar, combatir y asumir las consecuencias de
+                            vuestras decisiones.
+                        </p>
+                        <p class="about-panel__note">
+                            Explora las aventuras disponibles y encuentra vuestra próxima
+                            historia.
+                        </p>
+                        <a
+                            class="about-text-link"
+                            href="calendario"
+                            data-about-catalog=""
+                            aria-haspopup="dialog"
+                        >Explorar aventuras →</a
+                        >
+                    </div>
+                </article>
+                <article id="about-panel-group" class="about-table-card">
+                    <div class="about-table-card__head">
+                        <span class="about-table-card__icon" aria-hidden="true">🧭</span>
+                        <h3>Vienes con tu grupo</h3>
+                    </div>
+                    <div class="about-table-card__body">
+                        <h4>Busquemos una aventura para vosotros.</h4>
+                        <p>
+                            Contadme qué os apetece jugar, cuántos sois y vuestra
+                            experiencia. Podemos elegir una aventura propia, una oficial o
+                            plantear una partida personalizada.
+                        </p>
+                        <p class="about-panel__note">
+                            Contadme cuántos sois, qué os apetece jugar y vuestra
+                            disponibilidad. Concretaremos los detalles antes de confirmar.
+                        </p>
+                        <a
+                            class="about-text-link"
+                            href="calendario"
+                            data-about-request=""
+                            aria-haspopup="dialog"
+                        >Solicitar una partida →</a
+                        >
+                    </div>
+                </article>
+            </div>
+            <p id="about-action-status" role="status"></p>
+        </section>
+
+        <section
+            class="about-invitation"
+            aria-labelledby="about-invitation-title"
+        >
+            <div>
+                <p class="about-kicker">NOS VEMOS AL OTRO LADO DE LA PANTALLA</p>
+                <h2 id="about-invitation-title">
+                    La siguiente historia<br />todavía está por jugar.
+                </h2>
+                <p>
+                    Ya sabes quién prepara la mesa. Ahora me gustaría conocer a quienes
+                    se van a sentar en ella.
+                </p>
+                <p class="about-signature">Hugo</p>
+            </div>
+            <a class="about-button" href="contacto"
+            >Hablemos de vuestra próxima aventura ↗</a
+            >
+        </section>
+    </main>
+    <footer>
+        <a class="brand" href="./"
+        ><span class="brand-icon">♜</span
+        ><span>LA MAZMORRA<small>DEL ROLEO</small></span></a
+        >
+        <p>Historias que se leen. Aventuras que se viven.</p>
+        <div>
+            <button data-legal="legal">Información del sitio</button
+            ><button data-legal="privacy">Privacidad</button>
+        </div>
+        <small
+        >© 2026 La Mazmorra del Roleo. Proyecto independiente, no afiliado a
+            Wizards of the Coast.</small
+        ><a class="admin-access" href="admin">Administración</a>
+    </footer>
+    <dialog id="modal">
+        <button class="close" aria-label="Cerrar ventana">×</button>
+        <div id="modal-content"></div>
+    </dialog>
+    <AdventureRates hidden />
+</template>
+
+<script>
+import '../../../css/pages/sobre-mi.css';
+import SiteHeader from '../shared/SiteHeader.vue';
+import AdventureRates from '../shared/AdventureRates.vue';
+
+export const features = ["app", "animaciones", "sobre-mi", "solicitud-aventuras-colores", "sobre-mi-accesos"];
+export const needsSiteData = true;
+
+export default {
+    components: { SiteHeader, AdventureRates },
+};
+</script>

@@ -1,5 +1,5 @@
 import { contact } from './app';
-import { siteData } from '../siteData';
+import { siteData } from '@/store/modules/siteData';
 
 (() => {
   const box = document.querySelector("#next-table-game");
@@ -148,7 +148,7 @@ import { siteData } from '../siteData';
     "btn gold table-book-button"
   );
 
-  link.href = `calendario.html?partida=${encodeURIComponent(game.id)}`;
+  link.href = `calendario?partida=${encodeURIComponent(game.id)}`;
 
   box.append(link);
 })();

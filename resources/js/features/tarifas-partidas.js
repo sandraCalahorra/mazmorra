@@ -1,4 +1,4 @@
-import { siteData } from '../siteData';
+import { siteData } from '@/store/modules/siteData';
 
 (() => {
   // Compatible con el HTML del catálogo anterior y el de tarjetas.

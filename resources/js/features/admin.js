@@ -1,6 +1,6 @@
 import { shippingProductFields, renderShippingSettings } from './envios-admin';
 import { agendaEditor, renderAgendaAdmin, renderAgendaAlerts } from './agenda-admin';
-import { requestWithStatus } from '../api';
+import { requestWithStatus } from '@/bootstrap';
 
 const $ = (s) => document.querySelector(s),
   esc = (v) =>

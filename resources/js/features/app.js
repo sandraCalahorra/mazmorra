@@ -1,6 +1,6 @@
 import { agendaClient } from './agenda-cliente';
-import { requestWithStatus } from '../api';
-import { siteData } from '../siteData';
+import { requestWithStatus } from '@/bootstrap';
+import { siteData } from '@/store/modules/siteData';
 
 const $ = (s) => document.querySelector(s),
   esc = (v) =>

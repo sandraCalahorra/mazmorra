@@ -1,5 +1,7 @@
 <?php
 
+use App\Exceptions\ValidationError;
+use Database\Seeders\ProductsSeeder;
 use Illuminate\Support\Facades\Artisan;
 
 Artisan::command('mazmorra:admin', function (): int {
@@ -26,12 +28,7 @@ Artisan::command('mazmorra:admin', function (): int {
             $username, password_hash($password, PASSWORD_DEFAULT),
         ]);
         if ((int) query('SELECT COUNT(*) FROM products')->fetchColumn() === 0) {
-            $products = json_decode(file_get_contents(app_path('seed-products.json')), true, 512, JSON_THROW_ON_ERROR);
-            foreach ($products as $product) {
-                query('INSERT INTO products(id,data) VALUES(?,?)', [
-                    $product['id'], json_encode($product, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
-                ]);
-            }
+            app(ProductsSeeder::class)->run();
         }
         $connection->commit();
     } catch (Throwable $error) {

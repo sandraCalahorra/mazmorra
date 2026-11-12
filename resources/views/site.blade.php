@@ -8,7 +8,7 @@
     @if ($page['description'])
         <meta name="description" content="{{ $page['description'] }}">
     @endif
-    @vite('resources/js/main.js')
+    @vite('resources/js/app.js')
 </head>
 <body>
     <div id="app" class="contents" data-page="{{ $name }}" aria-busy="true"></div>

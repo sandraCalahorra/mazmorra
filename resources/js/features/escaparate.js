@@ -1,4 +1,4 @@
-import { siteData } from '../siteData';
+import { siteData } from '@/store/modules/siteData';
 
 (() => {
   const lista = document.querySelector("#featured-products");
@@ -49,7 +49,7 @@ import { siteData } from '../siteData';
   lista.innerHTML = publicaciones.length
     ? publicaciones.map((p) => {
         const enlace =
-          "catalogo.html#publicacion-" +
+          "catalogo#publicacion-" +
           encodeURIComponent(String(p.id));
 
         const estado =

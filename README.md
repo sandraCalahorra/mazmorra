@@ -18,13 +18,15 @@ php artisan key:generate
 Crea una base MySQL vacía para una instalación nueva. Configura la conexión en `.env` con `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`. Para una instalación existente, sigue los pasos del siguiente apartado.
 
 ```powershell
-php artisan migrate
+php artisan migrate --seed
 php artisan mazmorra:admin
 npm run build
 php artisan serve --host=127.0.0.1 --port=8000
 ```
 
-Crea el administrador una sola vez. Abre [la web local](http://127.0.0.1:8000) y entra en [el panel](http://127.0.0.1:8000/admin). Para desarrollar el frontend, ejecuta `npm run dev` en otra terminal y abre la URL de Laravel. `APP_URL` debe coincidir con la dirección que usas, incluido el puerto.
+Puedes ejecutar `php artisan db:seed` para cargar la configuración y los productos iniciales que falten. Los seeders conservan los registros que ya existen. Crea el administrador una sola vez con `php artisan mazmorra:admin`.
+
+Abre [la web local](http://127.0.0.1:8000) y entra en [el panel](http://127.0.0.1:8000/admin). Para desarrollar el frontend, ejecuta `npm run dev` en otra terminal y abre la URL de Laravel. `APP_URL` debe coincidir con la dirección que usas, incluido el puerto.
 
 ## Actualizar una instalación existente
 
@@ -34,7 +36,9 @@ Crea el administrador una sola vez. Abre [la web local](http://127.0.0.1:8000) y
 4. Copia las imágenes subidas de la instalación anterior a `public/uploads/`. Conserva `app/reservation-mail.php` si ya configuraste el correo de rechazos.
 5. Ejecuta `npm run build` y vuelve a iniciar sesión. Laravel usa una nueva cookie de sesión.
 
-Las rutas de página anteriores, como `catalogo.html`, siguen disponibles. `/recursos.html` redirige al catálogo. Las peticiones del navegador usan las rutas JSON bajo `/api`.
+Las páginas usan URL como `/catalogo` y `/calendario`. Los enlaces antiguos con `.html` redirigen a la URL actual, y `/recursos` redirige al catálogo. Las peticiones del navegador usan las rutas JSON bajo `/api`.
+
+Si actualizas una copia que ya usa Laravel, ejecuta `composer install`, `php artisan route:clear` y `npm run build` para cargar la nueva estructura. Si usas caché de rutas en producción, vuelve a generarla con `php artisan route:cache`.
 
 ## Servidor web
 
@@ -44,8 +48,10 @@ En Apache/XAMPP configura el directorio público en `public/` y permite las regl
 
 ## Estructura
 
-- `resources/js/pages/` contiene las páginas Vue y `resources/js/components/` los componentes compartidos.
-- `resources/js/api.js` configura Axios. `resources/js/features/` contiene los módulos del catálogo, el calendario y la administración.
-- `resources/css/app.css` carga Tailwind y `resources/css/site/` contiene los estilos propios de la web. Vite compila ambos.
-- `routes/web.php` y `app/Http/` contienen las rutas, los controladores y la protección de la API.
+- `resources/js/app.js` arranca Vue desde `resources/views/site.blade.php`. Laravel resuelve la URL y `resources/js/router/` carga la vista correspondiente desde `resources/js/components/views/`. Los componentes reutilizables están en `resources/js/components/shared/`.
+- Los componentes Vue usan la Options API: `data` para el estado local, `computed` para los valores derivados, `mounted` para la inicialización y `methods` para las acciones. La lógica de los formularios de cuenta se comparte en `resources/js/components/mixins/accountForm.js`.
+- `resources/js/bootstrap.js` configura Axios. `resources/js/store/modules/` reúne el estado compartido de la cuenta y del sitio, y `resources/js/features/` contiene las interacciones del catálogo, el calendario y la administración.
+- `resources/css/app.css` carga Tailwind. Los estilos del sitio están en `resources/css/pages/` y `resources/css/site/`.
+- `routes/web.php` sirve las páginas y `routes/api.php` define los endpoints JSON. Ambos usan el grupo web de Laravel; los endpoints públicos de lectura que no necesitan sesión la omiten.
+- `app/Http/Controllers/` separa las operaciones de catálogo, agenda, reservas, encargos, envíos y administración. `app/Services/` agrupa la lógica de negocio compartida y `app/Mail/` el envío de avisos.
 - `database/migrations/` define el esquema MySQL con un archivo Laravel por tabla. Estas migraciones también adoptan tablas existentes. `php artisan migrate:refresh` borra y vuelve a crear esas tablas, incluidas las adoptadas y sus datos.

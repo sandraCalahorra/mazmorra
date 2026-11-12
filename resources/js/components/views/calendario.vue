@@ -1,0 +1,276 @@
+<template>
+    <SiteHeader current="calendario" />
+    <main class="interior-page">
+        <section class="interior-hero">
+            <div>
+                <p class="eyebrow">TU SITIO EN LA MESA TE ESPERA</p>
+                <h1>Elige tu próxima<br /><em>aventura.</em></h1>
+                <p class="lead">
+                    Selecciona una fecha para descubrir las sesiones, consultar sus
+                    plazas y enviar tu solicitud. Todas las horas se muestran en horario
+                    de Madrid.
+                </p>
+            </div>
+            <img src="images/mesa-rol.png" alt="Mesa de rol" data-reveal="left" />
+        </section>
+        <section class="section interior-calendar">
+            <div class="calendar-layout">
+                <div class="calendar-box">
+                    <div class="calendar-toolbar">
+                        <button id="previous-month" aria-label="Mes anterior">←</button>
+                        <h2 id="month-label" aria-live="polite"></h2>
+                        <button id="next-month" aria-label="Mes siguiente">→</button
+                        ><button id="today-month">Hoy</button>
+                    </div>
+                    <div class="calendar-week" aria-hidden="true">
+                        <span>L</span><span>M</span><span>X</span><span>J</span
+                        ><span>V</span><span>S</span><span>D</span>
+                    </div>
+                    <div
+                        id="calendar-days"
+                        class="calendar-days"
+                        aria-label="Elegir una fecha"
+                    ></div>
+                    <p class="calendar-legend">
+                        <span>●</span> Hoy · Los días con partidas muestran un indicador.
+                        Selecciona un día para ver sus plazas.
+                    </p>
+                </div>
+                <aside class="calendar-aside">
+                    <p class="eyebrow">LA AGENDA</p>
+                    <h2 id="selected-date">Próximas partidas</h2>
+                    <div id="session-list" aria-live="polite">
+                        <h3>La mesa se está preparando.</h3>
+                        <p>
+                            Aún no hay sesiones publicadas ni plazas disponibles para
+                            reservar. Selecciona una fecha para consultar sus partidas.
+                        </p>
+                    </div>
+                    <button class="btn gold" type="button" data-request-game>
+                        Solicita tu partida ↗
+                    </button>
+                    <p class="small">
+                        Enviar una solicitud no bloquea plazas. La reserva queda
+                        confirmada cuando el director la acepta.
+                    </p>
+                </aside>
+            </div>
+        </section>
+        <section class="booking-guide" aria-labelledby="booking-guide-title">
+            <div class="booking-guide__inner">
+                <p class="eyebrow">DE LA AGENDA A LA MESA</p>
+                <h2 id="booking-guide-title">Tu próxima partida, paso a paso.</h2>
+
+                <div class="booking-guide__steps">
+                    <article class="booking-guide__step" style="--step-delay: 0ms">
+                        <span class="booking-guide__number">01</span>
+                        <h3><span class="booking-guide__icon" aria-hidden="true">🧭</span>Encuentra vuestra aventura</h3>
+                        <p>
+                            Consulta la temática, el nivel y los detalles de cada aventura.
+                            Los colores distinguen su formato:
+                            <strong
+                            >descubre qué significa cada uno en la guía de abajo.</strong
+                            >
+                        </p>
+                    </article>
+
+                    <article class="booking-guide__step" style="--step-delay: 120ms">
+                        <span class="booking-guide__number">02</span>
+                        <h3><span class="booking-guide__icon" aria-hidden="true">📅</span>Elige cuándo jugar</h3>
+                        <p>
+                            Selecciona un día, la duración y una hora disponible. Se
+                            añadirán automáticamente a vuestra solicitud.
+                        </p>
+                    </article>
+
+                    <article class="booking-guide__step" style="--step-delay: 240ms">
+                        <span class="booking-guide__number">03</span>
+                        <h3><span class="booking-guide__icon" aria-hidden="true">📜</span>Envía tu solicitud</h3>
+                        <p>
+                            Indica cuántos sois y cómo contactar contigo. Revisaré vuestra
+                            propuesta y acordaremos el precio y las condiciones antes de
+                            confirmar.
+                        </p>
+                    </article>
+                </div>
+
+                <details class="booking-guide__formats">
+                    <summary class="booking-guide__summary">
+                        <span>
+                            <strong>¿Qué significa cada color?</strong>
+                            <small>Descubre qué formato encaja con vuestro grupo</small>
+                        </span>
+                        <span class="booking-guide__toggle" aria-hidden="true"></span>
+                    </summary>
+                    <p>
+                        Encontrarás estos mismos colores en la tabla de aventuras y en el
+                        selector de la solicitud.
+                    </p>
+
+                    <div class="booking-guide__colors">
+                        <article class="booking-guide__format" data-format="oneshot">
+                            <span class="booking-guide__dot" aria-hidden="true"></span>
+                            <h4>One-shot</h4>
+                            <p>
+                                Una historia de una sola sesión, de unas 4 horas. Ideal si
+                                buscáis una aventura sin continuidad.
+                            </p>
+                        </article>
+
+                        <article class="booking-guide__format" data-format="multi">
+                            <span class="booking-guide__dot" aria-hidden="true"></span>
+                            <h4>Varias sesiones</h4>
+                            <p>
+                                Una aventura que necesita varias partidas para completarse.
+                                Acordaremos cómo repartir las sesiones.
+                            </p>
+                        </article>
+
+                        <article class="booking-guide__format" data-format="short">
+                            <span class="booking-guide__dot" aria-hidden="true"></span>
+                            <h4>Campaña corta</h4>
+                            <p>
+                                Una historia con continuidad y un recorrido más breve, para
+                                desarrollar vuestros personajes durante varias sesiones.
+                            </p>
+                        </article>
+
+                        <article class="booking-guide__format" data-format="long">
+                            <span class="booking-guide__dot" aria-hidden="true"></span>
+                            <h4>Campaña larga</h4>
+                            <p>
+                                Una historia para jugar de forma continuada, explorar su mundo
+                                y acompañar la evolución del grupo.
+                            </p>
+                        </article>
+                    </div>
+
+                    <p class="booking-guide__hint">
+                        El color indica el formato, no la dificultad. Consulta también la
+                        temática y el nivel de cada aventura. Si eliges
+                        <strong>«4 h · One-shot»</strong> en las horas disponibles, la
+                        solicitud mostrará únicamente aventuras de una sesión.
+                    </p>
+                </details>
+
+                <div class="booking-guide__footer">
+                    <p>
+                        <strong>¿Prefieres unirte a una mesa?</strong>
+                        Selecciona una sesión publicada en el calendario y solicita tus
+                        plazas. Enviar una solicitud no reserva plazas ni horarios: la
+                        reserva queda pendiente de confirmación.
+                    </p>
+
+                    <a class="btn booking-guide__explore" href="#game-rates-title">
+                        <span aria-hidden="true">📖</span>
+                        Descubre las aventuras
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <AdventureRates />
+    </main>
+    <footer class="site-footer">
+        <div class="site-footer__main">
+            <div class="site-footer__brand">
+                <a class="brand" href="./">
+                    <span class="brand-icon" aria-hidden="true">♜</span>
+                    <span>LA MAZMORRA<small>DEL ROLEO</small></span>
+                </a>
+
+                <p>
+                    Historias que se leen.<br />
+                    Aventuras que se viven.
+                </p>
+
+                <a
+                    class="site-footer__contact"
+                    href="https://wa.me/34666530043"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Hablemos por WhatsApp <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+
+            <nav class="site-footer__column" aria-label="Enlaces del pie de página">
+                <h2>Explora la mazmorra</h2>
+                <a href="catalogo">Aventuras y libros</a>
+                <a href="calendario">Reserva tu partida</a>
+                <a href="encargos">Aventuras por encargo</a>
+                <a href="sobre-mi">Conoce al máster</a>
+                <a href="contacto">Contacto</a>
+            </nav>
+
+            <div class="site-footer__column">
+                <h2>Más allá de la mesa</h2>
+
+                <a
+                    href="https://www.instagram.com/la_mazmorra_del_roleo/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram <span aria-hidden="true">↗</span>
+                </a>
+
+                <a
+                    href="https://mesasroleras.com/gm/osoliron411"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Mesas Roleras <span aria-hidden="true">↗</span>
+                </a>
+
+                <a
+                    href="https://linktr.ee/Osoliron411"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Todos mis enlaces · Linktree <span aria-hidden="true">↗</span>
+                </a>
+
+                <a
+                    class="site-footer__email"
+                    href="mailto:lamazmorradelroleo@gmail.com"
+                >
+                    lamazmorradelroleo@gmail.com
+                </a>
+            </div>
+        </div>
+
+        <div class="site-footer__bottom">
+            <p>
+                © 2026 La Mazmorra del Roleo.
+                <span
+                >Proyecto independiente, no afiliado a Wizards of the Coast.</span
+                >
+            </p>
+
+            <div class="site-footer__legal">
+                <button type="button" data-legal="legal">
+                    Información del sitio
+                </button>
+                <button type="button" data-legal="privacy">Privacidad</button>
+                <a href="admin">Administración</a>
+            </div>
+        </div>
+    </footer>
+    <dialog id="modal">
+        <button class="close" aria-label="Cerrar ventana">×</button>
+        <div id="modal-content"></div>
+    </dialog>
+</template>
+
+<script>
+import '../../../css/pages/calendario.css';
+import SiteHeader from '../shared/SiteHeader.vue';
+import AdventureRates from '../shared/AdventureRates.vue';
+
+export const features = ["app", "animaciones", "solicitar-partida", "tarifas-partidas", "formatos-aventuras"];
+export const needsSiteData = true;
+
+export default {
+    components: { SiteHeader, AdventureRates },
+};
+</script>
