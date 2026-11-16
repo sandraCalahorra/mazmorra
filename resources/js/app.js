@@ -6,6 +6,13 @@ import { loadSiteData } from '@/store/modules/siteData';
 import { loadPage } from './router';
 
 const root = document.querySelector('#app');
+const loading = document.querySelector('#site-loading');
+
+function finishLoading() {
+  root.removeAttribute('aria-busy');
+  root.inert = false;
+  loading?.remove();
+}
 
 async function start() {
   const { default: Page, features, needsSiteData } = await loadPage(root.dataset.page);
@@ -17,7 +24,7 @@ async function start() {
   for (const feature of features) {
     await loadFeature(feature);
   }
-  root.removeAttribute('aria-busy');
+  finishLoading();
 
   if (location.hash) {
     try {
@@ -30,7 +37,7 @@ async function start() {
 
 start().catch((error) => {
   console.error(error);
-  root.removeAttribute('aria-busy');
+  finishLoading();
   const status = document.createElement('p');
   status.setAttribute('role', 'alert');
   status.textContent = 'No se ha podido cargar la página completa. Vuelve a intentarlo.';

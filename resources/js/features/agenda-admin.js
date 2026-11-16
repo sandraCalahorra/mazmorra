@@ -1,3 +1,5 @@
+import { setHtmlWithBaseCheckboxes } from '@/components/core-ui/BaseCheckbox.vue';
+import { setHtmlWithBaseButtons } from '@/components/core-ui/BaseButton.vue';
 import { api, esc, notify, refresh, selectAdminTab, state } from './admin';
 
 export let agendaEditor;
@@ -18,22 +20,22 @@ export function renderAgendaAdmin(panel) {
     "Sábado",
     "Domingo",
   ];
-  panel.innerHTML = `<div class="panel-head"><h2>Tu disponibilidad semanal</h2></div>
+  setHtmlWithBaseCheckboxes(panel, `<div class="panel-head"><h2>Tu disponibilidad semanal</h2></div>
  <p>Horario de Madrid. Las franjas semanales se repiten hasta que las cambies. Los bloqueos tienen prioridad sobre las horas disponibles.</p>
  <form id="agenda-admin-form" class="agenda-settings">
- <label class="check"><input type="checkbox" name="enabled" ${c.enabled ? "checked" : ""}>Activar disponibilidad por horas</label>
+ <base-checkbox label-class="check" name="enabled" ${c.enabled ? "checked" : ""}>Activar disponibilidad por horas</base-checkbox>
  <label>Separación entre posibles inicios<select name="step">${[5, 15, 30, 60].map((n) => `<option value="${n}" ${Number(c.step) === n ? "selected" : ""}>${n} minutos</option>`).join("")}</select></label>
  <details class="agenda-week-toggle">
   <summary>Mostrar / ocultar horario semanal ▾</summary>
  <div class="agenda-visual-heading"><div><h3>Tu semana, de un vistazo</h3><p>Verde: puedes dirigir. Rojo: no estás disponible. Un día sin franjas verdes no ofrece partidas.</p></div>
- <button type="button" class="btn outline" id="agenda-university">Añadir universidad · L–J, 17:15–21:30</button></div>
+ <base-button class="btn outline" id="agenda-university">Añadir universidad · L–J, 17:15–21:30</base-button></div>
  <div class="agenda-week-cards"></div>
  </details>
- <section class="agenda-extra-section"><h3>Abrir horas extra en una fecha</h3><p>Estas franjas permiten jugar aunque ese día tengas un bloqueo semanal, como universidad. Se suman a tu horario habitual. Los bloqueos puntuales y las partidas publicadas siguen ocupados.</p><div id="agenda-extras"></div><button type="button" class="btn outline" id="agenda-add-extra">Abrir horas extra +</button></section>
+ <section class="agenda-extra-section"><h3>Abrir horas extra en una fecha</h3><p>Estas franjas permiten jugar aunque ese día tengas un bloqueo semanal, como universidad. Se suman a tu horario habitual. Los bloqueos puntuales y las partidas publicadas siguen ocupados.</p><div id="agenda-extras"></div><base-button class="btn outline" id="agenda-add-extra">Abrir horas extra +</base-button></section>
  <h3>Bloqueos en fechas concretas</h3><p>Para citas, vacaciones o partidas acordadas por WhatsApp. Solo afectan a la fecha indicada. Las notas son privadas.</p>
- <div id="agenda-blocks"></div><button type="button" class="btn outline" id="agenda-add-block">Añadir bloqueo puntual +</button>
+ <div id="agenda-blocks"></div><base-button class="btn outline" id="agenda-add-block">Añadir bloqueo puntual +</base-button>
  <p class="small">Las partidas publicadas también ocupan horas. Las solicitudes por WhatsApp no bloquean automáticamente. Desactivado: el cliente puede proponer una hora libremente.</p>
- <button type="submit" class="btn gold">Guardar disponibilidad</button><p id="agenda-save-status" role="status"></p></form>`;
+ <base-button type="submit" class="btn gold">Guardar disponibilidad</base-button><p id="agenda-save-status" role="status"></p></form>`);
   const form = panel.querySelector("form"),
     blocks = panel.querySelector("#agenda-blocks"),
     week = panel.querySelector(".agenda-week-cards");
@@ -80,7 +82,7 @@ export function renderAgendaAdmin(panel) {
     const group = card.querySelector(`[data-kind="${kind}"]`),
       row = document.createElement("div");
     row.className = "agenda-range";
-    row.innerHTML = `<label>Desde<select data-start required>${options(range[0])}</select></label><label>Hasta<select data-end required>${options(range[1], true)}</select></label><button type="button" aria-label="Quitar franja" class="agenda-remove">×</button>`;
+    setHtmlWithBaseButtons(row, `<label>Desde<select data-start required>${options(range[0])}</select></label><label>Hasta<select data-end required>${options(range[1], true)}</select></label><base-button aria-label="Quitar franja" class="agenda-remove">×</base-button>`);
     row.querySelector("button").onclick = () => {
       row.remove();
       preview(card);
@@ -94,11 +96,10 @@ export function renderAgendaAdmin(panel) {
     const card = document.createElement("section");
     card.className = "agenda-day-card";
     card.dataset.day = String(i + 1);
-    card.innerHTML = `<h3>${day}<small>Se repite cada semana</small></h3><div class="agenda-day-track" role="img" aria-label="Franjas semanales de ${day}"></div><div class="agenda-track-labels"><span>00:00</span><span>12:00</span><span>24:00</span></div>${["available", "unavailable"].map((kind) => `<div data-kind="${kind}" class="agenda-kind"><h4>${kind === "available" ? "● Disponible" : "● No disponible"}</h4><div class="agenda-ranges"></div><button type="button" class="btn outline agenda-add-range">+ Añadir franja</button></div>`).join("")}`;
+    setHtmlWithBaseButtons(card, `<h3>${day}<small>Se repite cada semana</small></h3><div class="agenda-day-track" role="img" aria-label="Franjas semanales de ${day}"></div><div class="agenda-track-labels"><span>00:00</span><span>12:00</span><span>24:00</span></div>${["available", "unavailable"].map((kind) => `<div data-kind="${kind}" class="agenda-kind"><h4>${kind === "available" ? "● Disponible" : "● No disponible"}</h4><div class="agenda-ranges"></div><base-button class="btn outline agenda-add-range">+ Añadir franja</base-button></div>`).join("")}`);
     const copyTools = document.createElement("div");
     copyTools.className = "agenda-copy-tools";
-    copyTools.innerHTML =
-      '<button type="button" class="btn outline" data-copy-day>Copiar horario</button><button type="button" class="btn outline" data-paste-day disabled>Pegar horario</button>';
+    setHtmlWithBaseButtons(copyTools, '<base-button class="btn outline" data-copy-day>Copiar horario</base-button><base-button class="btn outline" data-paste-day disabled>Pegar horario</base-button>');
     card.append(copyTools);
     copyTools.querySelector("[data-copy-day]").onclick = () => {
       const copyButton = copyTools.querySelector("[data-copy-day]");
@@ -195,14 +196,14 @@ export function renderAgendaAdmin(panel) {
   function add(block = {}) {
     const row = document.createElement("fieldset");
     row.className = "agenda-block";
-    row.innerHTML = `<legend>Bloqueo puntual</legend><label>Fecha<input type="date" data-field="date" required value="${esc(block.date || "")}"></label><label>Desde<select data-field="start" required>${options(block.start || "")}</select></label><label>Hasta<select data-field="end" required>${options(block.end || "", true)}</select></label><label>Nota privada<input data-field="note" maxlength="160" value="${esc(block.note || "")}"></label><button type="button" class="btn danger">Quitar bloqueo</button>`;
+    setHtmlWithBaseButtons(row, `<legend>Bloqueo puntual</legend><label>Fecha<input type="date" data-field="date" required value="${esc(block.date || "")}"></label><label>Desde<select data-field="start" required>${options(block.start || "")}</select></label><label>Hasta<select data-field="end" required>${options(block.end || "", true)}</select></label><label>Nota privada<input data-field="note" maxlength="160" value="${esc(block.note || "")}"></label><base-button class="btn danger">Quitar bloqueo</base-button>`);
     row.querySelector("button").onclick = () => row.remove();
     blocks.append(row);
   }
   const extras=panel.querySelector('#agenda-extras');
   function addExtra(extra={}) {
     const row=document.createElement('fieldset');row.className='agenda-block agenda-extra';
-    row.innerHTML=`<legend>Disponible en esta fecha</legend><label>Fecha<input type="date" data-field="date" required value="${esc(extra.date||'')}"></label><label>Desde<select data-field="start" required>${options(extra.start||'')}</select></label><label>Hasta<select data-field="end" required>${options(extra.end||'',true)}</select></label><label>Nota privada<input data-field="note" maxlength="160" value="${esc(extra.note||'')}"></label><button type="button" class="btn outline">Quitar apertura</button>`;
+    setHtmlWithBaseButtons(row, `<legend>Disponible en esta fecha</legend><label>Fecha<input type="date" data-field="date" required value="${esc(extra.date||'')}"></label><label>Desde<select data-field="start" required>${options(extra.start||'')}</select></label><label>Hasta<select data-field="end" required>${options(extra.end||'',true)}</select></label><label>Nota privada<input data-field="note" maxlength="160" value="${esc(extra.note||'')}"></label><base-button class="btn outline">Quitar apertura</base-button>`);
     row.querySelector('button').onclick=()=>row.remove();extras.append(row);
   }
   (c.extra_available||[]).forEach(addExtra);
@@ -307,7 +308,7 @@ export function renderAgendaAlerts() {
         Number(g.available) >= Number(r.players),
     ),
   );
-  box.innerHTML = `<h2>Para revisar</h2><div class="agenda-alert-grid"><button type="button" data-agenda-jump="reservations"><strong>${pending.length}</strong> solicitudes pendientes</button><button type="button" data-agenda-jump="reservations"><strong>${waiting.length}</strong> en lista de espera${invitations.length ? ` · ${invitations.length} con plazas para revisar` : ""}</button><button type="button" data-agenda-jump="games"><strong>${upcoming.length}</strong> partidas esta semana con plazas libres</button></div>${
+  setHtmlWithBaseButtons(box, `<h2>Para revisar</h2><div class="agenda-alert-grid"><base-button data-agenda-jump="reservations"><strong>${pending.length}</strong> solicitudes pendientes</base-button><base-button data-agenda-jump="reservations"><strong>${waiting.length}</strong> en lista de espera${invitations.length ? ` · ${invitations.length} con plazas para revisar` : ""}</base-button><base-button data-agenda-jump="games"><strong>${upcoming.length}</strong> partidas esta semana con plazas libres</base-button></div>${
     upcoming.length
       ? `<ul>${upcoming
           .slice(0, 5)
@@ -317,7 +318,7 @@ export function renderAgendaAlerts() {
           )
           .join("")}</ul>`
       : ""
-  }`;
+  }`);
   box.querySelectorAll("[data-agenda-jump]").forEach(
     (button) =>
       (button.onclick = () => {

@@ -5,19 +5,15 @@
         <p id="user-status" role="status">{{ status }}</p>
         <p>Accede para consultar tus partidas y tu perfil.</p>
         <form id="user-login" @submit.prevent="submit">
-            <label
-            >Correo<input
-                    name="email"
-                    type="email"
-                    autocomplete="username"
-                    required /></label
-            ><label
-            >Contraseña<input
-                    name="password"
-                    type="password"
-                    autocomplete="current-password"
-                    required /></label
-            ><button class="btn gold" :disabled="busy">Iniciar sesión</button>
+            <BaseTextField label="Correo" name="email" type="email" autocomplete="username" required />
+            <BaseTextField
+                label="Contraseña"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+            />
+            <BaseButton type="submit" class="btn gold" :disabled="busy">Iniciar sesión</BaseButton>
         </form>
         <p><a href="registro">Crear una cuenta</a></p>
         <p>
@@ -97,20 +93,22 @@
             </p>
 
             <div class="site-footer__legal">
-                <button type="button" data-legal="legal">Información del sitio</button>
-                <button type="button" data-legal="privacy">Privacidad</button>
+                <BaseButton data-legal="legal">Información del sitio</BaseButton>
+                <BaseButton data-legal="privacy">Privacidad</BaseButton>
                 <a href="admin">Administración</a>
             </div>
         </div>
     </footer>
     <dialog id="modal">
-        <button class="close" aria-label="Cerrar ventana">×</button>
+        <BaseButton class="close" aria-label="Cerrar ventana">×</BaseButton>
         <div id="modal-content"></div>
     </dialog>
 </template>
 
 <script>
 import '../../../css/pages/acceso.css';
+import BaseButton from '../core-ui/BaseButton.vue';
+import BaseTextField from '../core-ui/BaseTextField.vue';
 import SiteHeader from '../shared/SiteHeader.vue';
 import { accountForm } from '@/components/mixins/accountForm';
 
@@ -118,7 +116,7 @@ export const features = ["app", "animaciones"];
 export const needsSiteData = true;
 
 export default {
-    components: { SiteHeader },
+    components: { BaseButton, BaseTextField, SiteHeader },
     mixins: [accountForm('login')],
 };
 </script>

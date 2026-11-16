@@ -1,3 +1,4 @@
+import { createBaseButton } from '@/components/core-ui/BaseButton.vue';
 import { siteData } from '@/store/modules/siteData';
 
 (() => {
@@ -74,8 +75,7 @@ import { siteData } from '@/store/modules/siteData';
     [2, "price", "Precio por jugador"],
   ]) {
     if (!headers[index]) continue;
-    const button = element("button", label + " ↕", "rates-heading-sort");
-    button.type = "button";
+    const button = createBaseButton({ class: "rates-heading-sort" }, label + " ↕");
     headers[index].replaceChildren(button);
     headers[index].setAttribute("aria-sort", "none");
     sortButtons.push({ button, header: headers[index], key, label });
@@ -99,10 +99,9 @@ import { siteData } from '@/store/modules/siteData';
     .forEach((x) => x.remove());
   const pagination = element("nav", null, "game-rates__pagination");
   pagination.setAttribute("aria-label", "Páginas de aventuras");
-  const previous = element("button", "← Anterior"),
-    next = element("button", "Siguiente →"),
+  const previous = createBaseButton(undefined, "← Anterior"),
+    next = createBaseButton(undefined, "Siguiente →"),
     info = element("span", "");
-  previous.type = next.type = "button";
   info.setAttribute("aria-live", "polite");
   pagination.append(previous, info, next);
   scroll.after(pagination);
@@ -193,12 +192,7 @@ import { siteData } from '@/store/modules/siteData';
       let detailsButton = null;
 
       if (item.description) {
-        detailsButton = element(
-          "button",
-          "＋ Ver detalles",
-          "rates-details-button",
-        );
-        detailsButton.type = "button";
+        detailsButton = createBaseButton({ class: "rates-details-button" }, "＋ Ver detalles");
         detailsButton.setAttribute("aria-expanded", "false");
 
         detailsRow = element("tr", null, "rates-details-row");
@@ -301,12 +295,7 @@ import { siteData } from '@/store/modules/siteData';
           ),
         );
       const action = element("td"),
-        button = element(
-          "button",
-          "Solicitar aventura ↗",
-          "game-rates__request",
-        );
-      button.type = "button";
+        button = createBaseButton({ class: "game-rates__request" }, "Solicitar aventura ↗");
       button.addEventListener("click", () => requestAdventure(item));
       action.append(button);
       row.append(title, format, price, session, action);
@@ -326,9 +315,8 @@ import { siteData } from '@/store/modules/siteData';
     currentPage = 1;
     render();
   }
-  const reset = element("button", "Borrar filtros ↺", "rates-reset");
+  const reset = createBaseButton({ class: "rates-reset" }, "Borrar filtros ↺");
 
-  reset.type = "button";
 
   reset.addEventListener("click", () => {
     get("search").value = "";
@@ -376,8 +364,7 @@ import { siteData } from '@/store/modules/siteData';
     modal.setAttribute("aria-labelledby", "game-rates-title");
     const bar = element("div", null, "catalog-modal__bar");
     const hint = element("span", "Aventuras para vuestra mesa");
-    const close = element("button", "×", "catalog-modal__close");
-    close.type = "button";
+    const close = createBaseButton({ class: "catalog-modal__close" }, "×");
     close.setAttribute("aria-label", "Cerrar catálogo");
     bar.append(hint, close);
     modal.append(bar, section);

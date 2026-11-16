@@ -1,3 +1,5 @@
+import { setHtmlWithBaseCheckboxes } from '@/components/core-ui/BaseCheckbox.vue';
+import { createBaseButton, setHtmlWithBaseButtons } from '@/components/core-ui/BaseButton.vue';
 import { agendaClient } from './agenda-cliente';
 import { requestWithStatus } from '@/bootstrap';
 import { siteData } from '@/store/modules/siteData';
@@ -20,7 +22,7 @@ let site = siteData || { products: [], games: [], config: {} },
 const modal = $("#modal"),
   content = $("#modal-content");
 function openDialog(html) {
-  content.innerHTML = html;
+  setHtmlWithBaseCheckboxes(content, html);
   modal.showModal();
 }
 $(".close").onclick = () => modal.close();
@@ -60,9 +62,7 @@ export function contact(subject = "vuestro contenido") {
     field.oninput = update;
     actions.append(a);
   }
-  const copy = document.createElement("button");
-  copy.className = "btn gold";
-  copy.textContent = "Copiar mensaje";
+  const copy = createBaseButton({ class: "btn gold" }, "Copiar mensaje");
   copy.onclick = async () => {
     try {
       await navigator.clipboard.writeText(field.value);
@@ -256,7 +256,7 @@ function renderProducts() {
       `${p.title} ${p.intro}`.toLocaleLowerCase("es").includes(q),
   );
 
-  lista.innerHTML = items.length
+  setHtmlWithBaseButtons(lista, items.length
     ? items
         .map(
           (p, index) => `
@@ -338,24 +338,22 @@ ${
                     ${selectorCompra(p)}
 
                     <div class="publication-actions">
-                      <button
-                        type="button"
+                      <base-button
                         data-flip-open
                         aria-expanded="false"
                         aria-controls="publication-back-${index}"
                       >
                         Ver publicación ↻
-                      </button>
+                      </base-button>
 
                       ${
                         validDemo(p.demo)
                           ? `
-                            <button
-                              type="button"
+                            <base-button
                               data-demo="${esc(p.id)}"
                             >
                               Ver demo ↗
-                            </button>
+                            </base-button>
                           `
                           : ""
                       }
@@ -429,12 +427,11 @@ ${
                       validDemo(p.demo)
                         ? `
                           <div class="publication-actions">
-                            <button
-                              type="button"
+                            <base-button
                               data-demo="${esc(p.id)}"
                             >
                               Ver demo ↗
-                            </button>
+                            </base-button>
                           </div>
                         `
                         : ""
@@ -460,7 +457,7 @@ ${
         <h3>Aún quedan estantes por llenar.</h3>
         <p>No hay publicaciones para esta selección.</p>
       </div>
-    `;
+    `);
 
   lista.querySelectorAll(".flip-product").forEach((card, indice) => {
     card.id = `publicacion-${items[indice].id}`;
@@ -949,12 +946,11 @@ if ($("#calendar-days")) {
     for (let n = 1; n <= last; n++) {
       const value = iso(new Date(shown.getFullYear(), shown.getMonth(), n, 12)),
         count = games.filter((g) => dateOf(g.starts) === value).length,
-        b = document.createElement("button");
-      b.textContent = n + (count ? " ·" : "");
+        b = createBaseButton(
+          { class: { today: value === today, selected: value === selected } },
+          n + (count ? " ·" : ""),
+        );
       b.disabled = value < today;
-      b.className =
-        (value === today ? "today " : "") +
-        (value === selected ? "selected" : "");
       b.setAttribute(
         "aria-label",
         longDate(value) +
@@ -972,11 +968,11 @@ if ($("#calendar-days")) {
   function sessions() {
     $("#selected-date").textContent = longDate(selected);
     const games = liveGames().filter((g) => dateOf(g.starts) === selected);
-    $("#session-list").innerHTML = games.length
+    setHtmlWithBaseButtons($("#session-list"), games.length
       ? games
           .map(
             (g) =>
-              `<article class="session-card"><h3>${esc(g.title)}</h3><p>${esc(new Date(g.starts).toLocaleTimeString("es-ES", { timeZone: "Europe/Madrid", hour: "2-digit", minute: "2-digit" }))} (Madrid) · ${esc(g.duration)}<br>${esc(g.mode)}<br>${esc(g.price || "Precio por confirmar")} · ${g.available} plaza(s) disponibles</p><p class="preserve-lines">${esc(g.description)}</p><button class="btn gold" data-book="${g.id}" data-waitlist="${g.available < 1 ? "true" : "false"}">${g.available < 1 ? "Apuntarme a la lista de espera ↗" : "Solicitar plaza ↗"}</button></article>`,
+              `<article class="session-card"><h3>${esc(g.title)}</h3><p>${esc(new Date(g.starts).toLocaleTimeString("es-ES", { timeZone: "Europe/Madrid", hour: "2-digit", minute: "2-digit" }))} (Madrid) · ${esc(g.duration)}<br>${esc(g.mode)}<br>${esc(g.price || "Precio por confirmar")} · ${g.available} plaza(s) disponibles</p><p class="preserve-lines">${esc(g.description)}</p><base-button class="btn gold" data-book="${g.id}" data-waitlist="${g.available < 1 ? "true" : "false"}">${g.available < 1 ? "Apuntarme a la lista de espera ↗" : "Solicitar plaza ↗"}</base-button></article>`,
           )
           .join("")
       : `<div class="calendar-empty-invite">
@@ -986,7 +982,7 @@ if ($("#calendar-days")) {
       Solicita una partida para tu grupo.
     </p>
     <span class="calendar-empty-arrow" aria-hidden="true">↓</span>
-  </div>`;
+  </div>`);
     document
       .querySelectorAll("[data-book]")
       .forEach(
@@ -998,7 +994,7 @@ if ($("#calendar-days")) {
   }
   function booking(g, waiting = false) {
     openDialog(
-      `<p class="eyebrow">${waiting ? "LISTA DE ESPERA" : "SOLICITUD DE PLAZA"}</p><h2>${esc(g.title)}</h2><p>${esc(new Date(g.starts).toLocaleString("es-ES", { timeZone: "Europe/Madrid" }))} (Madrid) · ${esc(g.price || "Precio por confirmar")}</p><p class="notice">La solicitud queda pendiente hasta que el director la confirme. ${waiting ? "La sesión está completa. Esta solicitud te añade a la lista de espera; no reserva plazas ni garantiza una vacante." : "Las solicitudes pendientes no bloquean plazas."}</p><form id="booking-form"><div class="booking-fields"><label>Nombre o alias<input name="name" maxlength="80" required autocomplete="nickname"></label><label>Jugadores<input name="players" type="number" min="1" max="${waiting ? 20 : Math.min(20, g.available)}" value="1" required></label><label class="wide">Correo o teléfono de contacto<input name="contact" maxlength="200" required></label><label class="wide">Notas<textarea name="notes" maxlength="1500" placeholder="Experiencia, dudas o preferencias del grupo. No incluyas datos sensibles."></textarea></label><label class="wide consent"><input type="checkbox" name="consent" required> He leído la información de privacidad y acepto que se utilicen estos datos para tramitar mi solicitud.</label></div><button class="btn gold" type="submit">${waiting ? "Apuntarme a la lista de espera" : "Enviar solicitud"}</button><p id="booking-status" role="status"></p></form>`,
+      `<p class="eyebrow">${waiting ? "LISTA DE ESPERA" : "SOLICITUD DE PLAZA"}</p><h2>${esc(g.title)}</h2><p>${esc(new Date(g.starts).toLocaleString("es-ES", { timeZone: "Europe/Madrid" }))} (Madrid) · ${esc(g.price || "Precio por confirmar")}</p><p class="notice">La solicitud queda pendiente hasta que el director la confirme. ${waiting ? "La sesión está completa. Esta solicitud te añade a la lista de espera; no reserva plazas ni garantiza una vacante." : "Las solicitudes pendientes no bloquean plazas."}</p><form id="booking-form"><div class="booking-fields"><label>Nombre o alias<input name="name" maxlength="80" required autocomplete="nickname"></label><label>Jugadores<input name="players" type="number" min="1" max="${waiting ? 20 : Math.min(20, g.available)}" value="1" required></label><label class="wide">Correo o teléfono de contacto<input name="contact" maxlength="200" required></label><label class="wide">Notas<textarea name="notes" maxlength="1500" placeholder="Experiencia, dudas o preferencias del grupo. No incluyas datos sensibles."></textarea></label><base-checkbox label-class="wide consent" name="consent" required> He leído la información de privacidad y acepto que se utilicen estos datos para tramitar mi solicitud.</base-checkbox></div><base-button class="btn gold" type="submit">${waiting ? "Apuntarme a la lista de espera" : "Enviar solicitud"}</base-button><p id="booking-status" role="status"></p></form>`,
     );
     agendaClient.autofill($("#booking-form"));
     $("#booking-form").onsubmit = async (e) => {

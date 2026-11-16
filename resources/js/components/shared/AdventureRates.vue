@@ -13,16 +13,15 @@
         </p>
 
         <div class="game-rates__filters" aria-label="Tipo de aventura">
-            <button type="button" data-rates-origin="mia" aria-pressed="true">
+            <BaseButton data-rates-origin="mia" aria-pressed="true">
                 Mis aventuras
-            </button>
-            <button
-                type="button"
+            </BaseButton>
+            <BaseButton
                 data-rates-origin="oficial"
                 aria-pressed="false"
             >
                 Campañas oficiales
-            </button>
+            </BaseButton>
         </div>
 
         <div class="game-rates__scroll">
@@ -43,7 +42,9 @@
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
 export default {
+    components: { BaseButton },
     props: { hidden: Boolean },
 };
 </script>

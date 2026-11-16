@@ -1,3 +1,4 @@
+import { createBaseButton } from '@/components/core-ui/BaseButton.vue';
 import { state } from './admin';
 
 (() => {
@@ -167,8 +168,7 @@ import { state } from './admin';
       "admin-empty",
     );
     empty.hidden = true;
-    const reset = make("button", "Limpiar", "admin-reset");
-    reset.type = "button";
+    const reset = createBaseButton({ class: "admin-reset" }, "Limpiar");
     if (tab === "commissioned") {
       toolbar.classList.add("admin-tools--origin");
       toolbar.append(searchLabel, originLabel, statusLabel, reset, count);

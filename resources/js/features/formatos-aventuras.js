@@ -1,3 +1,4 @@
+import { createBaseButton } from '@/components/core-ui/BaseButton.vue';
 import { siteData } from '@/store/modules/siteData';
 
 (() => {
@@ -49,8 +50,7 @@ import { siteData } from '@/store/modules/siteData';
     panel.className = "request-format-preference";
     panel.hidden = true;
     const text = document.createElement("p"),
-      change = document.createElement("button");
-    change.type = "button";
+      change = createBaseButton();
     change.textContent = "Ver sin prioridad de one-shots";
     change.hidden = true;
     panel.append(text, change);

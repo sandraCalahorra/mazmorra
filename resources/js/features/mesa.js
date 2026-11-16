@@ -1,3 +1,4 @@
+import { createBaseButton } from '@/components/core-ui/BaseButton.vue';
 import { contact } from './app';
 import { siteData } from '@/store/modules/siteData';
 
@@ -18,13 +19,8 @@ import { siteData } from '@/store/modules/siteData';
   }
 
   function contactButton() {
-    const button = element(
-      "button",
-      "Consultar una fecha para mi grupo ↗",
-      "table-contact"
-    );
+    const button = createBaseButton({ class: "table-contact" }, "Consultar una fecha para mi grupo ↗");
 
-    button.type = "button";
 
     button.onclick = () => {
       if (typeof contact === "function") {

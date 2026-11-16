@@ -4,12 +4,12 @@
     </div>
     <header>
         <a class="brand" href="./">
-            <span class="brand-icon">♜</span>
+            <img class="brand-icon brand-icon--image" src="images/torre-mazmorra.png" alt="" width="39" height="39">
             <span>LA MAZMORRA<small>DEL ROLEO</small></span>
         </a>
-        <button type="button" class="menu" :aria-expanded="open" aria-controls="nav" @click="open = !open">
+        <BaseButton class="menu" :aria-expanded="open" aria-controls="nav" @click="open = !open">
             Menú ☰
-        </button>
+        </BaseButton>
         <nav id="nav" :class="{ open }">
             <a v-for="{ page, label } in links" :key="page" :href="page"
                 :aria-current="current === page ? 'page' : undefined">
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
 import AccountMenu from './AccountMenu.vue';
 
 const links = [
@@ -32,7 +33,7 @@ const links = [
 ];
 
 export default {
-    components: { AccountMenu },
+    components: { BaseButton, AccountMenu },
 
     props: { current: String },
 

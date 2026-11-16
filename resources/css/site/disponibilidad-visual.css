@@ -27,8 +27,8 @@
   background: #fff6df;
   transform: translateY(-2px);
 }
-.agenda-availability-button > span:first-child {
-  font-size: 30px;
+.agenda-availability-button > svg {
+  flex: none;
 }
 .agenda-availability-button > span:last-child {
   margin-left: auto;

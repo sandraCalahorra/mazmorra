@@ -1,5 +1,7 @@
+import { createBaseButton, setHtmlWithBaseButtons } from '@/components/core-ui/BaseButton.vue';
 import { loadAccount } from '@/store/modules/account';
 import { requestWithStatus } from '@/bootstrap';
+import filledPaths from '@/assets/fluent/filled.js';
 
 export let agendaClient;
 
@@ -37,7 +39,7 @@ export let agendaClient;
   const choices=document.createElement('div');choices.className='agenda-slot-choices';note.after(choices);
   let request=0, selectedStart="";
   const summary=document.createElement('aside');summary.className='agenda-request-selection';summary.hidden=true;
-  const summaryText=document.createElement('span'),changeButton=document.createElement('button');changeButton.type='button';changeButton.textContent='Cambiar fecha y hora';
+  const summaryText=document.createElement('span'),changeButton=createBaseButton();changeButton.textContent='Cambiar fecha y hora';
   summary.append(summaryText,changeButton);form.prepend(summary);
   changeButton.onclick=()=>form.dispatchEvent(new CustomEvent('agenda-edit-schedule'));
   function updateSummary(){
@@ -91,13 +93,20 @@ export let agendaClient;
  const days=document.querySelector('#calendar-days'),sessions=document.querySelector('#session-list');
  if(days&&sessions){
   const box=document.createElement('div');box.className='agenda-availability-launch';sessions.before(box);
-  const trigger=document.createElement('button');trigger.type='button';trigger.className='agenda-availability-button';trigger.innerHTML='<span aria-hidden="true">◷</span><span>Ver disponibilidad<small>Consulta las horas libres de este día</small></span><span aria-hidden="true">↗</span>';box.append(trigger);
+  const trigger = createBaseButton({ class: 'agenda-availability-button' });
+  trigger.innerHTML = `
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="${filledPaths.clock[0]}" />
+    </svg>
+    <span>Ver disponibilidad<small>Consulta las horas libres de este día</small></span>
+    <span aria-hidden="true">↗</span>`;
+  box.append(trigger);
   const modal=document.createElement('dialog');modal.className='agenda-availability-modal';modal.setAttribute('aria-labelledby','agenda-availability-title');
-  modal.innerHTML=`<button type="button" class="agenda-modal-close" aria-label="Cerrar disponibilidad">×</button><p class="agenda-modal-eyebrow">HAGAMOS HUECO A VUESTRA AVENTURA</p><h2 id="agenda-availability-title">Horas disponibles</h2><p class="agenda-modal-date"></p><p>¿Cuánto durará vuestra sesión?</p><div class="agenda-duration-buttons" role="group" aria-label="Duración de la sesión"></div><p class="agenda-modal-status" role="status" aria-live="polite"></p><button type="button" class="agenda-next-slot" hidden>Buscar el próximo día con hueco →</button><div class="agenda-modal-slots"></div><p class="agenda-modal-footnote">Horario de Madrid. Cada hora indica un inicio en el que cabe la sesión completa. Enviar una solicitud no reserva el hueco.</p>`;
+  setHtmlWithBaseButtons(modal, `<base-button class="agenda-modal-close" aria-label="Cerrar disponibilidad">×</base-button><p class="agenda-modal-eyebrow">HAGAMOS HUECO A VUESTRA AVENTURA</p><h2 id="agenda-availability-title">Horas disponibles</h2><p class="agenda-modal-date"></p><p>¿Cuánto durará vuestra sesión?</p><div class="agenda-duration-buttons" role="group" aria-label="Duración de la sesión"></div><p class="agenda-modal-status" role="status" aria-live="polite"></p><base-button class="agenda-next-slot" hidden>Buscar el próximo día con hueco →</base-button><div class="agenda-modal-slots"></div><p class="agenda-modal-footnote">Horario de Madrid. Cada hora indica un inicio en el que cabe la sesión completa. Enviar una solicitud no reserva el hueco.</p>`);
   document.body.append(modal);let duration=120,request=0,browsingDate="";
   const durations=modal.querySelector('.agenda-duration-buttons'),status=modal.querySelector('.agenda-modal-status'),grid=modal.querySelector('.agenda-modal-slots');
   const label=n=>String(n/60).replace('.',',');
-  [120,150,180,240].forEach(n=>{const button=document.createElement('button');button.type='button';button.dataset.minutes=n;button.textContent=n===240?'4 h · One-shot':label(n)+' horas';button.onclick=()=>{duration=n;updateModal();};durations.append(button);});
+  [120,150,180,240].forEach(n=>{const button=createBaseButton();button.dataset.minutes=n;button.textContent=n===240?'4 h · One-shot':label(n)+' horas';button.onclick=()=>{duration=n;updateModal();};durations.append(button);});
   async function updateModal(){
    if(!modal.open)return;const date=browsingDate||days.dataset.selectedDate,mine=++request;grid.replaceChildren();
    const next=modal.querySelector('.agenda-next-slot');next.hidden=true;
@@ -113,7 +122,7 @@ export let agendaClient;
     for(const [name,test] of [['Mañana',h=>h<12],['Tarde',h=>h>=12&&h<20],['Noche',h=>h>=20]]){
      const times=data.slots.filter(time=>test(Number(time.slice(0,2))));if(!times.length)continue;
      const section=document.createElement('section'),heading=document.createElement('h3'),chips=document.createElement('div');heading.textContent=name;chips.className='agenda-time-grid';
-     times.forEach(time=>{const chip=document.createElement('button');chip.type='button';chip.className='agenda-time-chip';chip.textContent=time;chip.setAttribute('aria-label','Solicitar partida a las '+time);
+     times.forEach(time=>{const chip=createBaseButton({ class: 'agenda-time-chip' });chip.textContent=time;chip.setAttribute('aria-label','Solicitar partida a las '+time);
       chip.onclick=()=>{
        const opener=document.querySelector('[data-request-game]');
        if(!opener){status.textContent='No se pudo abrir la solicitud. Recarga la página.';return;}

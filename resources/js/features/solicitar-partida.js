@@ -1,3 +1,4 @@
+import { createBaseButton, setHtmlWithBaseButtons } from '@/components/core-ui/BaseButton.vue';
 import { agendaClient } from './agenda-cliente';
 import { initializePricing } from './precios-partidas';
 import { requestWithStatus } from '@/bootstrap';
@@ -11,8 +12,8 @@ import { siteData } from '@/store/modules/siteData';
   dialog.id = "request-game-dialog";
   dialog.setAttribute("aria-labelledby", "request-title");
 
-  dialog.innerHTML = `
-  <button type="button" class="close" aria-label="Cerrar ventana">×</button>
+  setHtmlWithBaseButtons(dialog, `
+  <base-button class="close" aria-label="Cerrar ventana">×</base-button>
   <p class="request-progress" id="request-progress"></p>
   <h2 id="request-title">Solicita tu partida</h2>
 
@@ -202,15 +203,15 @@ import { siteData } from '@/store/modules/siteData';
     <p id="request-error" role="alert"></p>
 
     <div class="request-actions">
-      <button type="button" class="btn outline" id="request-back">
+      <base-button class="btn outline" id="request-back">
         ← Anterior
-      </button>
-      <button type="submit" class="btn gold" id="request-next">
+      </base-button>
+      <base-button type="submit" class="btn gold" id="request-next">
         Continuar →
-      </button>
+      </base-button>
     </div>
   </form>
-`;
+`);
 
   document.body.append(dialog);
 
@@ -867,9 +868,7 @@ import { siteData } from '@/store/modules/siteData';
         ) +
         "?text=" +
         encodeURIComponent(mensaje);
-      const close = document.createElement("button");
-      close.type = "button";
-      close.className = "btn outline";
+      const close = createBaseButton({ class: "btn outline" });
       close.textContent = "Cerrar";
       close.onclick = () => dialog.close();
       receipt.append(title, detail, accountNote, link, close);

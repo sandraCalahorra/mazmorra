@@ -1,3 +1,4 @@
+import { createBaseButton } from '@/components/core-ui/BaseButton.vue';
 import { notify, refresh, state } from './admin';
 import { requestWithStatus } from '@/bootstrap';
 
@@ -25,9 +26,7 @@ import { requestWithStatus } from '@/bootstrap';
         (item) => String(item.id) === String(id),
       );
       if (!row) continue;
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "btn danger";
+      const button = createBaseButton({ class: "btn danger" });
       button.dataset.deleteRequest = id;
       button.textContent = "Eliminar definitivamente";
       button.onclick = async () => {

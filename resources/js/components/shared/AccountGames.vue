@@ -26,9 +26,9 @@
                         {{ game.rejection_reason }}
                     </p>
                 </aside>
-                <button type="button" class="btn outline" @click="contactGame(game)">
+                <BaseButton class="btn outline" @click="contactGame(game)">
                     Contactar con el máster ↗
-                </button>
+                </BaseButton>
             </article>
         </section>
     </div>
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
 import { account, loadAccount } from '@/store/modules/account';
 import { apiError } from '@/bootstrap';
 import { loadFeature } from '@/features';
@@ -52,6 +53,7 @@ const statuses = {
 };
 
 export default {
+    components: { BaseButton },
     data() {
         return { message: '', statuses };
     },
