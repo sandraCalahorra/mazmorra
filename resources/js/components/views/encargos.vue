@@ -22,9 +22,9 @@
                         <b>03</b><strong>Recibe tu contenido</strong><span>Entrega digital en el formato acordado.</span>
                     </li>
                 </ol>
-                <button type="button" class="btn commission-cta" data-open-commission="">
+                <BaseButton class="btn commission-cta" data-open-commission="">
                     Cuéntame tu idea ↗
-                </button>
+                </BaseButton>
                 <p class="small">
                     No necesitas tenerlo todo resuelto. La consulta inicial no confirma
                     un encargo.
@@ -36,23 +36,23 @@
             <h2>Contenido pensado para tu mesa.</h2>
             <div class="commission-cards">
                 <article>
-                    <span class="commission-icon" aria-hidden="true">🎲</span>
+                    <span class="commission-icon" aria-hidden="true"><FluentIcon name="games" /></span>
                     <h3>Aventuras a medida</h3>
                     <p>Una historia creada para vuestro grupo, con el nivel, el tono y la duración que buscáis. Desde un one-shot hasta una campaña corta.</p>
                     <p class="commission-example"><strong>Por ejemplo: </strong>Una aventura de terror para dos sesiones.</p>
-                    <button type="button" class="commission-price-open" data-open-prices="0" aria-haspopup="dialog" aria-controls="commission-prices-dialog">Consultar precios ↗</button></article>
+                    <BaseButton class="commission-price-open" data-open-prices="0" aria-haspopup="dialog" aria-controls="commission-prices-dialog">Consultar precios ↗</BaseButton></article>
                 <article>
-                    <span class="commission-icon" aria-hidden="true">✍️</span>
+                    <span class="commission-icon" aria-hidden="true"><FluentIcon name="hand-draw" /></span>
                     <h3>Adaptación de contenido</h3>
                     <p>Doy forma a tus notas o reviso el contenido que ya tienes para dejarlo listo para jugar. Acordaremos los cambios, el sistema y el alcance.</p>
                     <p class="commission-example"><strong>Por ejemplo: </strong>Convertir tu idea en una aventura con objetivos y encuentros.</p>
-                    <button type="button" class="commission-price-open" data-open-prices="3" aria-haspopup="dialog" aria-controls="commission-prices-dialog">Consultar precios ↗</button></article>
+                    <BaseButton class="commission-price-open" data-open-prices="3" aria-haspopup="dialog" aria-controls="commission-prices-dialog">Consultar precios ↗</BaseButton></article>
                 <article>
-                    <span class="commission-icon" aria-hidden="true">📚</span>
+                    <span class="commission-icon" aria-hidden="true"><FluentIcon name="library" /></span>
                     <h3>Compendios y suplementos</h3>
                     <p>Recursos para enriquecer tu campaña: objetos mágicos, criaturas y localizaciones. Elige qué necesitas y cuánto contenido quieres incluir.</p>
                     <p class="commission-example"><strong>Por ejemplo: </strong>Un pequeño bestiario o una localización con secretos.</p>
-                    <button type="button" class="commission-price-open" data-open-prices="1" aria-haspopup="dialog" aria-controls="commission-prices-dialog">Consultar precios ↗</button></article>
+                    <BaseButton class="commission-price-open" data-open-prices="1" aria-haspopup="dialog" aria-controls="commission-prices-dialog">Consultar precios ↗</BaseButton></article>
             </div>
         </section>
       
@@ -104,7 +104,7 @@
                     Qué puedes encargar, cómo acordamos los detalles y qué recibirás al
                     terminar.
                 </p>
-                <button type="button" class="commission-faq-toggle" aria-expanded="false" aria-controls="commission-faq-questions">Ver preguntas ＋</button>
+                <BaseButton class="commission-faq-toggle" aria-expanded="false" aria-controls="commission-faq-questions">Ver preguntas ＋</BaseButton>
             </div>
             <div id="commission-faq-questions" hidden="" class="formats-guide__questions">
                 <details>
@@ -215,15 +215,15 @@
             </p>
 
             <div class="site-footer__legal">
-                <button type="button" data-legal="legal">
+                <BaseButton data-legal="legal">
                     Información del sitio
-                </button>
-                <button type="button" data-legal="privacy">Privacidad</button>
+                </BaseButton>
+                <BaseButton data-legal="privacy">Privacidad</BaseButton>
                 <a href="admin">Administración</a>
             </div>
         </div>
     </footer>
-    <dialog id="commission-prices-dialog" aria-labelledby="commission-prices-title"><div class="commission-prices-toolbar"><span>PRECIOS PARA TU ENCARGO</span><button type="button" class="commission-prices-close" aria-label="Cerrar precios" autofocus="">×</button></div><section class="commission-prices">
+    <dialog id="commission-prices-dialog" aria-labelledby="commission-prices-title"><div class="commission-prices-toolbar"><span>PRECIOS PARA TU ENCARGO</span><BaseButton class="commission-prices-close" aria-label="Cerrar precios" autofocus="">×</BaseButton></div><section class="commission-prices">
             <p class="eyebrow">PRECIOS ORIENTATIVOS</p>
             <h2 id="commission-prices-title">Un punto de partida para tu encargo.</h2>
             <p>
@@ -232,23 +232,23 @@
                 revisar tu idea.
             </p>
             <div class="commission-price-tabs" role="tablist" aria-label="Categorías de precios">
-                <button type="button" role="tab" id="price-tab-0" aria-controls="price-panel-0" aria-selected="true" tabindex="0">
-                    Aventuras</button><button type="button" role="tab" id="price-tab-1" aria-controls="price-panel-1" aria-selected="false" tabindex="-1">
-                    Compendios</button><button type="button" role="tab" id="price-tab-2" aria-controls="price-panel-2" aria-selected="false" tabindex="-1">
-                    Extras</button><button type="button" role="tab" id="price-tab-3" aria-controls="price-panel-3" aria-selected="false" tabindex="-1">
+                <BaseButton role="tab" id="price-tab-0" aria-controls="price-panel-0" aria-selected="true" tabindex="0">
+                    Aventuras</BaseButton><BaseButton role="tab" id="price-tab-1" aria-controls="price-panel-1" aria-selected="false" tabindex="-1">
+                    Compendios</BaseButton><BaseButton role="tab" id="price-tab-2" aria-controls="price-panel-2" aria-selected="false" tabindex="-1">
+                    Extras</BaseButton><BaseButton role="tab" id="price-tab-3" aria-controls="price-panel-3" aria-selected="false" tabindex="-1">
                     Adaptaciones
-                </button>
+                </BaseButton>
             </div>
             <div class="commission-price-navigation">
-                <button type="button" id="price-previous" aria-label="Tabla anterior">
+                <BaseButton id="price-previous" aria-label="Tabla anterior">
                     ←
-                </button>
+                </BaseButton>
                 <p id="price-position" role="status" aria-live="polite">
                     Aventuras · 1 de 4
                 </p>
-                <button type="button" id="price-next" aria-label="Tabla siguiente">
+                <BaseButton id="price-next" aria-label="Tabla siguiente">
                     →
-                </button>
+                </BaseButton>
             </div>
             <div role="tabpanel" id="price-panel-0" aria-labelledby="price-tab-0" tabindex="0">
                 <div class="commission-price-scroll">
@@ -323,17 +323,17 @@
                 paquetes de creación. Los extras se suman una sola vez; VTT, JSON y
                 requisitos especiales se valoran aparte.
             </p>
-            <button type="button" class="btn commission-cta" data-open-commission="">
+            <BaseButton class="btn commission-cta" data-open-commission="">
                 Calcular mi encargo ↗
-            </button>
+            </BaseButton>
             <p class="small">
                 La duración depende del ritmo de la mesa. No incluye dirección de
                 partidas, mapas ni ilustraciones originales.
             </p>
         </section></dialog><dialog id="commission-dialog" class="commission-page" aria-labelledby="commission-dialog-title">
-        <button type="button" class="commission-close" aria-label="Cerrar formulario">
+        <BaseButton class="commission-close" aria-label="Cerrar formulario">
             ×
-        </button>
+        </BaseButton>
         <p class="eyebrow">TU ENCARGO</p>
         <h2 id="commission-dialog-title">Demos forma a tu idea.</h2>
         <p>
@@ -390,8 +390,7 @@
                         <input name="pages" type="number" min="0" max="20" step="1" value="0">
                     </label>
                 </div>
-                <label class="commission-illustrations">
-                    <input type="checkbox" name="illustrations">
+                <BaseCheckbox label-class="commission-illustrations" name="illustrations">
                     <span>
                         <strong>
                             Solicitar ilustraciones originales realizadas por un
@@ -402,7 +401,7 @@
                             acordar. Precio y plazo pendientes de presupuestar.
                         </small>
                     </span>
-                </label>
+                </BaseCheckbox>
           
                 <label>Formato de entrega<select name="delivery">
                         <option value="pdf">PDF con maquetación sencilla</option>
@@ -445,21 +444,24 @@
                 <a id="commission-send" class="btn commission-cta" target="_blank" rel="noopener noreferrer">Continuar por WhatsApp ↗</a>
             </section>
             <div class="commission-wizard-actions">
-                <button type="button" id="commission-back" class="commission-edit" hidden="">
-                    ← Anterior</button><button type="submit" class="btn commission-cta" id="commission-next">
+                <BaseButton id="commission-back" class="commission-edit" hidden="">
+                    ← Anterior</BaseButton><BaseButton type="submit" class="btn commission-cta" id="commission-next">
                     Continuar →
-                </button>
+                </BaseButton>
             </div>
             <p id="commission-status" role="status" aria-live="polite"></p>
         </form>
     </dialog>
     <dialog id="modal">
-        <button class="close" aria-label="Cerrar ventana">×</button>
+        <BaseButton class="close" aria-label="Cerrar ventana">×</BaseButton>
         <div id="modal-content"></div>
     </dialog>
 </template>
 
 <script>
+import BaseCheckbox from '../core-ui/BaseCheckbox.vue';
+import BaseButton from '../core-ui/BaseButton.vue';
+import FluentIcon from '../shared/FluentIcon.vue';
 import '../../../css/pages/encargos.css';
 import SiteHeader from '../shared/SiteHeader.vue';
 
@@ -467,6 +469,6 @@ export const features = ["app", "animaciones", "encargos-precios", "encargos-tab
 export const needsSiteData = true;
 
 export default {
-    components: { SiteHeader },
+    components: { BaseButton, BaseCheckbox, FluentIcon, SiteHeader },
 };
 </script>

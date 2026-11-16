@@ -9,7 +9,7 @@
                     <a href="mi-perfil">Mi perfil</a>
                 </template>
                 <a v-if="account.admin" href="admin">Administración</a>
-                <button type="button" :disabled="busy" @click="logout">Cerrar sesión</button>
+                <BaseButton :disabled="busy" @click="logout">Cerrar sesión</BaseButton>
                 <p v-if="error" role="alert">{{ error }}</p>
             </div>
         </details>
@@ -21,10 +21,12 @@
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
 import { account, loadAccount, updateAccount } from '@/store/modules/account';
 import { apiError } from '@/bootstrap';
 
 export default {
+    components: { BaseButton },
     data() {
         return {
             unavailable: false,

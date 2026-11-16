@@ -1,3 +1,5 @@
+import { setHtmlWithBaseCheckboxes } from '@/components/core-ui/BaseCheckbox.vue';
+import { createBaseButton, setHtmlWithBaseButtons } from '@/components/core-ui/BaseButton.vue';
 import { shippingProductFields, renderShippingSettings } from './envios-admin';
 import { agendaEditor, renderAgendaAdmin, renderAgendaAlerts } from './agenda-admin';
 import { requestWithStatus } from '@/bootstrap';
@@ -79,7 +81,7 @@ async function refresh() {
   }
 }
 function form(html) {
-  $("#editor-body").innerHTML = html + '<p id="editor-error" role="alert"></p>';
+  setHtmlWithBaseCheckboxes($("#editor-body"), html + '<p id="editor-error" role="alert"></p>');
   editor.showModal();
 }
 $(".close").onclick = () => editor.close();
@@ -145,10 +147,9 @@ function purchasePackagesForm(product) {
   return `
     <fieldset class="wide purchase-packages">
       <legend>Opciones de compra</legend>
-      <label class="check">
-  <input type="checkbox" id="unlock-purchase-packages">
+      <base-checkbox label-class="check" id="unlock-purchase-packages">
   Editar opciones de compra
-</label>
+</base-checkbox>
       <p>Activa los paquetes que vendes e indica su precio total.</p>
 
       ${["digital", "physical"]
@@ -164,14 +165,12 @@ function purchasePackagesForm(product) {
 
             return `
               <div class="purchase-package" data-package="${paquete.id}">
-                <label class="check">
-                  <input
-                    type="checkbox"
+                <base-checkbox label-class="check"
                     data-package-enabled
                     ${activo ? "checked" : ""}
                   >
                   ${paquete.label}
-                </label>
+                </base-checkbox>
 
                 <label>
                   Precio total · €
@@ -291,7 +290,7 @@ ${select(
 )}
 ${input("demo", "Enlace de la demo en Heyzine (opcional)", product.demo, "url", true)}
 ${input("cover", "URL de portada HTTPS o imagen subida", product.cover, "text", true)}
-<label class="wide">Subir portada (PNG, JPG o WebP, máximo 2,5 MB)<input id="cover-file" type="file" accept="image/png,image/jpeg,image/webp"></label>${area("intro", "Descripción corta", product.intro, 400)}${area("description", "Descripción completa", product.description)}<label class="wide check"><input name="published" type="checkbox" ${product.published !== false ? "checked" : ""}>Visible en el catálogo</label></div><button class="btn gold" type="submit">Guardar publicación</button></form>`,
+<label class="wide">Subir portada (PNG, JPG o WebP, máximo 2,5 MB)<input id="cover-file" type="file" accept="image/png,image/jpeg,image/webp"></label>${area("intro", "Descripción corta", product.intro, 400)}${area("description", "Descripción completa", product.description)}<base-checkbox label-class="wide check" name="published" ${product.published !== false ? "checked" : ""}>Visible en el catálogo</base-checkbox></div><base-button class="btn gold" type="submit">Guardar publicación</base-button></form>`,
   );
 
   // Conserva los valores existentes aunque tengan otra escritura.
@@ -396,7 +395,7 @@ function gameForm(game = {}) {
         ["cancelled", "Cancelada"],
       ],
       game.status || "open",
-    )}${area("description", "Descripción y condiciones", game.description, 3000)}</div><p class="small">Cancelar una partida cancelará también sus solicitudes pendientes y reservas confirmadas. Los pagos se conservan para que puedas gestionar las devoluciones manualmente.</p><button class="btn gold" type="submit">Guardar partida</button></form>`,
+    )}${area("description", "Descripción y condiciones", game.description, 3000)}</div><p class="small">Cancelar una partida cancelará también sus solicitudes pendientes y reservas confirmadas. Los pagos se conservan para que puedas gestionar las devoluciones manualmente.</p><base-button class="btn gold" type="submit">Guardar partida</base-button></form>`,
   );
   bindSave("/api/admin/game", game.id, (d) => {
     if (
@@ -441,15 +440,15 @@ function reservationForm(r, rejectNow = false) {
       ],
       rejectNow ? "rejected" : r.status,
     )}
-    <label class="check"><input name="paid" type="checkbox" ${r.paid ? "checked" : ""}>Pago comprobado manualmente</label>
-    <label class="check wide" id="short-notice-label" hidden><input type="checkbox" name="accept_short_notice"> Faltan menos de 24 horas para empezar. He acordado expresamente esta excepción con el grupo.</label>
+    <base-checkbox label-class="check" name="paid" ${r.paid ? "checked" : ""}>Pago comprobado manualmente</base-checkbox>
+    <base-checkbox label-class="check wide" label-id="short-notice-label" label-hidden name="accept_short_notice"> Faltan menos de 24 horas para empezar. He acordado expresamente esta excepción con el grupo.</base-checkbox>
     <label class="wide" id="rejection-message-label">Mensaje para el usuario
       <textarea name="rejection_reason" maxlength="2000" rows="5" ${r.status === "rejected" && r.rejection_reason ? "readonly" : ""}>${esc(r.rejection_reason || "")}</textarea>
     </label></div>
     <p id="rejection-help" class="small">Este mensaje aparecerá en Mis partidas si la reserva tiene una cuenta vinculada. También se intentará enviar al email de su cuenta o, si no existe, al contacto cuando sea un correo válido.</p>
     ${r.status === "rejected" ? `<p class="small"><b>Correo:</b> ${esc(mailLabels[r.rejection_email_status] || "Sin aviso")}</p>` : ""}
-    <button class="btn gold" type="submit">Guardar reserva</button>
-    ${r.status === "rejected" && ["failed", "not_configured", "no_recipient"].includes(r.rejection_email_status) ? '<button class="btn outline" type="button" id="retry-rejection-email">Reintentar correo</button>' : ""}
+    <base-button class="btn gold" type="submit">Guardar reserva</base-button>
+    ${r.status === "rejected" && ["failed", "not_configured", "no_recipient"].includes(r.rejection_email_status) ? '<base-button class="btn outline" id="retry-rejection-email">Reintentar correo</base-button>' : ""}
     </form>`);
   const f = $("#edit-form");
   const update = () => {
@@ -1481,14 +1480,12 @@ function commissionedForm(item = {}) {
           6000,
         )}
 
-        <label class="wide check">
-          <input
+        <base-checkbox label-class="wide check"
             name="published"
-            type="checkbox"
             ${item.published === true ? "checked" : ""}
           >
           Disponible para solicitar
-        </label>
+        </base-checkbox>
       </div>
 
         <p class="small">
@@ -1499,7 +1496,7 @@ function commissionedForm(item = {}) {
           Las partidas oficiales se dirigen en español. La tarifa vacía se muestra como «A consultar».
         </p>
 
-      <button class="btn gold" type="submit">Guardar aventura</button>
+      <base-button class="btn gold" type="submit">Guardar aventura</base-button>
     </form>
   `);
 
@@ -1592,17 +1589,17 @@ function renderCommissioned(panel) {
       currency: "EUR",
     }).format(Number(valor));
 
-  panel.innerHTML = `
+  setHtmlWithBaseButtons(panel, `
     <div class="panel-head">
       <div>
         <h2>Partidas por encargo</h2>
         <p>Aventuras disponibles para dirigir, sin fecha asignada.</p>
       </div>
 
-      <button type="button" class="btn outline" id="official-catalog">Catálogo de campañas oficiales</button>
-      <button type="button" class="btn gold" id="new-commissioned">
+      <base-button class="btn outline" id="official-catalog">Catálogo de campañas oficiales</base-button>
+      <base-button class="btn gold" id="new-commissioned">
         Añadir aventura +
-      </button>
+      </base-button>
     </div>
 
     <div class="admin-list">
@@ -1635,20 +1632,20 @@ function renderCommissioned(panel) {
               </div>
 
               <div class="actions">
-                <button type="button" class="btn outline"
+                <base-button class="btn outline"
                   data-commission-edit="${esc(item.id)}">
                   Editar
-                </button>
+                </base-button>
 
-                <button type="button" class="btn outline"
+                <base-button class="btn outline"
                   data-commission-clone="${esc(item.id)}">
                   Clonar
-                </button>
+                </base-button>
 
-                <button type="button" class="btn danger"
+                <base-button class="btn danger"
                   data-commission-delete="${esc(item.id)}">
                   Eliminar
-                </button>
+                </base-button>
               </div>
             </article>
           `,
@@ -1657,7 +1654,7 @@ function renderCommissioned(panel) {
           : '<p class="admin-empty">Añade tu primera aventura para dirigir.</p>'
       }
     </div>
-  `;
+  `);
 
   $("#official-catalog").onclick = showOfficialCampaignCatalog;
   $("#new-commissioned").onclick = () => commissionedForm();
@@ -1753,22 +1750,21 @@ function render() {
     return;
   }
   if (currentTab === "products") {
-    panel.innerHTML =
-      '<div class="panel-head"><h2>Tu catálogo</h2><button class="btn gold" id="new-product">Añadir publicación +</button></div><div class="admin-list">' +
+    setHtmlWithBaseButtons(panel, '<div class="panel-head"><h2>Tu catálogo</h2><base-button class="btn gold" id="new-product">Añadir publicación +</base-button></div><div class="admin-list">' +
       (state.products
         .map(
           (p) =>
             `<article class="admin-item"><div><span class="tag">${p.published === false ? "BORRADOR" : "VISIBLE"} · ${esc(p.type)}</span><h3>${esc(p.title)}</h3><p>${esc(p.price || "Precio por confirmar")}</p></div>
           <div class="actions">
-          <button class="btn outline" data-edit="${esc(p.id)}">Editar</button>
-          <button type="button" class="btn outline" data-clone="${esc(p.id)}">Clonar</button>
-          <button class="btn danger" data-delete="${esc(p.id)}">Eliminar</button>
+          <base-button class="btn outline" data-edit="${esc(p.id)}">Editar</base-button>
+          <base-button class="btn outline" data-clone="${esc(p.id)}">Clonar</base-button>
+          <base-button class="btn danger" data-delete="${esc(p.id)}">Eliminar</base-button>
           </div>
           </article>`,
         )
         .join("") ||
         '<p class="admin-empty">Todavía no hay publicaciones.</p>') +
-      "</div>";
+      "</div>");
     $("#new-product").onclick = () => productForm();
     panel
       .querySelectorAll("[data-edit]")
@@ -1809,16 +1805,15 @@ function render() {
         }),
     );
   } else if (currentTab === "games") {
-    panel.innerHTML =
-      '<div class="panel-head"><h2>Partidas y plazas</h2><button class="btn gold" id="new-game">Crear partida +</button></div><div class="admin-list">' +
+    setHtmlWithBaseButtons(panel, '<div class="panel-head"><h2>Partidas y plazas</h2><base-button class="btn gold" id="new-game">Crear partida +</base-button></div><div class="admin-list">' +
       (state.games
         .map(
           (g) =>
-            `<article class="admin-item"><div><span class="tag">${statusNames[g.status]}</span><h3>${esc(g.title)}</h3><p>${esc(new Date(g.starts).toLocaleString("es-ES", { timeZone: "Europe/Madrid" }))} (Madrid) · ${esc(g.mode)}<br>${g.booked}/${g.capacity} plazas confirmadas · ${esc(g.price || "Precio por confirmar")}</p></div><button class="btn outline" data-game="${g.id}">Editar partida</button></article>`,
+            `<article class="admin-item"><div><span class="tag">${statusNames[g.status]}</span><h3>${esc(g.title)}</h3><p>${esc(new Date(g.starts).toLocaleString("es-ES", { timeZone: "Europe/Madrid" }))} (Madrid) · ${esc(g.mode)}<br>${g.booked}/${g.capacity} plazas confirmadas · ${esc(g.price || "Precio por confirmar")}</p></div><base-button class="btn outline" data-game="${g.id}">Editar partida</base-button></article>`,
         )
         .join("") ||
         '<p class="admin-empty">Crea tu primera partida para que aparezca en el calendario.</p>') +
-      "</div>";
+      "</div>");
     $("#new-game").onclick = () => gameForm();
     panel
       .querySelectorAll("[data-game]")
@@ -1835,12 +1830,12 @@ function render() {
     const visible = state.reservations.filter(
       (r) => isArchived(r) === showArchivedReservations,
     );
-    panel.innerHTML = `
+    setHtmlWithBaseButtons(panel, `
       <div class="panel-head">
         <h2>${showArchivedReservations ? "Solicitudes archivadas" : "Solicitudes y reservas"}</h2>
-        <button type="button" class="btn outline" id="toggle-archived-reservations">
+        <base-button class="btn outline" id="toggle-archived-reservations">
           ${showArchivedReservations ? `Volver a reservas (${mainCount})` : `Ver archivadas (${archivedCount})`}
-        </button>
+        </base-button>
       </div>
       <p>${showArchivedReservations ? "Se conserva el historial. Puedes restaurar una solicitud para volver a gestionarla." : "Las pendientes no bloquean plazas. Puedes archivar las rechazadas o canceladas."}</p>
       <div class="admin-list">${
@@ -1855,11 +1850,11 @@ function render() {
           <div class="actions">
             ${
               showArchivedReservations
-                ? `<button type="button" class="btn outline" data-request-type="${esc(r.request_type || "session")}" data-archive-reservation="${esc(r.id)}" data-archived="false">Restaurar solicitud</button>`
+                ? `<base-button class="btn outline" data-request-type="${esc(r.request_type || "session")}" data-archive-reservation="${esc(r.id)}" data-archived="false">Restaurar solicitud</base-button>`
                 : `
-              <button type="button" class="btn outline" data-reservation="${esc(r.id)}">Gestionar</button>
-              <button type="button" class="btn danger" data-reject-reservation="${esc(r.id)}">${r.status === "rejected" ? "Ver rechazo" : "Rechazar solicitud"}</button>
-              ${["rejected", "cancelled"].includes(r.status) ? `<button type="button" class="btn outline" data-request-type="${esc(r.request_type || "session")}" data-archive-reservation="${esc(r.id)}" data-archived="true">Archivar solicitud</button>` : ""}
+              <base-button class="btn outline" data-reservation="${esc(r.id)}">Gestionar</base-button>
+              <base-button class="btn danger" data-reject-reservation="${esc(r.id)}">${r.status === "rejected" ? "Ver rechazo" : "Rechazar solicitud"}</base-button>
+              ${["rejected", "cancelled"].includes(r.status) ? `<base-button class="btn outline" data-request-type="${esc(r.request_type || "session")}" data-archive-reservation="${esc(r.id)}" data-archived="true">Archivar solicitud</base-button>` : ""}
             `
             }
           </div>
@@ -1868,7 +1863,7 @@ function render() {
           .join("") ||
         `<p class="admin-empty">${showArchivedReservations ? "No hay solicitudes archivadas." : "No hay solicitudes en la lista principal."}</p>`
       }
-      </div>`;
+      </div>`);
     $("#toggle-archived-reservations").onclick = () => {
       showArchivedReservations = !showArchivedReservations;
       render();
@@ -1912,8 +1907,7 @@ function render() {
       };
     });
   } else {
-    panel.innerHTML =
-      '<div class="panel-head"><h2>Contacto y pagos manuales</h2></div><form id="settings-form" class="settings-form">' +
+    setHtmlWithBaseButtons(panel, '<div class="panel-head"><h2>Contacto y pagos manuales</h2></div><form id="settings-form" class="settings-form">' +
       input(
         "whatsapp",
         "WhatsApp: prefijo de país y número, sin + ni espacios",
@@ -1922,7 +1916,7 @@ function render() {
       input("paypal", "Enlace de PayPal", state.config.paypal, "url") +
       input("email", "Correo de contacto", state.config.email, "email") +
       area("delivery", "Información de entrega", state.config.delivery, 1000) +
-      '<h3>Muestras de aventuras · Heyzine</h3><p>Publica en Heyzine únicamente las páginas que quieras mostrar. El título aparece en el desplegable de la web.</p><div id="preview-rows"></div><button type="button" class="btn outline" id="add-preview">Añadir muestra +</button><p class="small">No se conecta con tu cuenta de PayPal ni se comprueban pagos automáticamente. No introduzcas contraseñas ni claves privadas.</p><button class="btn gold">Guardar configuración</button></form>';
+      '<h3>Muestras de aventuras · Heyzine</h3><p>Publica en Heyzine únicamente las páginas que quieras mostrar. El título aparece en el desplegable de la web.</p><div id="preview-rows"></div><base-button class="btn outline" id="add-preview">Añadir muestra +</base-button><p class="small">No se conecta con tu cuenta de PayPal ni se comprueban pagos automáticamente. No introduzcas contraseñas ni claves privadas.</p><base-button type="submit" class="btn gold">Guardar configuración</base-button></form>');
     renderPreviewSettings();
     $("#settings-form").onsubmit = async (e) => {
       e.preventDefault();
@@ -1974,8 +1968,7 @@ $("#refresh").onclick = refresh;
 if (!document.querySelector('[data-tab="commissioned"]')) {
   const gamesTab = document.querySelector('[data-tab="games"]');
   if (gamesTab) {
-    const button = document.createElement("button");
-    button.type = "button";
+    const button = createBaseButton();
     button.dataset.tab = "commissioned";
     button.textContent = "Partidas por encargo";
     gamesTab.after(button);
@@ -1996,8 +1989,7 @@ function renderPreviewSettings() {
     if (rows.children.length >= 50) return;
     const row = document.createElement("fieldset");
     row.className = "preview-row";
-    row.innerHTML =
-      '<legend>Muestra de aventura</legend><label>Título de la muestra<input data-preview-title maxlength="160" required></label><label>Enlace de Heyzine<input data-preview-url type="url" maxlength="300" placeholder="https://heyzine.com/flip-book/identificador.html" required></label><button type="button" class="btn danger">Quitar muestra</button>';
+    setHtmlWithBaseButtons(row, '<legend>Muestra de aventura</legend><label>Título de la muestra<input data-preview-title maxlength="160" required></label><label>Enlace de Heyzine<input data-preview-url type="url" maxlength="300" placeholder="https://heyzine.com/flip-book/identificador.html" required></label><base-button class="btn danger">Quitar muestra</base-button>');
     row.querySelector("[data-preview-title]").value = p.title;
     row.querySelector("[data-preview-url]").value = p.url;
     row.querySelector("button").onclick = () => row.remove();
@@ -2022,8 +2014,7 @@ function showOfficialCampaignCatalog() {
         .toLocaleLowerCase("es")
         .includes(query),
     );
-    results.innerHTML =
-      entries
+    setHtmlWithBaseButtons(results, entries
         .map((item) => {
           const saved = (state.commissioned_games || []).find(
             (existing) =>
@@ -2036,10 +2027,10 @@ function showOfficialCampaignCatalog() {
         <p>${esc(item.level)} · ${esc(item.format)}</p>
         <p style="white-space:pre-line">${esc(item.description)}</p>
         <p>${saved ? (saved.published ? "Disponible para solicitar" : "Guardada como borrador") : "Sin activar · precio a consultar"}</p>
-        <button type="button" class="btn gold" data-official-template="${esc(item.catalog_id)}">${saved ? "Editar ficha guardada" : "Preparar ficha"}</button></div>
+        <base-button class="btn gold" data-official-template="${esc(item.catalog_id)}">${saved ? "Editar ficha guardada" : "Preparar ficha"}</base-button></div>
       </article>`;
         })
-        .join("") || "<p>No hay coincidencias.</p>";
+        .join("") || "<p>No hay coincidencias.</p>");
     results.querySelectorAll("[data-official-template]").forEach((button) => {
       button.onclick = () => {
         const template = officialCampaignTemplates.find(
@@ -2108,7 +2099,7 @@ function gameRequestForm(r, rejectNow = false) {
      ["cancelled", "Cancelada"],
    ],
    rejectNow ? "rejected" : r.status,
- )}<label class="check"><input type="checkbox" name="paid" ${r.paid ? "checked" : ""}>Pago comprobado manualmente</label><label class="check" id="request-short" hidden><input type="checkbox" name="accept_short_notice">He acordado con el grupo confirmar con menos de 24 horas.</label><label id="request-reason">Mensaje para el usuario<textarea name="rejection_reason" maxlength="2000" rows="4" ${r.status === "rejected" ? "readonly" : ""}>${esc(r.rejection_reason || "")}</textarea></label><p class="small">Al confirmar se comprueba que el horario completo siga libre y se ocupa la primera sesión. La frecuencia es orientativa: las siguientes sesiones se acuerdan aparte. El mensaje de rechazo aparece en Mis partidas si tiene cuenta y se intenta enviar por correo con la configuración SMTP existente.</p><button type="submit" class="btn gold">Guardar solicitud</button></form>`);
+ )}<base-checkbox label-class="check" name="paid" ${r.paid ? "checked" : ""}>Pago comprobado manualmente</base-checkbox><base-checkbox label-class="check" label-id="request-short" label-hidden name="accept_short_notice">He acordado con el grupo confirmar con menos de 24 horas.</base-checkbox><label id="request-reason">Mensaje para el usuario<textarea name="rejection_reason" maxlength="2000" rows="4" ${r.status === "rejected" ? "readonly" : ""}>${esc(r.rejection_reason || "")}</textarea></label><p class="small">Al confirmar se comprueba que el horario completo siga libre y se ocupa la primera sesión. La frecuencia es orientativa: las siguientes sesiones se acuerdan aparte. El mensaje de rechazo aparece en Mis partidas si tiene cuenta y se intenta enviar por correo con la configuración SMTP existente.</p><base-button type="submit" class="btn gold">Guardar solicitud</base-button></form>`);
   const f = $("#request-manage-form");
   const update = () => {
     const rejected = f.elements.status.value === "rejected";

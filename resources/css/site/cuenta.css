@@ -9,13 +9,15 @@
   margin: 16px 0;
 }
 
-.account-page input:not([type="checkbox"]) {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ab945d;
-  border-radius: 6px;
-  font: inherit;
+@layer components {
+  .account-page input:not([type="checkbox"]) {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ab945d;
+    border-radius: 6px;
+    font: inherit;
+  }
 }
 
 .account-page h1 {

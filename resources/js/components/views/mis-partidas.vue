@@ -11,8 +11,8 @@
         >
         <p>Historias que se leen. Aventuras que se viven.</p>
         <div>
-            <button data-legal="legal">Información del sitio</button
-            ><button data-legal="privacy">Privacidad</button>
+            <BaseButton data-legal="legal">Información del sitio</BaseButton
+            ><BaseButton data-legal="privacy">Privacidad</BaseButton>
         </div>
         <small
         >© 2026 La Mazmorra del Roleo. Proyecto independiente, no afiliado a
@@ -20,12 +20,13 @@
         ><a class="admin-access" href="admin">Administración</a>
     </footer>
     <dialog id="modal">
-        <button class="close" aria-label="Cerrar ventana">×</button>
+        <BaseButton class="close" aria-label="Cerrar ventana">×</BaseButton>
         <div id="modal-content"></div>
     </dialog>
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
 import '../../../css/pages/mis-partidas.css';
 import AccountGames from '../shared/AccountGames.vue';
 import SiteHeader from '../shared/SiteHeader.vue';
@@ -34,6 +35,6 @@ export const features = ["app", "animaciones"];
 export const needsSiteData = true;
 
 export default {
-    components: { AccountGames, SiteHeader },
+    components: { BaseButton, AccountGames, SiteHeader },
 };
 </script>

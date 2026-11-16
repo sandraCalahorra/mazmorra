@@ -1,3 +1,4 @@
+import { setHtmlWithBaseButtons } from '@/components/core-ui/BaseButton.vue';
 import { requestWithStatus } from '@/bootstrap';
 import { siteData } from '@/store/modules/siteData';
 
@@ -30,7 +31,7 @@ import { siteData } from '@/store/modules/siteData';
     dialog = modal;
     modal.className = "shipping-dialog";
     modal.setAttribute("aria-labelledby", "shipping-title");
-    modal.innerHTML = `<button type="button" class="shipping-close" aria-label="Cerrar calculadora">×</button>
+    setHtmlWithBaseButtons(modal, `<base-button class="shipping-close" aria-label="Cerrar calculadora">×</base-button>
       <p class="eyebrow">TU PEDIDO</p><h2 id="shipping-title">Calcula el envío.</h2>
       <p data-product></p><p>Calculamos un sobre de hasta 5 kg, incluido el embalaje. Los pedidos que no quepan se confirman por WhatsApp antes del pago.</p>
       <form><label>Cantidad de ejemplares<input name="quantity" type="number" min="1" max="100" step="1" value="1" required></label>
@@ -39,10 +40,10 @@ import { siteData } from '@/store/modules/siteData';
         <label>Localidad / ciudad<input name="city" maxlength="180" readonly autocomplete="address-level2" placeholder="Introduce primero el código postal"></label>
         <label hidden>Selecciona tu localidad<select name="city_choice" disabled></select></label>
         <p data-city-status role="status" aria-live="polite"></p>
-        <button type="submit" class="btn gold">Calcular envío</button>
+        <base-button type="submit" class="btn gold">Calcular envío</base-button>
       </form>
       <div class="shipping-result" role="status" aria-live="polite"></div>
-      <a class="btn shipping-whatsapp" target="_blank" rel="noopener noreferrer" hidden>Continuar por WhatsApp ↗</a>`;
+      <a class="btn shipping-whatsapp" target="_blank" rel="noopener noreferrer" hidden>Continuar por WhatsApp ↗</a>`);
     document.body.append(modal);
     modal.querySelector("[data-product]").textContent = product.title;
     const f = modal.querySelector("form"),

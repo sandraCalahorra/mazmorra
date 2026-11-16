@@ -1,3 +1,4 @@
+import { setHtmlWithBaseCheckboxes } from '@/components/core-ui/BaseCheckbox.vue';
 import { api, esc, notify, refresh, state } from './admin';
 
 export function shippingProductFields(product) {
@@ -82,10 +83,10 @@ export function renderShippingSettings(panel) {
   ];
   const num = (name, label, value, max = 100, required = true) =>
     `<label>${label}<input type="number" name="${name}" min="0" max="${max}" step="0.01" value="${esc(value ?? "")}" ${required ? "required" : ""}></label>`;
-  panel.innerHTML = `<div class="panel-head"><h2>Envíos de libros</h2></div>
+  setHtmlWithBaseCheckboxes(panel, `<div class="panel-head"><h2>Envíos de libros</h2></div>
     <p>Correos Paq Estándar a domicilio · Un sobre de hasta 5 kg, incluido el embalaje; una pila de libros. Península y Baleares. Otros destinos se confirman por WhatsApp.</p>
     <form id="shipping-settings" class="settings-form">
-      <label class="shipping-check"><input name="enabled" type="checkbox" ${c.enabled ? "checked" : ""}> Activar cálculo automático</label>
+      <base-checkbox label-class="shipping-check" name="enabled" ${c.enabled ? "checked" : ""}> Activar cálculo automático</base-checkbox>
       <div class="shipping-admin-grid">
         <label>Código postal de origen<input name="origin_postcode" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" value="${esc(c.origin_postcode)}" placeholder="Tu código postal en Zaragoza"></label>
         <label>Tarifas confirmadas hasta<input name="valid_until" type="date" value="${esc(c.valid_until)}"></label>
@@ -140,11 +141,11 @@ export function renderShippingSettings(panel) {
           return `<label>${code} · ${name}${special ? " · A consultar" : `<select data-province="${code}"><option value="">A consultar</option>${zones.map((z) => `<option value="${z}" ${c.province_zones[code] === z ? "selected" : ""}>Zona ${z}</option>`).join("")}</select>`}</label>`;
         })
         .join("")}</div></details>
-      <label class="shipping-check"><input name="confirmed" type="checkbox" ${c.confirmed ? "checked" : ""}> He comprobado tarifas, impuestos, recargos y zonas de mi contrato vigente.</label>
+      <base-checkbox label-class="shipping-check" name="confirmed" ${c.confirmed ? "checked" : ""}> He comprobado tarifas, impuestos, recargos y zonas de mi contrato vigente.</base-checkbox>
       <p>Pasada la fecha de revisión, la web vuelve a «Envío a consultar». El peso facturable es el mayor entre el real y largo × ancho × alto / 6000 (cm). Más de 15 kg facturables o medidas fuera de límite: a consultar.</p>
-      <button type="submit" class="btn gold">Guardar envíos</button>
+      <base-button type="submit" class="btn gold">Guardar envíos</base-button>
       <p id="shipping-save-status" role="status"></p>
-    </form>`;
+    </form>`);
   const f = panel.querySelector("form");
   f.onsubmit = async (e) => {
     e.preventDefault();

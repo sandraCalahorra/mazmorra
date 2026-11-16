@@ -17,10 +17,10 @@
             <div class="calendar-layout">
                 <div class="calendar-box">
                     <div class="calendar-toolbar">
-                        <button id="previous-month" aria-label="Mes anterior">←</button>
+                        <BaseButton id="previous-month" aria-label="Mes anterior">←</BaseButton>
                         <h2 id="month-label" aria-live="polite"></h2>
-                        <button id="next-month" aria-label="Mes siguiente">→</button
-                        ><button id="today-month">Hoy</button>
+                        <BaseButton id="next-month" aria-label="Mes siguiente">→</BaseButton
+                        ><BaseButton id="today-month">Hoy</BaseButton>
                     </div>
                     <div class="calendar-week" aria-hidden="true">
                         <span>L</span><span>M</span><span>X</span><span>J</span
@@ -46,9 +46,9 @@
                             reservar. Selecciona una fecha para consultar sus partidas.
                         </p>
                     </div>
-                    <button class="btn gold" type="button" data-request-game>
+                    <BaseButton class="btn gold" data-request-game>
                         Solicita tu partida ↗
-                    </button>
+                    </BaseButton>
                     <p class="small">
                         Enviar una solicitud no bloquea plazas. La reserva queda
                         confirmada cuando el director la acepta.
@@ -64,7 +64,7 @@
                 <div class="booking-guide__steps">
                     <article class="booking-guide__step" style="--step-delay: 0ms">
                         <span class="booking-guide__number">01</span>
-                        <h3><span class="booking-guide__icon" aria-hidden="true">🧭</span>Encuentra vuestra aventura</h3>
+                        <h3><span class="booking-guide__icon" aria-hidden="true"><FluentIcon name="compass-northwest" /></span>Encuentra vuestra aventura</h3>
                         <p>
                             Consulta la temática, el nivel y los detalles de cada aventura.
                             Los colores distinguen su formato:
@@ -76,7 +76,7 @@
 
                     <article class="booking-guide__step" style="--step-delay: 120ms">
                         <span class="booking-guide__number">02</span>
-                        <h3><span class="booking-guide__icon" aria-hidden="true">📅</span>Elige cuándo jugar</h3>
+                        <h3><span class="booking-guide__icon" aria-hidden="true"><FluentIcon name="calendar" /></span>Elige cuándo jugar</h3>
                         <p>
                             Selecciona un día, la duración y una hora disponible. Se
                             añadirán automáticamente a vuestra solicitud.
@@ -85,7 +85,7 @@
 
                     <article class="booking-guide__step" style="--step-delay: 240ms">
                         <span class="booking-guide__number">03</span>
-                        <h3><span class="booking-guide__icon" aria-hidden="true">📜</span>Envía tu solicitud</h3>
+                        <h3><span class="booking-guide__icon" aria-hidden="true"><FluentIcon name="document-text" /></span>Envía tu solicitud</h3>
                         <p>
                             Indica cuántos sois y cómo contactar contigo. Revisaré vuestra
                             propuesta y acordaremos el precio y las condiciones antes de
@@ -162,7 +162,7 @@
                     </p>
 
                     <a class="btn booking-guide__explore" href="#game-rates-title">
-                        <span aria-hidden="true">📖</span>
+                        <span aria-hidden="true"><FluentIcon name="book-open" /></span>
                         Descubre las aventuras
                     </a>
                 </div>
@@ -248,21 +248,23 @@
             </p>
 
             <div class="site-footer__legal">
-                <button type="button" data-legal="legal">
+                <BaseButton data-legal="legal">
                     Información del sitio
-                </button>
-                <button type="button" data-legal="privacy">Privacidad</button>
+                </BaseButton>
+                <BaseButton data-legal="privacy">Privacidad</BaseButton>
                 <a href="admin">Administración</a>
             </div>
         </div>
     </footer>
     <dialog id="modal">
-        <button class="close" aria-label="Cerrar ventana">×</button>
+        <BaseButton class="close" aria-label="Cerrar ventana">×</BaseButton>
         <div id="modal-content"></div>
     </dialog>
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
+import FluentIcon from '../shared/FluentIcon.vue';
 import '../../../css/pages/calendario.css';
 import SiteHeader from '../shared/SiteHeader.vue';
 import AdventureRates from '../shared/AdventureRates.vue';
@@ -271,6 +273,6 @@ export const features = ["app", "animaciones", "solicitar-partida", "tarifas-par
 export const needsSiteData = true;
 
 export default {
-    components: { SiteHeader, AdventureRates },
+    components: { BaseButton, FluentIcon, SiteHeader, AdventureRates },
 };
 </script>

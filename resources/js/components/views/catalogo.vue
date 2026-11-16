@@ -15,13 +15,13 @@
         <section id="catalogo" class="catalog section">
             <div class="catalog-tools">
                 <div class="filters" role="group" aria-label="Filtrar catálogo">
-                    <button type="button" class="active" data-filter="all">
+                    <BaseButton class="active" data-filter="all">
                         Todo el catálogo
-                    </button>
-                    <button type="button" data-filter="digital">
+                    </BaseButton>
+                    <BaseButton data-filter="digital">
                         Contenido digital
-                    </button>
-                    <button type="button" data-filter="physical">Libros físicos</button>
+                    </BaseButton>
+                    <BaseButton data-filter="physical">Libros físicos</BaseButton>
                 </div>
                 <label class="search"
                 ><span>⌕</span
@@ -37,23 +37,21 @@
                         <span>Explora las historias</span>
 
                         <div>
-                            <button
-                                type="button"
+                            <BaseButton
                                 id="books-prev"
                                 aria-label="Ver publicaciones anteriores"
                                 aria-controls="products"
                             >
                                 ←
-                            </button>
+                            </BaseButton>
 
-                            <button
-                                type="button"
+                            <BaseButton
                                 id="books-next"
                                 aria-label="Ver publicaciones siguientes"
                                 aria-controls="products"
                             >
                                 →
-                            </button>
+                            </BaseButton>
                         </div>
                     </div>
 
@@ -104,15 +102,14 @@
                     Elige cómo quieres llevar la aventura a tu mesa. Aquí te explico qué
                     incluye cada formato y cómo hacer tu pedido.
                 </p>
-                <button
-                    type="button"
+                <BaseButton
                     class="formats-guide__toggle"
                     aria-expanded="false"
                     aria-controls="formats-content"
                 >
                     <span class="formats-guide__toggle-label">Ver información</span>
                     <span class="formats-guide__toggle-icon" aria-hidden="true">+</span>
-                </button>
+                </BaseButton>
             </div>
 
             <div id="formats-content" class="formats-guide__content">
@@ -535,21 +532,22 @@
             </p>
 
             <div class="site-footer__legal">
-                <button type="button" data-legal="legal">
+                <BaseButton data-legal="legal">
                     Información del sitio
-                </button>
-                <button type="button" data-legal="privacy">Privacidad</button>
+                </BaseButton>
+                <BaseButton data-legal="privacy">Privacidad</BaseButton>
                 <a href="admin">Administración</a>
             </div>
         </div>
     </footer>
     <dialog id="modal">
-        <button class="close" aria-label="Cerrar ventana">×</button>
+        <BaseButton class="close" aria-label="Cerrar ventana">×</BaseButton>
         <div id="modal-content"></div>
     </dialog>
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
 import '../../../css/pages/catalogo.css';
 import SiteHeader from '../shared/SiteHeader.vue';
 
@@ -557,6 +555,6 @@ export const features = ["app", "animaciones", "carrusel", "envios", "formatos"]
 export const needsSiteData = true;
 
 export default {
-    components: { SiteHeader },
+    components: { BaseButton, SiteHeader },
 };
 </script>

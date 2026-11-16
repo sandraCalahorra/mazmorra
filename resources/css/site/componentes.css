@@ -32,6 +32,12 @@ header {
   color: var(--gold);
 }
 
+.brand-icon--image {
+  flex: none;
+  width: 39px;
+  height: 39px;
+}
+
 nav {
   @apply ml-auto flex gap-7;
   font-size: 12px;
@@ -380,6 +386,10 @@ header {
 }
 .brand-icon {
   font-size: 32px;
+}
+.brand-icon--image {
+  width: 32px;
+  height: 32px;
 }
 .menu {
   display: block;

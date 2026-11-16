@@ -22,7 +22,7 @@
                 <p class="about-intro">
                     <strong>Todo máster guarda algún secreto.</strong> Despliega mi
                     ficha y descubre mis rasgos, mis competencias y unas estadísticas
-                    poco fiables. 🎲
+                    poco fiables. <FluentIcon name="games" />
                 </p>
             </div>
 
@@ -156,35 +156,32 @@
                                 aria-label="Apartados de la ficha"
                                 hidden=""
                             >
-                                <button
-                                    type="button"
+                                <BaseButton
                                     role="tab"
                                     id="dm-tab-traits"
                                     aria-controls="dm-panel-traits"
                                     aria-selected="true"
                                 >
-                                    📜 Rasgos
-                                </button>
-                                <button
-                                    type="button"
+                                    <FluentIcon name="document-text" /> Rasgos
+                                </BaseButton>
+                                <BaseButton
                                     role="tab"
                                     id="dm-tab-skills"
                                     aria-controls="dm-panel-skills"
                                     aria-selected="false"
                                     tabindex="-1"
                                 >
-                                    🎲 Competencias
-                                </button>
-                                <button
-                                    type="button"
+                                    <FluentIcon name="games" /> Competencias
+                                </BaseButton>
+                                <BaseButton
                                     role="tab"
                                     id="dm-tab-diary"
                                     aria-controls="dm-panel-diary"
                                     aria-selected="false"
                                     tabindex="-1"
                                 >
-                                    📖 Diario
-                                </button>
+                                    <FluentIcon name="book-open" /> Diario
+                                </BaseButton>
                             </div>
                             <div id="dm-panel-traits" class="dm-panel">
                                 <div class="dm-panel__heading">
@@ -194,7 +191,7 @@
                                 <div class="dm-traits">
                                     <article>
                                         <span aria-hidden="true">01</span>
-                                        <h4>🎭 Voz de PNJ</h4>
+                                        <h4><FluentIcon name="mic" /> Voz de PNJ</h4>
                                         <p>
                                             Puedo interpretar a veinte personajes distintos con las
                                             <strong>mismas tres voces</strong>.
@@ -202,7 +199,7 @@
                                     </article>
                                     <article>
                                         <span aria-hidden="true">02</span>
-                                        <h4>🎲 No os preocupéis</h4>
+                                        <h4><FluentIcon name="games" /> No os preocupéis</h4>
                                         <p>
                                             Pronunciar esta frase obliga al grupo a
                                             <strong>preocuparse inmediatamente</strong>.
@@ -210,7 +207,7 @@
                                     </article>
                                     <article>
                                         <span aria-hidden="true">03</span>
-                                        <h4>👁️ ¿Estáis seguros?</h4>
+                                        <h4><FluentIcon name="eye" /> ¿Estáis seguros?</h4>
                                         <p>
                                             Puedo convertir abrir una puerta en
                                             <strong>veinte minutos de debate</strong>. Usos
@@ -226,7 +223,7 @@
                                 </div>
                                 <div class="dm-skills">
                                     <details>
-                                        <summary>🎲 Dirección de partidas</summary>
+                                        <summary><FluentIcon name="games" /> Dirección de partidas</summary>
                                         <p>
                                             Yo pongo el mundo, los peligros y los PNJ. Vosotros
                                             encontráis
@@ -235,7 +232,7 @@
                                         </p>
                                     </details>
                                     <details>
-                                        <summary>📜 Escritura de aventuras</summary>
+                                        <summary><FluentIcon name="document-text" /> Escritura de aventuras</summary>
                                         <p>
                                             Convierto ideas en
                                             <strong>historias listas para jugar</strong>. Lo de que
@@ -243,7 +240,7 @@
                                         </p>
                                     </details>
                                     <details>
-                                        <summary>🐉 Criaturas y objetos mágicos</summary>
+                                        <summary><FluentIcon name="animal-paw-print" /> Criaturas y objetos mágicos</summary>
                                         <p>
                                             Diseño bichos que os compliquen la vida y
                                             <strong
@@ -252,7 +249,7 @@
                                         </p>
                                     </details>
                                     <details>
-                                        <summary>🗝️ Localizaciones y misterios</summary>
+                                        <summary><FluentIcon name="key" /> Localizaciones y misterios</summary>
                                         <p>
                                             Lugares llenos de <strong>secretos y pistas</strong>.
                                             Algunas incluso las encontraréis antes de quemar el
@@ -421,7 +418,7 @@
                         </div>
                     </div>
                     <div class="dm-sheet__footer">
-                        <span>🎲 Principiantes bienvenidos</span
+                        <span><FluentIcon name="games" /> Principiantes bienvenidos</span
                         ><a
                             href="https://mesasroleras.com/gm/osoliron411"
                             target="_blank"
@@ -459,7 +456,7 @@
             <div class="about-table-cards">
                 <article id="about-panel-new" class="about-table-card">
                     <div class="about-table-card__head">
-                        <span class="about-table-card__icon" aria-hidden="true">🌱</span>
+                        <span class="about-table-card__icon" aria-hidden="true"><FluentIcon name="leaf-two" /></span>
                         <h3>Tu primera partida</h3>
                     </div>
                     <div class="about-table-card__body">
@@ -480,7 +477,7 @@
                 </article>
                 <article id="about-panel-player" class="about-table-card">
                     <div class="about-table-card__head">
-                        <span class="about-table-card__icon" aria-hidden="true">🎲</span>
+                        <span class="about-table-card__icon" aria-hidden="true"><FluentIcon name="games" /></span>
                         <h3>Ya tienes experiencia</h3>
                     </div>
                     <div class="about-table-card__body">
@@ -506,7 +503,7 @@
                 </article>
                 <article id="about-panel-group" class="about-table-card">
                     <div class="about-table-card__head">
-                        <span class="about-table-card__icon" aria-hidden="true">🧭</span>
+                        <span class="about-table-card__icon" aria-hidden="true"><FluentIcon name="compass-northwest" /></span>
                         <h3>Vienes con tu grupo</h3>
                     </div>
                     <div class="about-table-card__body">
@@ -560,8 +557,8 @@
         >
         <p>Historias que se leen. Aventuras que se viven.</p>
         <div>
-            <button data-legal="legal">Información del sitio</button
-            ><button data-legal="privacy">Privacidad</button>
+            <BaseButton data-legal="legal">Información del sitio</BaseButton
+            ><BaseButton data-legal="privacy">Privacidad</BaseButton>
         </div>
         <small
         >© 2026 La Mazmorra del Roleo. Proyecto independiente, no afiliado a
@@ -569,13 +566,15 @@
         ><a class="admin-access" href="admin">Administración</a>
     </footer>
     <dialog id="modal">
-        <button class="close" aria-label="Cerrar ventana">×</button>
+        <BaseButton class="close" aria-label="Cerrar ventana">×</BaseButton>
         <div id="modal-content"></div>
     </dialog>
     <AdventureRates hidden />
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
+import FluentIcon from '../shared/FluentIcon.vue';
 import '../../../css/pages/sobre-mi.css';
 import SiteHeader from '../shared/SiteHeader.vue';
 import AdventureRates from '../shared/AdventureRates.vue';
@@ -584,6 +583,6 @@ export const features = ["app", "animaciones", "sobre-mi", "solicitud-aventuras-
 export const needsSiteData = true;
 
 export default {
-    components: { SiteHeader, AdventureRates },
+    components: { BaseButton, FluentIcon, SiteHeader, AdventureRates },
 };
 </script>

@@ -19,7 +19,7 @@
                     ><a class="text-link" href="encargos">Creemos tu aventura →</a>
                 </div>
                 <div class="hero-note">
-                    <span>✧</span> Creado por un director de juego, para tu próxima
+                    <span><FluentIcon name="sparkle" /></span> Creado por un director de juego, para tu próxima
                     partida.
                 </div>
             </div>
@@ -37,9 +37,9 @@
             </div>
         </section>
         <div class="ribbon">
-            <span>MUNDOS PROPIOS</span><i>✧</i
-            ><span>AVENTURAS CON PERSONALIDAD</span><i>✧</i
-            ><span>DE LA PÁGINA A TU MESA</span><i>✧</i
+            <span>MUNDOS PROPIOS</span><i><FluentIcon name="sparkle" /></i
+            ><span>AVENTURAS CON PERSONALIDAD</span><i><FluentIcon name="sparkle" /></i
+            ><span>DE LA PÁGINA A TU MESA</span><i><FluentIcon name="sparkle" /></i
             ><span>TRATO DIRECTO CON EL AUTOR</span>
         </div>
         <section
@@ -167,13 +167,12 @@
                             </li>
                         </ol>
 
-                        <button
-                            type="button"
+                        <BaseButton
                             class="btn commission-cta"
                             data-service="un encargo personalizado para mi mesa"
                         >
                             Cuéntame tu idea <span aria-hidden="true">↗</span>
-                        </button>
+                        </BaseButton>
 
                         <p class="commission-direct">
                             Hablarás directamente conmigo para preparar tu encargo.
@@ -183,7 +182,7 @@
 
                 <div class="commission-options">
                     <article class="commission-option">
-                        <span class="commission-option-icon" aria-hidden="true">⚑</span>
+                        <span class="commission-option-icon" aria-hidden="true"><FluentIcon name="flag" /></span>
                         <h3>Aventuras a medida</h3>
                         <p>
                             Una historia escrita para tu grupo, su nivel y vuestro estilo.
@@ -191,13 +190,13 @@
                     </article>
 
                     <article class="commission-option">
-                        <span class="commission-option-icon" aria-hidden="true">✎</span>
+                        <span class="commission-option-icon" aria-hidden="true"><FluentIcon name="edit" /></span>
                         <h3>Adaptación de contenido</h3>
                         <p>Tu historia o material propio, preparado para jugar.</p>
                     </article>
 
                     <article class="commission-option">
-                        <span class="commission-option-icon" aria-hidden="true">✧</span>
+                        <span class="commission-option-icon" aria-hidden="true"><FluentIcon name="sparkle" /></span>
                         <h3>Compendios y recursos</h3>
                         <p>Personajes, criaturas y lugares creados para tu campaña.</p>
                     </article>
@@ -368,21 +367,23 @@
             </p>
 
             <div class="site-footer__legal">
-                <button type="button" data-legal="legal">
+                <BaseButton data-legal="legal">
                     Información del sitio
-                </button>
-                <button type="button" data-legal="privacy">Privacidad</button>
+                </BaseButton>
+                <BaseButton data-legal="privacy">Privacidad</BaseButton>
                 <a href="admin">Administración</a>
             </div>
         </div>
     </footer>
     <dialog id="modal">
-        <button class="close" aria-label="Cerrar ventana">×</button>
+        <BaseButton class="close" aria-label="Cerrar ventana">×</BaseButton>
         <div id="modal-content"></div>
     </dialog>
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
+import FluentIcon from '../shared/FluentIcon.vue';
 import '../../../css/pages/index.css';
 import SiteHeader from '../shared/SiteHeader.vue';
 
@@ -390,6 +391,6 @@ export const features = ["app", "mesa", "animaciones", "escaparate"];
 export const needsSiteData = true;
 
 export default {
-    components: { SiteHeader },
+    components: { BaseButton, FluentIcon, SiteHeader },
 };
 </script>

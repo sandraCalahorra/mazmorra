@@ -119,6 +119,11 @@ header {
   font-size: 39px;
   color: var(--gold);
 }
+.brand-icon--image {
+  flex: none;
+  width: 39px;
+  height: 39px;
+}
 nav {
   display: flex;
   gap: 28px;
@@ -725,6 +730,10 @@ dialog .notice {
   }
   .brand-icon {
     font-size: 32px;
+  }
+  .brand-icon--image {
+    width: 32px;
+    height: 32px;
   }
   .menu {
     display: block;

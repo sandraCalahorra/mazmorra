@@ -4,7 +4,7 @@
         >♜ LA MAZMORRA <small>ADMINISTRACIÓN</small></a
         ><a class="btn outline" href="./" target="_blank" rel="noopener"
         >Ver web ↗</a
-        ><button id="logout" class="btn gold" hidden>Cerrar sesión</button>
+        ><BaseButton id="logout" class="btn gold" hidden>Cerrar sesión</BaseButton>
     </header>
     <main class="admin-shell">
         <div id="alert" role="status"></div>
@@ -24,7 +24,7 @@
                         type="password"
                         required
                         autocomplete="current-password" /></label
-                ><button class="btn gold">Entrar</button>
+                ><BaseButton type="submit" class="btn gold">Entrar</BaseButton>
             </form>
             <p class="small">
                 Primera vez. Tras ejecutar las migraciones, crea el acceso desde
@@ -37,33 +37,34 @@
                     <p class="eyebrow">LA MAZMORRA DEL ROLEO</p>
                     <h1>Administración</h1>
                 </div>
-                <button id="refresh" class="btn outline">Actualizar datos</button>
+                <BaseButton id="refresh" class="btn outline">Actualizar datos</BaseButton>
             </div>
             <div class="admin-stats" id="stats"></div>
             <nav class="admin-tabs" aria-label="Secciones del administrador">
-                <button type="button" data-tab="commissioned">
+                <BaseButton data-tab="commissioned">
                     Partidas por encargo
-                </button>
-                <button data-tab="products" class="active">Publicaciones</button
+                </BaseButton>
+                <BaseButton data-tab="products" class="active">Publicaciones</BaseButton
                 >
-                <button type="button" data-tab="agenda">Disponibilidad</button><button data-tab="games">Partidas</button
-                ><button data-tab="reservations">Reservas</button
-                ><button type="button" data-tab="shipping">Envíos</button><button data-tab="settings">Configuración</button>
+                <BaseButton data-tab="agenda">Disponibilidad</BaseButton><BaseButton data-tab="games">Partidas</BaseButton
+                ><BaseButton data-tab="reservations">Reservas</BaseButton
+                ><BaseButton data-tab="shipping">Envíos</BaseButton><BaseButton data-tab="settings">Configuración</BaseButton>
             </nav>
             <div id="panel"></div>
         </section>
     </main>
     <dialog id="editor">
-        <button class="close" aria-label="Cerrar editor">×</button>
+        <BaseButton class="close" aria-label="Cerrar editor">×</BaseButton>
         <div id="editor-body"></div>
     </dialog>
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
 import '../../../css/pages/admin.css';
 
 export const features = ["admin", "admin-visual", "admin-fondos", "admin-eliminar-solicitudes"];
 export const needsSiteData = false;
 
-export default {};
+export default { components: { BaseButton } };
 </script>

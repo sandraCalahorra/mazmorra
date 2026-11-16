@@ -9,9 +9,9 @@
                     Pregunta por una publicación, una partida o un encargo. Prepararemos
                     los detalles directamente, a tu ritmo.
                 </p>
-                <button class="btn gold" id="contact-button">
+                <BaseButton class="btn gold" id="contact-button">
                     Escribir a Hugo ↗
-                </button>
+                </BaseButton>
             </div>
             <img src="images/contacto.png" alt="" loading="lazy" />
         </section>
@@ -138,19 +138,20 @@
             </p>
 
             <div class="site-footer__legal">
-                <button type="button" data-legal="legal">Información del sitio</button>
-                <button type="button" data-legal="privacy">Privacidad</button>
+                <BaseButton data-legal="legal">Información del sitio</BaseButton>
+                <BaseButton data-legal="privacy">Privacidad</BaseButton>
                 <a href="admin">Administración</a>
             </div>
         </div>
     </footer>
     <dialog id="modal">
-        <button class="close" aria-label="Cerrar ventana">×</button>
+        <BaseButton class="close" aria-label="Cerrar ventana">×</BaseButton>
         <div id="modal-content"></div>
     </dialog>
 </template>
 
 <script>
+import BaseButton from '../core-ui/BaseButton.vue';
 import '../../../css/pages/contacto.css';
 import SiteHeader from '../shared/SiteHeader.vue';
 
@@ -158,6 +159,6 @@ export const features = ["app", "animaciones"];
 export const needsSiteData = true;
 
 export default {
-    components: { SiteHeader },
+    components: { BaseButton, SiteHeader },
 };
 </script>
