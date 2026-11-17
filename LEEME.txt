@@ -1,4 +1,0 @@
-LA MAZMORRA DEL ROLEO
-
-Consulta README.md para instalar la aplicación Vue 3 y Laravel 11, actualizar
-una instalación anterior y configurar Apache/XAMPP.

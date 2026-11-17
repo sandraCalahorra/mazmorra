@@ -1,6 +1,6 @@
+import './components/core-ui/BaseSelect.vue';
 import '../css/app.css';
 import { createApp } from 'vue';
-import { loadFeature } from '@/features';
 import { loadSiteData } from '@/store/modules/siteData';
 
 import { loadPage } from './router';
@@ -15,22 +15,20 @@ function finishLoading() {
 }
 
 async function start() {
-  const { default: Page, features, needsSiteData } = await loadPage(root.dataset.page);
+  const { default: Page, needsSiteData } = await loadPage(root.dataset.page);
 
-  createApp(Page).mount(root);
-
+  // Each view owns its lifecycle and initializes its own page behavior.
+  // Load public data before mounting so `mounted` does not race the request.
   if (needsSiteData) await loadSiteData();
 
-  for (const feature of features) {
-    await loadFeature(feature);
-  }
+  createApp(Page).mount(root);
   finishLoading();
 
   if (location.hash) {
     try {
       document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
     } catch {
-      // El fragmento puede contener escapes inválidos.
+      // The fragment may contain invalid escape sequences.
     }
   }
 }

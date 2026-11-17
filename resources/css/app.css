@@ -1,1 +1,119 @@
 @import "./tailwind.css";
+
+/* Selector nativo con la identidad visual de la Mazmorra. */
+select.base-select {
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 0;
+  min-height: 46px;
+  max-width: 100%;
+  padding: 10px 42px 10px 14px !important;
+  border: 1px solid var(--select-border, #bca986) !important;
+  border-radius: 8px !important;
+  background-color: var(--select-background, #fffaf0) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='m5 7.5 5 5 5-5' stroke='%23593c48' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 18px !important;
+  color: var(--select-text, #3e3730) !important;
+  font: inherit;
+  line-height: 1.4;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #8e785228;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+select.base-select:hover:not(:disabled) {
+  border-color: #8d6c49 !important;
+  background-color: #fffdf8 !important;
+}
+select.base-select:focus-visible {
+  outline: 3px solid #c4aa73;
+  outline-offset: 2px;
+  border-color: #745341 !important;
+  box-shadow: 0 3px 10px #50374320;
+}
+select.base-select:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+select.base-select[multiple], select.base-select[size]:not([size="1"]) {
+  padding-right: 14px !important;
+  background-image: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  select.base-select { transition: none; }
+}
+
+.base-select-menu {
+  position: fixed; z-index: 10050; overflow-y: auto; overscroll-behavior: contain;
+  padding: 6px; border: 1px solid #bca986; border-radius: 10px;
+  background: #fffaf0; color: #3e3730; box-shadow: 0 12px 30px #1c171944;
+  font: 14px/1.4 Arial, sans-serif;
+}
+.base-select-option { position: relative; padding: 11px 34px 11px 12px; border-radius: 6px; cursor: pointer; }
+.base-select-option.is-active { background: #eee2cc; color: #49333e; }
+.base-select-option[aria-selected="true"] { color: #593c48; font-weight: 700; }
+.base-select-option[aria-selected="true"]::after { content: '✓'; position: absolute; right: 12px; color: #816238; }
+.base-select-option[aria-disabled="true"] { opacity: .5; cursor: not-allowed; }
+.base-select-group { padding: 10px 12px 5px; color: #876c50; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+
+@media (hover: hover) {
+  select.base-select:hover:not(:disabled) {
+    border-color: #745341 !important;
+    box-shadow: 0 3px 10px #50374326;
+  }
+  .base-select-option:not([aria-disabled="true"]):hover {
+    background: #e8d8bc;
+    color: #49333e;
+  }
+}
+
+/* Resaltado visible tanto con ratón como al recorrer opciones con teclado. */
+.base-select-menu .base-select-option.is-active,
+.base-select-menu .base-select-option:not([aria-disabled="true"]):hover {
+  background: #593c48;
+  color: #fff8e9;
+}
+.base-select-menu .base-select-option.is-active::after,
+.base-select-menu .base-select-option:not([aria-disabled="true"]):hover::after {
+  color: #f1d49b;
+}
+
+/* Modal para preparar un mensaje de contacto. */
+dialog.contact-dialog {
+  width: min(620px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: clamp(24px, 5vw, 42px);
+  border: 1px solid #c7b393;
+  border-radius: 18px;
+  background: #f4efe4;
+  box-shadow: 0 24px 80px #0008;
+}
+.contact-dialog .close {
+  top: 16px; right: 16px; display: grid; place-items: center;
+  width: 40px; height: 40px; border: 1px solid #d6cab6; border-radius: 50%;
+  background: #fffaf0; font-size: 25px; line-height: 1;
+}
+.contact-dialog .close:hover { background: #e9deca; }
+.contact-dialog .eyebrow { margin: 0 48px 14px 0; line-height: 1.5; }
+.contact-dialog h2 { margin: 0 40px 10px 0; font-size: clamp(30px, 5vw, 38px); }
+.contact-dialog .contact-dialog__intro { margin: 0 0 24px; font-size: 14px; line-height: 1.6; }
+.contact-dialog label { display: block; margin-bottom: 8px; color: #34463a; font-size: 14px; font-weight: 700; }
+.contact-dialog textarea {
+  display: block; min-height: 160px; padding: 15px 16px; border: 1px solid #b4a78f;
+  border-radius: 10px; background: #fffdf8; font: 15px/1.65 Arial, sans-serif;
+}
+.contact-dialog textarea:focus-visible { outline: 3px solid #c4aa73; outline-offset: 2px; }
+.contact-dialog .actions { align-items: stretch; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
+.contact-dialog .actions .btn { min-height: 46px; margin: 0; border-radius: 7px; font-size: 14px; }
+.contact-dialog .contact-dialog__copy { background: transparent; border: 1px solid #a78e65; color: #493b2d; }
+.contact-dialog .contact-dialog__copy:hover { background: #e9dfcd; }
+.contact-dialog .notice { margin: 16px 0 0; padding: 13px 15px; border-left: 3px solid #b69a64; border-radius: 4px; background: #e9e2d3; font-size: 13px; line-height: 1.5; }
+.contact-dialog #copy-status:not(:empty) { margin: 12px 0 0; color: #315f46; font-weight: 700; }
+.contact-dialog #copy-status:empty { display: none; }
+.contact-dialog #modal-content > p:not(.eyebrow):not(.contact-dialog__intro):not(.notice):not(#copy-status) { margin: 16px 0 0; overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  dialog.contact-dialog { padding: 24px 20px; }
+  .contact-dialog .actions .btn { width: 100%; }
+}

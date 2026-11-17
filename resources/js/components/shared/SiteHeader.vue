@@ -2,7 +2,7 @@
     <div class="preview">
         LA MAZMORRA DEL ROLEO <span>·</span> Aventuras y partidas · Atención directa con el autor
     </div>
-    <header>
+    <header class="site-header">
         <a class="brand" href="./">
             <img class="brand-icon brand-icon--image" src="images/torre-mazmorra.png" alt="" width="39" height="39">
             <span>LA MAZMORRA<small>DEL ROLEO</small></span>
@@ -42,3 +42,4 @@ export default {
     },
 };
 </script>
+

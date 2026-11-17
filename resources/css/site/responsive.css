@@ -1,0 +1,419 @@
+/* Ajustes compartidos para pantallas estrechas y contenido variable. */
+img, video, iframe { max-width: 100%; }
+main, section, article, form, .calendar-layout > *, .admin-item > * { min-width: 0; }
+input, select, textarea { max-width: 100%; }
+dialog { max-width: calc(100vw - 24px); max-height: calc(100dvh - 24px); overflow: auto; }
+
+@media (max-width: 900px) {
+  .site-header { position: relative; gap: 12px; }
+  .site-header .menu { display: block; margin-left: auto; background: transparent; color: var(--ink); border: 1px solid var(--line); padding: 10px 12px; font-size: 12px; }
+  .site-header #nav { display: none; position: absolute; top: 100%; left: 0; right: 0; width: 100%; margin: 0; padding: 16px 5%; background: #203024; z-index: 20; flex-direction: column; gap: 0; }
+  .site-header #nav.open { display: flex; }
+  .site-header #nav a { padding: 12px 0; }
+  .site-header .header-cta { display: none; }
+  .site-header #user-menu { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .site-header { padding: 14px 5%; min-height: 0; }
+  .site-header .brand { font-size: 14px; }
+  .site-header #user-menu { flex-basis: 100%; justify-content: flex-end; flex-wrap: wrap; font-size: 12px; }
+  .account-menu > div { max-width: calc(100vw - 32px); }
+  .section { padding: 48px 5%; }
+  .actions { flex-wrap: wrap; }
+  .calendar-layout { gap: 18px; }
+  .calendar-box, .calendar-aside { min-width: 0; padding: 15px; }
+  .calendar-toolbar h2 { font-size: clamp(16px, 5vw, 20px); }
+  .calendar-week, .calendar-days { gap: 2px; }
+  .calendar-days button { min-width: 0; padding: 2px; }
+  .admin-stats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); }
+  .admin-tabs button { flex: 1 1 135px; }
+  .admin-item, .panel-head { overflow-wrap: anywhere; }
+  .admin-item .actions .btn { white-space: normal; }
+  dialog { padding: 24px 16px; }
+}
+@media (max-width: 380px) {
+  h1, .calendar-page h1 { font-size: 36px; letter-spacing: -1px; overflow-wrap: anywhere; }
+  .site-header .brand { font-size: 12px; letter-spacing: 1px; }
+  .site-header .brand small { letter-spacing: 3px; }
+  .calendar-toolbar { gap: 3px; }
+  .calendar-toolbar button { padding: 5px; }
+}
+
+/* Calendario: controles y fechas reconocibles en todas las pantallas. */
+.interior-calendar .calendar-box { border: 1px solid #d2c5ad; border-radius: 15px; }
+.interior-calendar .calendar-toolbar button {
+  min-width: 44px; min-height: 44px; border: 1px solid #c7b99f;
+  border-radius: 8px; background: #f8f3e9; font-size: 15px;
+}
+.interior-calendar .calendar-toolbar button:hover { border-color: #947845; background: #e8ddc8; }
+.interior-calendar .calendar-week { color: #586b5c; font-weight: 700; }
+.interior-calendar .calendar-days button { border-radius: 8px; transition: background-color .2s, border-color .2s; }
+.interior-calendar .calendar-days button:not(:disabled):hover { border-color: #a58956; background: #e3dac7; }
+.interior-calendar .calendar-days button.selected,
+.interior-calendar .calendar-days button.selected:hover { border-color: #20392c; background: #20392c; color: #fff8e9; }
+.interior-calendar .calendar-aside { border-radius: 15px; }
+.interior-calendar .calendar-legend { line-height: 1.6; }
+@media (prefers-reduced-motion: reduce) {
+  .interior-calendar .calendar-days button { transition: none; }
+}
+
+/* Catálogo de partidas: jerarquía clara y estado vacío útil. */
+#adventure-catalog-dialog.catalog-modal {
+  width: min(1080px, calc(100% - 32px));
+  max-height: min(90dvh, 900px);
+  border-radius: 18px;
+  background: #f3eee3;
+}
+#adventure-catalog-dialog.catalog-modal .catalog-modal__bar {
+  min-height: 62px;
+  padding: 10px 22px;
+  background: #49333e;
+}
+#adventure-catalog-dialog.catalog-modal .catalog-modal__bar > span {
+  color: #f6ead3;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+#adventure-catalog-dialog.catalog-modal .catalog-modal__close {
+  display: grid; place-items: center; width: 40px; height: 40px;
+  min-height: 40px; padding: 0; border-radius: 50%; font-size: 22px; line-height: 1;
+}
+#adventure-catalog-dialog.catalog-modal #adventure-rates {
+  padding: clamp(20px, 4vw, 36px);
+  background: #f3eee3;
+}
+#adventure-catalog-dialog.catalog-modal #adventure-rates > .eyebrow {
+  margin-bottom: 12px; color: #927340;
+}
+#adventure-catalog-dialog.catalog-modal #adventure-rates h2 {
+  max-width: 760px; margin: 0 0 12px; font-size: clamp(27px, 3vw, 38px); line-height: 1.18;
+}
+#adventure-catalog-dialog.catalog-modal #adventure-rates > p:not(.eyebrow):not(.game-rates__note):not(#game-rates-empty) {
+  max-width: 720px; margin-bottom: 24px; line-height: 1.65;
+}
+#adventure-catalog-dialog.catalog-modal .game-rates__filters { gap: 8px; margin-bottom: 18px; }
+#adventure-catalog-dialog.catalog-modal .game-rates__filters button {
+  min-height: 46px; border-radius: 8px; font-size: 14px;
+}
+#adventure-catalog-dialog.catalog-modal .game-rates__scroll {
+  border: 1px solid #d8ccb8; border-radius: 10px; background: #fffdf8;
+}
+#adventure-catalog-dialog.catalog-modal .game-rates__caption { padding: 20px; background: #fffdf8; }
+#adventure-catalog-dialog.catalog-modal .rates-caption-heading > span { font-size: 15px; }
+#adventure-catalog-dialog.catalog-modal .rates-search input {
+  min-height: 44px; border: 1px solid #c8b89f; border-radius: 7px; background: #fff;
+}
+#adventure-catalog-dialog.catalog-modal .rates-search input:focus-visible { outline: 2px solid #a98750; outline-offset: 2px; }
+#adventure-catalog-dialog.catalog-modal .rates-results { margin: 2px 0 0; font-size: 13px; }
+#adventure-catalog-dialog.catalog-modal thead th { background: #eee5d5; }
+#adventure-catalog-dialog.catalog-modal thead th .rates-heading-sort {
+  min-height: 42px; box-shadow: none; font-size: 13px;
+}
+#adventure-catalog-dialog.catalog-modal thead th .rates-heading-sort:hover { transform: none; box-shadow: none; }
+#adventure-catalog-dialog.catalog-modal th[aria-sort="ascending"] .rates-heading-sort,
+#adventure-catalog-dialog.catalog-modal th[aria-sort="descending"] .rates-heading-sort { box-shadow: none; }
+#adventure-catalog-dialog.catalog-modal #game-rates-empty:not([hidden]) {
+  margin: 12px 0 0; padding: 18px 20px; border: 1px dashed #ccbda4; border-radius: 9px;
+  background: #fbf7ee; color: #5c594d; font-size: 14px; line-height: 1.6;
+}
+#adventure-catalog-dialog.catalog-modal .game-rates__note {
+  margin: 22px 0 0; color: #667064; font-size: 12px; line-height: 1.65;
+}
+#adventure-catalog-dialog.catalog-modal .game-rates.is-empty .catalog-scroll-controls { display: none; }
+@media (max-width: 700px) {
+  #adventure-catalog-dialog.catalog-modal { width: calc(100% - 16px); max-height: 92dvh; }
+  #adventure-catalog-dialog.catalog-modal .catalog-modal__bar > span { display: block; }
+  #adventure-catalog-dialog.catalog-modal #adventure-rates { padding: 20px 16px; }
+  #adventure-catalog-dialog.catalog-modal .game-rates__caption { padding: 16px; }
+  #adventure-catalog-dialog.catalog-modal .rates-caption-heading { flex-wrap: wrap; }
+  #adventure-catalog-dialog.catalog-modal .game-rates__caption > * { max-width: calc(100vw - 82px); }
+}
+
+/* Asistente de encargos */
+#commission-dialog {
+  width: min(760px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid #bba77f;
+  border-top: 4px solid #b89a60;
+  border-radius: 16px;
+  background: #f5f0e5;
+  box-shadow: 0 28px 90px #0007;
+  overscroll-behavior: contain;
+}
+#commission-dialog::backdrop { background: rgb(10 23 17 / 78%); backdrop-filter: blur(5px); }
+#commission-dialog .commission-close {
+  display: grid; place-items: center; top: 18px; right: 18px;
+  width: 40px; height: 40px; padding: 0; border: 1px solid #d4c7af;
+  border-radius: 50%; background: #fffbf3; color: #35483a; font: 24px/1 Arial, sans-serif;
+}
+#commission-dialog .commission-close:hover { background: #e9dfce; }
+#commission-dialog > .commission-dialog__eyebrow { margin: 0 50px 10px 0; color: #997440; letter-spacing: .16em; }
+#commission-dialog > h2 { margin: 0 42px 10px 0; color: #20392c; font-size: clamp(28px, 4vw, 38px); line-height: 1.15; }
+#commission-dialog > h2 + p { max-width: 560px; margin: 0 0 24px; color: #5c6a5c; font-size: 14px; line-height: 1.6; }
+#commission-dialog #commission-form { width: 100%; }
+#commission-dialog #commission-progress {
+  margin: 0 0 9px; padding: 0; border: 0; color: #694855 !important;
+  font-size: 12px; font-weight: 700; letter-spacing: .03em;
+}
+#commission-dialog .commission-progress-track { height: 5px; overflow: hidden; border-radius: 99px; background: #ded6c6; }
+#commission-dialog .commission-progress-track > span { display: block; width: 25%; height: 100%; border-radius: inherit; background: #a88449; transition: width .3s ease; }
+#commission-dialog #commission-form fieldset { margin: 30px 0 22px; }
+#commission-dialog #commission-form legend,
+#commission-dialog [data-commission-step="3"] > h3 { margin: 0 0 8px; color: #243c30; font: 27px/1.25 Georgia, serif; }
+#commission-dialog .commission-step-intro { max-width: 580px; margin: 0 0 22px; color: #637064; font-size: 14px; line-height: 1.65; }
+#commission-dialog #commission-form label { color: #304438; font-size: 13px; line-height: 1.5; }
+#commission-dialog #commission-form fieldset > label { margin: 20px 0; }
+#commission-dialog #commission-form input:not([type="checkbox"]),
+#commission-dialog #commission-form textarea {
+  width: 100%; min-height: 48px; margin-top: 8px; padding: 12px 14px;
+  border: 1px solid #c9bba4; border-radius: 8px; background: #fffdf8; color: #263c30; font: 15px/1.5 Arial, sans-serif;
+}
+#commission-dialog #commission-form select { margin-top: 8px; }
+#commission-dialog #commission-form textarea { min-height: 125px; resize: vertical; }
+#commission-dialog #commission-form input:focus-visible,
+#commission-dialog #commission-form textarea:focus-visible { outline: 2px solid #ad8f59; outline-offset: 2px; border-color: #927542; }
+#commission-dialog .commission-fields { gap: 18px; }
+#commission-dialog .commission-fields label { display: block; min-width: 0; font-weight: 700; }
+#commission-dialog #commission-included:not(:empty) {
+  margin: 14px 0 20px; padding: 15px 17px; border: 1px solid #e2d7c4;
+  border-left: 3px solid #bd9c65; border-radius: 7px; background: #fbf7ed;
+  color: #5b6455; font-size: 13px; line-height: 1.65;
+}
+#commission-dialog #commission-form .commission-illustrations {
+  margin: 20px 0; padding: 17px; border-color: #d6c1c8; border-radius: 9px; background: #f2e9eb;
+}
+#commission-dialog .commission-illustrations strong { color: #563c48; }
+#commission-dialog .commission-estimate {
+  margin: 20px 0; padding: 16px 18px; border: 1px solid #c6d3bc; border-left: 4px solid #668366;
+  border-radius: 8px; background: #e9efe2; font-size: 14px; line-height: 1.7;
+}
+#commission-dialog [data-commission-step] > .small { color: #687366; font-size: 12px; line-height: 1.65; }
+#commission-dialog [data-commission-step="3"] { margin-top: 30px; }
+#commission-dialog .commission-summary { gap: 12px; margin: 20px 0; }
+#commission-dialog .commission-summary__card { padding: 20px; border-color: #ded2bd; border-radius: 9px; background: #fffdf8; }
+#commission-dialog .commission-summary h4 { margin-bottom: 12px; font-size: 20px; }
+#commission-dialog .commission-summary__detail { padding: 10px 0; }
+#commission-dialog .commission-summary__price { padding: 20px; border-radius: 9px; background: #e9efe2; }
+#commission-dialog .commission-summary__total { margin: 16px 0 8px; font-size: 32px; }
+#commission-dialog [data-commission-step="3"] > .commission-notice { border-radius: 7px; font-size: 13px; line-height: 1.6; }
+#commission-dialog .commission-wizard-actions { gap: 12px; margin-top: 26px; padding-top: 20px; border-top: 1px solid #d9cbb3; }
+#commission-dialog #commission-back.commission-edit {
+  min-height: 48px; margin: 0; border: 1px solid #b7a98f !important;
+  border-radius: 8px; background: transparent !important; color: #364d3f !important; box-shadow: none;
+}
+#commission-dialog #commission-back.commission-edit:hover { background: #e9e2d4 !important; box-shadow: none; }
+#commission-dialog #commission-next,
+#commission-dialog #commission-send { min-height: 48px; margin-top: 0; border-radius: 8px; font-size: 14px; }
+#commission-dialog #commission-status:not(:empty) { margin: 14px 0 0; color: #9a3d35; font-size: 14px; }
+@media (prefers-reduced-motion: no-preference) {
+  #commission-dialog [data-commission-step]:not([hidden]) { animation: commission-step-in .25s ease both; }
+  @keyframes commission-step-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  #commission-dialog .commission-progress-track > span { transition: none; }
+}
+@media (max-width: 600px) {
+  #commission-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 20px); padding: 24px 20px; }
+  #commission-dialog .commission-fields { grid-template-columns: minmax(0, 1fr); gap: 15px; }
+  #commission-dialog .commission-fields .wide { grid-column: auto; }
+  #commission-dialog .commission-wizard-actions { flex-wrap: nowrap; }
+  #commission-dialog #commission-back.commission-edit { flex: 0 0 auto; padding: 10px 14px !important; }
+  #commission-dialog #commission-next { flex: 1; width: auto; }
+  #commission-dialog .commission-summary__detail { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* Estimación final: desglose, importe y pendientes en niveles distintos. */
+#commission-dialog .commission-summary__price {
+  padding: 24px;
+  border: 1px solid #c6d2bc;
+  border-radius: 11px;
+  background: #f5f8f1;
+}
+#commission-dialog .commission-summary__price h4 { margin: 0 0 3px; color: #284331; font-size: 23px; }
+#commission-dialog .commission-summary__price-intro { margin: 0 0 18px; color: #68776a; font-size: 13px; line-height: 1.5; }
+#commission-dialog .commission-summary__price .commission-summary__detail {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 10px 0; border-bottom: 1px solid #dce5d7;
+}
+#commission-dialog .commission-summary__price .commission-summary__detail > strong { text-align: right; white-space: nowrap; }
+#commission-dialog .commission-summary__total-row {
+  display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 16px;
+  margin: 16px 0 0; padding: 17px 18px; border-radius: 8px; background: #dfe9d9;
+}
+#commission-dialog .commission-summary__total-label { margin: 0; color: #49624c; font-size: 13px; font-weight: 700; }
+#commission-dialog .commission-summary__total { margin: 0; color: #203e2c; font: 30px/1.1 Georgia, serif; }
+#commission-dialog .commission-summary__pending {
+  margin: 16px 0 0; padding: 13px 15px; border-radius: 8px;
+  background: #f3ead8; color: #64512f; font-size: 13px; line-height: 1.55;
+}
+#commission-dialog .commission-summary__pending strong { display: block; color: #654f2d; }
+#commission-dialog .commission-summary__pending ul { margin: 5px 0 0; padding-left: 18px; }
+#commission-dialog .commission-summary__pending li + li { margin-top: 2px; }
+@media (max-width: 600px) {
+  #commission-dialog .commission-summary__price { padding: 18px; }
+  #commission-dialog .commission-summary__total-row { align-items: flex-start; flex-direction: column; }
+  #commission-dialog .commission-summary__total { font-size: 28px; }
+}
+
+/* Navegación del asistente: acción principal y regreso claramente diferenciados. */
+#commission-dialog .commission-wizard-actions { align-items: stretch; }
+#commission-dialog #commission-back.commission-edit,
+#commission-dialog #commission-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 12px 22px !important;
+  border-radius: 9px;
+  font: 700 14px/1.4 Arial, sans-serif;
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+#commission-dialog #commission-back.commission-edit {
+  border: 1px solid #c8baa2 !important;
+  background: #fffaf1 !important;
+  color: #435749 !important;
+}
+#commission-dialog #commission-next {
+  border: 1px solid #a3844d;
+  background: #d8bd83;
+  color: #20372a;
+  box-shadow: 0 3px 0 #ad915d;
+}
+#commission-dialog #commission-back.commission-edit:hover { border-color: #a68d67 !important; background: #eee6d8 !important; }
+#commission-dialog #commission-next:hover { background: #e5cb93; transform: translateY(-2px); box-shadow: 0 5px 0 #ad915d; }
+#commission-dialog #commission-next:active { transform: translateY(2px); box-shadow: 0 1px 0 #ad915d; }
+#commission-dialog #commission-back:focus-visible,
+#commission-dialog #commission-next:focus-visible { outline: 3px solid #967440; outline-offset: 3px; }
+#commission-dialog #commission-back[hidden], #commission-dialog #commission-next[hidden] { display: none; }
+@media (max-width: 600px) {
+  #commission-dialog #commission-back.commission-edit { padding: 12px 16px !important; }
+  #commission-dialog #commission-next { padding: 12px 16px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #commission-dialog #commission-back.commission-edit, #commission-dialog #commission-next { transition: none; }
+  #commission-dialog #commission-next:hover, #commission-dialog #commission-next:active { transform: none; }
+}
+
+/* Guía de precios: categorías, tablas y fichas para móvil. */
+#commission-prices-dialog {
+  width: min(960px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  border: 1px solid #c4b08c;
+  border-radius: 16px;
+  background: #f5f0e6;
+  box-shadow: 0 28px 90px #0007;
+}
+#commission-prices-dialog .commission-prices-toolbar {
+  min-height: 62px;
+  padding: 10px clamp(18px, 4vw, 32px);
+  background: #49333e;
+  color: #f7e8c9;
+}
+#commission-prices-dialog .commission-prices-close {
+  flex-basis: 40px; width: 40px; height: 40px; border-radius: 50%;
+  background: #fffaf1; font-size: 23px; transition: background-color .2s ease;
+}
+#commission-prices-dialog .commission-prices-close:hover { background: #e7d8bc; }
+#commission-prices-dialog .commission-prices { padding: clamp(22px, 4vw, 36px); }
+#commission-prices-dialog .commission-prices > .eyebrow { margin: 0 0 10px; color: #94723d; }
+#commission-prices-dialog h2 { max-width: 660px; margin: 0 0 12px; color: #263c30; font-size: clamp(28px, 4vw, 38px); }
+#commission-prices-dialog .commission-prices > h2 + p { max-width: 680px; margin: 0; color: #5f6d60; font-size: 14px; line-height: 1.7; }
+#commission-prices-dialog .commission-price-categories-label {
+  margin: 26px 0 9px; color: #625446; font-size: 12px; font-weight: 700; letter-spacing: .04em;
+}
+#commission-prices-dialog .commission-price-tabs { gap: 8px; margin: 0 0 20px; }
+#commission-prices-dialog .commission-price-tabs button {
+  min-height: 44px; padding: 10px 15px; border: 1px solid #d3c3aa; border-radius: 8px;
+  background: #fffbf3; color: #564450; font: 700 13px/1.3 Arial, sans-serif;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+#commission-prices-dialog .commission-price-tabs button:hover { border-color: #8c6979; background: #eee3e3; }
+#commission-prices-dialog .commission-price-tabs button[aria-selected="true"] { border-color: #49333e; background: #49333e; color: #fff7e8; }
+#commission-prices-dialog .commission-price-navigation {
+  justify-content: flex-end; gap: 10px; margin: 0 0 10px;
+}
+#commission-prices-dialog .commission-price-navigation button {
+  width: 36px; height: 36px; border: 1px solid #cbb99c; border-radius: 50%; background: #fffaf1; color: #59404b; font-size: 19px;
+}
+#commission-prices-dialog .commission-price-navigation button:hover { border-color: #806174; background: #eee3e3; }
+#commission-prices-dialog .commission-price-navigation #price-position { order: -1; margin-right: auto; color: #705d56; font-size: 12px; font-weight: 700; }
+#commission-prices-dialog .commission-price-scroll {
+  margin: 0; overflow-x: auto; border: 1px solid #ddcfb8; border-radius: 10px; background: #fffcf6;
+}
+#commission-prices-dialog table { width: 100%; border-collapse: collapse; color: #304438; background: transparent; }
+#commission-prices-dialog caption {
+  padding: 17px 20px; color: #49333e; background: #fffcf6; font: 21px/1.3 Georgia, serif; text-align: left;
+}
+#commission-prices-dialog thead th {
+  padding: 12px 20px; border-bottom: 1px solid #d8cbb6; background: #eee6d7;
+  color: #6d5a49; font: 700 11px/1.4 Arial, sans-serif; letter-spacing: .04em; text-align: left;
+}
+#commission-prices-dialog tbody th, #commission-prices-dialog tbody td {
+  padding: 17px 20px; border-bottom: 1px solid #e8dfcf; vertical-align: top; text-align: left; line-height: 1.6;
+}
+#commission-prices-dialog tbody tr:last-child > * { border-bottom: 0; }
+#commission-prices-dialog tbody th { width: 25%; color: #2b4032; font-size: 14px; }
+#commission-prices-dialog tbody td { color: #596659; font-size: 13px; }
+#commission-prices-dialog tbody td:last-child { width: 19%; color: #73562c; font-weight: 700; }
+#commission-prices-dialog .commission-prices > .small {
+  margin: 18px 0; color: #667164; font-size: 12px; line-height: 1.7;
+}
+#commission-prices-dialog .commission-prices > .commission-cta {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; margin: 0;
+  padding: 12px 20px; border-radius: 8px; font-size: 14px;
+}
+#commission-prices-dialog :is(button, a):focus-visible { outline: 3px solid #b28e50; outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  #commission-prices-dialog [role="tabpanel"]:not([hidden]) { animation: commission-price-in .24s ease both; }
+  @keyframes commission-price-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  #commission-prices-dialog .commission-price-tabs button, #commission-prices-dialog .commission-prices-close { transition: none; }
+}
+@media (max-width: 600px) {
+  #commission-prices-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 20px); }
+  #commission-prices-dialog .commission-prices { padding: 22px 16px; }
+  #commission-prices-dialog .commission-price-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #commission-prices-dialog .commission-price-tabs button { padding: 10px 8px; }
+  #commission-prices-dialog .commission-price-scroll { overflow: visible; border: 0; background: transparent; }
+  #commission-prices-dialog caption { display: block; padding: 5px 0 14px; background: transparent; }
+  #commission-prices-dialog tbody { display: grid; gap: 10px; }
+  #commission-prices-dialog tbody tr { display: block; overflow: hidden; border: 1px solid #ddcfb8; border-radius: 9px; background: #fffcf6; }
+  #commission-prices-dialog tbody th, #commission-prices-dialog tbody td { display: block; width: auto; padding: 13px 15px; border-bottom: 1px solid #eee5d6; }
+  #commission-prices-dialog tbody th { background: #eee6d8; }
+  #commission-prices-dialog tbody td:last-child { width: auto; border: 0; }
+  #commission-prices-dialog tbody td::before { color: #88725b; font-size: 10px; letter-spacing: .04em; }
+  #commission-prices-dialog .commission-prices > .commission-cta { width: 100%; }
+}
+
+/* Preguntas de encargos, en línea con las de la portada. */
+#encargos-faq #commission-faq-questions details { border-bottom: 1px solid #cfc7b6; }
+#encargos-faq #commission-faq-questions summary {
+  min-height: 72px; padding: 19px 2px; color: #263c30;
+  font-size: 15px; line-height: 1.5; transition: color .2s ease;
+}
+#encargos-faq #commission-faq-questions summary::after {
+  content: '+'; display: block; flex: none; height: auto; border: 0; border-radius: 0;
+  background: transparent; color: #9c7c49; font: 27px/1 Georgia, serif;
+  transition: transform .3s ease;
+}
+#encargos-faq #commission-faq-questions details[open]:not(.faq-closing) > summary::after {
+  content: '+'; background: transparent; color: #9c7c49; transform: rotate(45deg);
+}
+#encargos-faq #commission-faq-questions details.faq-closing > summary::after {
+  content: '+'; background: transparent; color: #9c7c49;
+}
+#encargos-faq #commission-faq-questions .formats-guide__answer { padding: 0 36px 22px 2px; line-height: 1.8; }
+@media (hover: hover) {
+  #encargos-faq #commission-faq-questions summary:hover { color: #977541; }
+}
+@media (max-width: 700px) {
+  #encargos-faq #commission-faq-questions summary { min-height: 64px; }
+  #encargos-faq #commission-faq-questions .formats-guide__answer { padding-right: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #encargos-faq #commission-faq-questions summary,
+  #encargos-faq #commission-faq-questions summary::after { transition: none; }
+}

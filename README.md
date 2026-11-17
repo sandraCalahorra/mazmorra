@@ -50,7 +50,7 @@ En Apache/XAMPP configura el directorio público en `public/` y permite las regl
 
 - `resources/js/app.js` arranca Vue desde `resources/views/site.blade.php`. Laravel resuelve la URL y `resources/js/router/` carga la vista correspondiente desde `resources/js/components/views/`. Los componentes reutilizables están en `resources/js/components/shared/`.
 - Los componentes Vue usan la Options API: `data` para el estado local, `computed` para los valores derivados, `mounted` para la inicialización y `methods` para las acciones. La lógica de los formularios de cuenta se comparte en `resources/js/components/mixins/accountForm.js`.
-- `resources/js/bootstrap.js` configura Axios. `resources/js/store/modules/` reúne el estado compartido de la cuenta y del sitio, y `resources/js/features/` contiene las interacciones del catálogo, el calendario y la administración.
+- `resources/js/bootstrap.js` configura Axios. `resources/js/store/modules/` reúne el estado compartido de la cuenta y del sitio. Cada vista mantiene su estado, métodos y ciclo de vida dentro de su propio `.vue`, para que el comportamiento de cada pantalla se pueda leer y mantener en un solo lugar.
 - `resources/css/app.css` carga Tailwind. Los estilos del sitio están en `resources/css/pages/` y `resources/css/site/`.
 - `routes/web.php` sirve las páginas y `routes/api.php` define los endpoints JSON. Ambos usan el grupo web de Laravel; los endpoints públicos de lectura que no necesitan sesión la omiten.
 - `app/Http/Controllers/` separa las operaciones de catálogo, agenda, reservas, encargos, envíos y administración. `app/Services/` agrupa la lógica de negocio compartida y `app/Mail/` el envío de avisos.
