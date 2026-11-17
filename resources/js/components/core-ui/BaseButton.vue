@@ -17,6 +17,7 @@
 
 <script>
 import { h, render } from 'vue';
+import { replaceBaseSelects } from './BaseSelect.vue';
 
 const textSizes = {
     sm: 'text-[length:var(--ui-font-size,var(--text-control-sm))]',
@@ -103,7 +104,7 @@ const BaseButton = {
 
 export default BaseButton;
 
-// Legacy features attach listeners after creating each button.
+// Some views generate buttons from HTML and hydrate those nodes again.
 export function createBaseButton(props, text) {
     const container = document.createElement('div');
     render(h(BaseButton, props), container);
@@ -114,6 +115,7 @@ export function createBaseButton(props, text) {
 
 export function setHtmlWithBaseButtons(container, html) {
     container.innerHTML = html;
+    replaceBaseSelects(container);
 
     for (const placeholder of container.querySelectorAll('base-button')) {
         const button = createBaseButton({

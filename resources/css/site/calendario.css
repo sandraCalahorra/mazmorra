@@ -890,3 +890,39 @@ animation: calendar-arrow-down 1.4s ease-in-out infinite;  }
 .booking-guide__explore span {
   animation: none;
 }
+
+/* Guía de formatos: iconos y transición del desplegable. */
+.booking-guide__formats[open] .booking-guide__summary {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.booking-guide__formats-content {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd4c2;
+}
+.booking-guide__formats-content > p:first-child { margin: 0; color: #465747; }
+.booking-guide__format-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 16px;
+  border: 1px solid var(--guide-edge);
+  border-radius: 12px;
+  background: #ffffff80;
+  color: var(--guide-ink);
+  font-size: 22px;
+}
+.booking-guide__format { transition: box-shadow .2s ease, transform .2s ease; }
+.booking-guide__toggle { transition: transform .3s ease, background-color .2s ease; }
+.booking-guide__formats[open] .booking-guide__toggle::before { content: '+'; }
+.booking-guide__formats[open]:not(.is-closing) .booking-guide__toggle { transform: rotate(45deg); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .booking-guide__formats .booking-guide__summary:hover .booking-guide__toggle { background: #d8e2cf; }
+  .booking-guide__format:hover { transform: translateY(-3px); box-shadow: 0 8px 20px #24332912; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .booking-guide__format, .booking-guide__toggle { transition: none; }
+}

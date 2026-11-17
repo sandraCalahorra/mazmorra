@@ -42,7 +42,6 @@
 import BaseButton from '../core-ui/BaseButton.vue';
 import { account, loadAccount } from '@/store/modules/account';
 import { apiError } from '@/bootstrap';
-import { loadFeature } from '@/features';
 
 const statuses = {
     pending: 'Pendiente',
@@ -87,15 +86,13 @@ export default {
         },
 
         async contactGame(game) {
-            let app;
-            try {
-                app = await loadFeature('app');
-            } catch {
+            const contact = window.mazmorraContact;
+            if (typeof contact !== 'function') {
                 this.message = 'No se ha podido abrir el formulario de contacto.';
                 return;
             }
 
-            app.contact(`mi reserva para «${game.title}»`);
+            contact(`mi reserva para «${game.title}»`);
             const field = document.getElementById('message');
             if (!field) return;
 

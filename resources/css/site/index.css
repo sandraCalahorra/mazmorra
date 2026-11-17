@@ -815,3 +815,9 @@
   outline: 3px solid #58755b;
   outline-offset: 3px;
 }
+
+/* Acciones principales de la portada. */
+.hero .actions .btn,
+.hero .actions .text-link {
+  font-size: 14px;
+}

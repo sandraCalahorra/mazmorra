@@ -403,3 +403,27 @@ button.agenda-time-chip:focus-visible {
   .agenda-request-selection:not([hidden]) {
   display: flex !important;
 }
+
+/* Acciones visibles cuando se puede proponer o buscar otra fecha. */
+.agenda-next-slot:not([hidden]),
+.agenda-request-date:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  margin: 12px 0;
+  padding: 13px 18px;
+  border: 1px solid #a78a4e;
+  border-radius: 9px;
+  background: #c5ab70;
+  color: #20392c;
+  font: 700 14px/1.4 Arial, sans-serif;
+  cursor: pointer;
+}
+.agenda-next-slot:not([hidden]):hover,
+.agenda-request-date:not([hidden]):hover { background: #d7c18d; }
+.agenda-duration-choice[hidden], .agenda-request-date[hidden] { display: none; }
+.agenda-duration-choice > p { margin-bottom: 0; color: #425548; font-weight: 600; }
+.agenda-modal-date { text-transform: none; }
+.agenda-modal-date::first-letter { text-transform: uppercase; }

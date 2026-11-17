@@ -896,3 +896,22 @@
 
 /* El catálogo ya no utiliza burbuja ni minimización. */
 .catalog-bubble, .catalog-modal .catalog-modal__minimize { display: none !important; }
+
+/* Controles de desplazamiento visibles sin depender de la barra del sistema. */
+.catalog-scroll-controls { display: none; }
+@media (max-width: 700px) {
+  .catalog-modal .game-rates__scroll::before { content: none; }
+  .catalog-modal .catalog-scroll-controls:not([hidden]) {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 10px 12px; background: #593c48; color: #fff5e4;
+    border-radius: 10px 10px 0 0; font-size: 12px; line-height: 1.4;
+  }
+  .catalog-scroll-controls > div { display: flex; flex: none; gap: 6px; }
+  .catalog-scroll-controls button {
+    width: 40px; height: 40px; border: 1px solid #d0b47f; border-radius: 6px;
+    background: #fffaf0; color: #49333e; font-size: 22px; line-height: 1; cursor: pointer;
+  }
+  .catalog-scroll-controls button:disabled { opacity: .4; cursor: default; }
+  .catalog-modal .game-rates__scroll { border-radius: 0 0 10px 10px; scrollbar-width: thin; scrollbar-color: #8a6a54 #e6ddc9; }
+  .catalog-modal .game-rates__caption > * { position: sticky; left: 0; max-width: calc(100vw - 70px); }
+}

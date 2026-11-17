@@ -328,3 +328,13 @@
       #formatos-envios .formats-guide__toggle-icon { font-size: 20px; line-height: 1; }
 
 #formatos-envios .formats-guide__content[hidden] { display: none !important; }
+
+/* Mismo tratamiento que las preguntas frecuentes de portada. */
+#formatos-envios .formats-guide__questions details { border-bottom: 1px solid #cfc7b6; }
+#formatos-envios .formats-guide__questions summary { min-height: 72px; padding: 19px 2px; color: #263c30; font-size: 15px; line-height: 1.5; transition: color .2s ease; }
+#formatos-envios .formats-guide__questions summary::after { content: "+"; display: block; flex: none; height: auto; border: 0; border-radius: 0; background: transparent; color: #9c7c49; font: 27px/1 Georgia, serif; transition: transform .3s ease; }
+#formatos-envios .formats-guide__questions details[open]:not(.faq-closing) > summary::after { content: "+"; background: transparent; color: #9c7c49; transform: rotate(45deg); }
+#formatos-envios .formats-guide__answer { padding: 0 36px 22px 2px; color: #526052; line-height: 1.8; }
+@media (hover: hover) { #formatos-envios .formats-guide__questions summary:hover { color: #977541; } }
+@media (max-width: 700px) { #formatos-envios .formats-guide__questions summary { min-height: 64px; } #formatos-envios .formats-guide__answer { padding-right: 20px; } }
+@media (prefers-reduced-motion: reduce) { #formatos-envios .formats-guide__questions summary, #formatos-envios .formats-guide__questions summary::after { transition: none; } }
